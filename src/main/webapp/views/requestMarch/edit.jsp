@@ -50,6 +50,6 @@
 
 	<acme:submit name="save" code="button.register" />
 	
-	<acme:cancel url="procession/brotherhood/list.do" code="button.cancel" />
+	<acme:cancel url="parade/brotherhood/list.do" code="button.cancel" />
 </div>
 </form:form>

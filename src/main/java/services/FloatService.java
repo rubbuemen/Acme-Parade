@@ -14,7 +14,7 @@ import repositories.FloatRepository;
 import domain.Actor;
 import domain.Brotherhood;
 import domain.Float;
-import domain.Procession;
+import domain.Parade;
 
 @Service
 @Transactional
@@ -32,7 +32,7 @@ public class FloatService {
 	private BrotherhoodService	brotherhoodService;
 
 	@Autowired
-	private ProcessionService	processionService;
+	private ParadeService		paradeService;
 
 
 	// Simple CRUD methods
@@ -110,13 +110,13 @@ public class FloatService {
 
 		final Brotherhood brotherhoodLogged = (Brotherhood) actorLogged;
 
-		final Collection<Procession> processionsFloat = this.processionService.findProcessionsByFloatId(floatE.getId());
-		for (final Procession p : processionsFloat) {
-			Assert.isTrue(p.getFloats().size() > 1, "You can not eliminate this float because the procession would run out of floats");
-			final Collection<Float> floatsProcession = p.getFloats();
-			floatsProcession.remove(floatE);
-			p.setFloats(floatsProcession);
-			this.processionService.save(p);
+		final Collection<Parade> paradesFloat = this.paradeService.findParadesByFloatId(floatE.getId());
+		for (final Parade p : paradesFloat) {
+			Assert.isTrue(p.getFloats().size() > 1, "You can not eliminate this float because the parade would run out of floats");
+			final Collection<Float> floatsParade = p.getFloats();
+			floatsParade.remove(floatE);
+			p.setFloats(floatsParade);
+			this.paradeService.save(p);
 		}
 
 		final Collection<Float> floatsActorLogged = brotherhoodLogged.getFloats();
@@ -177,7 +177,7 @@ public class FloatService {
 
 
 	// Reconstruct methods
-	@Autowired
+	@Autowired(required = false)
 	private Validator	validator;
 
 

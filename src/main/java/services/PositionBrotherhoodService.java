@@ -25,7 +25,7 @@ public class PositionBrotherhoodService {
 
 	// Supporting services
 	@Autowired
-	ActorService							actorService;
+	private ActorService					actorService;
 
 
 	// Simple CRUD methods
@@ -123,7 +123,7 @@ public class PositionBrotherhoodService {
 
 
 	// Reconstruct methods
-	@Autowired
+	@Autowired(required = false)
 	private Validator	validator;
 
 

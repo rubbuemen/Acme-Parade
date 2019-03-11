@@ -27,7 +27,7 @@
 		<value>/views/member/tiles.xml</value>
 		<value>/views/message/tiles.xml</value>
 		<value>/views/positionBrotherhood/tiles.xml</value>
-		<value>/views/procession/tiles.xml</value>
+		<value>/views/parade/tiles.xml</value>
 		<value>/views/requestMarch/tiles.xml</value>
 		<value>/views/socialProfile/tiles.xml</value>
 		<value>/views/systemConfiguration/tiles.xml</value>

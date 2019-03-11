@@ -19,7 +19,7 @@ import org.springframework.validation.Validator;
 import repositories.SystemConfigurationRepository;
 import domain.Actor;
 import domain.Message;
-import domain.Procession;
+import domain.Parade;
 import domain.RequestMarch;
 import domain.SystemConfiguration;
 
@@ -33,7 +33,7 @@ public class SystemConfigurationService {
 
 	// Supporting services
 	@Autowired
-	private ProcessionService				processionService;
+	private ParadeService				paradeService;
 
 	@Autowired
 	private MessageService					messageService;
@@ -103,22 +103,22 @@ public class SystemConfigurationService {
 	public Map<Integer, Integer> suggestedRowColumn(final int requestMarchId) {
 		final Map<Integer, Integer> result = new HashMap<>();
 
-		final Procession procession = this.processionService.findProcessionByRequestMarchId(requestMarchId);
-		final Collection<RequestMarch> requestsMarchProcession = procession.getRequestsMarch();
+		final Parade parade = this.paradeService.findParadeByRequestMarchId(requestMarchId);
+		final Collection<RequestMarch> requestsMarchParade = parade.getRequestsMarch();
 
 		Integer suggestedRow = 0;
 		Integer suggestedColumn = 0;
 
-		final boolean[][] position = new boolean[procession.getMaxRows()][procession.getMaxColumns()];
+		final boolean[][] position = new boolean[parade.getMaxRows()][parade.getMaxColumns()];
 
-		for (final RequestMarch rm : requestsMarchProcession)
+		for (final RequestMarch rm : requestsMarchParade)
 			if (rm.getStatus().equals("APPROVED") && rm.getPositionRow() != null && rm.getPositionColumn() != null) {
 				final Integer r = rm.getPositionRow() - 1;
 				final Integer c = rm.getPositionColumn() - 1;
 				position[r][c] = true;
 			}
 
-		if (procession.getMaxRows() > procession.getMaxColumns()) {
+		if (parade.getMaxRows() > parade.getMaxColumns()) {
 			breakloop: for (int r = 0; r < position.length; r++)
 				for (int c = 0; c < position[r].length; c++)
 					if (position[r][c] == false) {
@@ -305,7 +305,7 @@ public class SystemConfigurationService {
 
 
 	// Reconstruct methods
-	@Autowired
+	@Autowired(required = false)
 	private Validator	validator;
 
 

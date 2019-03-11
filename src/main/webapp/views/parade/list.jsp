@@ -19,63 +19,63 @@
 
 <%@ taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
-<display:table pagesize="5" class="displaytag" name="processions" requestURI="${requestURI}" id="row">
+<display:table pagesize="5" class="displaytag" name="parades" requestURI="${requestURI}" id="row">
 
-	<spring:message code="procession.ticker" var="ticker" />
+	<spring:message code="parade.ticker" var="ticker" />
 	<display:column property="ticker" title="${ticker}" />
 	
-	<spring:message code="procession.title" var="title" />
+	<spring:message code="parade.title" var="title" />
 	<display:column property="title" title="${title}" />
 	
-	<spring:message code="procession.description" var="description" />
+	<spring:message code="parade.description" var="description" />
 	<display:column property="description" title="${description}" />
 	
-	<spring:message code="procession.momentOrganise" var="momentOrganise" />
+	<spring:message code="parade.momentOrganise" var="momentOrganise" />
 	<display:column title="${momentOrganise}">
 			<fmt:formatDate var="format" value="${row.momentOrganise}" pattern="dd/MM/YYYY HH:mm" />
 			<jstl:out value="${format}" />
 	</display:column>
 	
 	<security:authorize access="hasRole('BROTHERHOOD')">
-		<spring:message code="procession.maxRows" var="maxRows" />
+		<spring:message code="parade.maxRows" var="maxRows" />
 		<display:column property="maxRows" title="${maxRows}" />
 		
-		<spring:message code="procession.maxColumns" var="maxColumns" />
+		<spring:message code="parade.maxColumns" var="maxColumns" />
 		<display:column property="maxColumns" title="${maxColumns}" />
 	
-		<spring:message code="procession.edit" var="editH" />
+		<spring:message code="parade.edit" var="editH" />
 		<display:column title="${editH}">
 			<jstl:if test="${!row.isFinalMode}">
-				<acme:button url="procession/brotherhood/edit.do?processionId=${row.id}" code="button.edit" />
+				<acme:button url="parade/brotherhood/edit.do?paradeId=${row.id}" code="button.edit" />
 			</jstl:if>	
 		</display:column>
 		
-		<spring:message code="procession.delete" var="deleteH" />
+		<spring:message code="parade.delete" var="deleteH" />
 		<display:column title="${deleteH}">
 			<jstl:if test="${!row.isFinalMode}">
-				<acme:button url="procession/brotherhood/delete.do?processionId=${row.id}" code="button.delete" />
+				<acme:button url="parade/brotherhood/delete.do?paradeId=${row.id}" code="button.delete" />
 			</jstl:if>	
 		</display:column>
 		
-		<spring:message code="procession.changeFinalMode" var="changeFinalModeH" />
+		<spring:message code="parade.changeFinalMode" var="changeFinalModeH" />
 		<display:column title="${changeFinalModeH}" >
 			<jstl:if test="${!row.isFinalMode}">
-				<acme:button url="procession/brotherhood/change.do?processionId=${row.id}" code="button.change" />
+				<acme:button url="parade/brotherhood/change.do?paradeId=${row.id}" code="button.change" />
 			</jstl:if>
 		</display:column>
 		
-		<spring:message code="procession.requestsMarch" var="requestsMarchH" />
+		<spring:message code="parade.requestsMarch" var="requestsMarchH" />
 		<display:column title="${requestsMarchH}">
 			<jstl:if test="${row.isFinalMode}">
-				<acme:button url="requestMarch/brotherhood/list.do?processionId=${row.id}" code="button.show" />
+				<acme:button url="requestMarch/brotherhood/list.do?paradeId=${row.id}" code="button.show" />
 			</jstl:if>	
 		</display:column>
 	</security:authorize>
 	
 	<security:authorize access="hasRole('MEMBER')">
-		<spring:message code="procession.requestsMarch" var="requestsMarchH" />
+		<spring:message code="parade.requestsMarch" var="requestsMarchH" />
 		<display:column title="${requestsMarchH}">
-				<acme:button url="requestMarch/member/list.do?processionId=${row.id}" code="button.show" />
+				<acme:button url="requestMarch/member/list.do?paradeId=${row.id}" code="button.show" />
 		</display:column>
 	
 	</security:authorize>
@@ -83,7 +83,7 @@
 </display:table>
 
 <security:authorize access="hasRole('BROTHERHOOD')">
-	<acme:button url="procession/brotherhood/create.do" code="button.create" />
+	<acme:button url="parade/brotherhood/create.do" code="button.create" />
 </security:authorize>
 
 <security:authorize access="hasRole('MEMBER')">

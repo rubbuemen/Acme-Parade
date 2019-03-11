@@ -60,13 +60,13 @@
 		<spring:message code="requestMarch.deleteRequest" var="deleteRequest" />
 		<display:column title="${deleteRequest}" style="background-color: ${color};">
 			<jstl:if test="${row.status eq 'PENDING'}">
-				<acme:button url="requestMarch/member/delete.do?processionId=${processionId}&requestMarchId=${row.id}" code="button.delete" />
+				<acme:button url="requestMarch/member/delete.do?paradeId=${paradeId}&requestMarchId=${row.id}" code="button.delete" />
 			</jstl:if>	
 		</display:column>
 	</security:authorize>
 		
-	<spring:message code="requestMarch.positionProcession" var="positionProcession" />
-	<display:column title="${positionProcession}" style="background-color: ${color};">
+	<spring:message code="requestMarch.positionParade" var="positionParade" />
+	<display:column title="${positionParade}" style="background-color: ${color};">
 		<jstl:if test="${row.status eq 'APPROVED'}">
 			<spring:message code="requestMarch.positionRow"/>: <jstl:out value="${row.positionRow}" />
 			<spring:message code="requestMarch.positionColumn"/>: <jstl:out value="${row.positionColumn}" />
@@ -83,12 +83,12 @@
 </display:table>
 
 <security:authorize access="hasRole('BROTHERHOOD')">
-	<acme:button url="procession/brotherhood/list.do" code="button.back" />
+	<acme:button url="parade/brotherhood/list.do" code="button.back" />
 </security:authorize>
 
 <security:authorize access="hasRole('MEMBER')">
 	<jstl:if test="${!hasPendingOrApprovedRequests}">
-		<acme:button url="requestMarch/member/create.do?processionId=${processionId}" code="button.create" />
+		<acme:button url="requestMarch/member/create.do?paradeId=${paradeId}" code="button.create" />
 	</jstl:if>
 	<acme:button url="brotherhood/member/list.do" code="button.back" />
 </security:authorize>

@@ -36,9 +36,9 @@
 	<spring:message code="brotherhood.commentsH" var="commentsH" />
 	<display:column property="comments" title="${commentsH}" />
 	
-	<spring:message code="brotherhood.processionsH" var="processionsH" />
-	<display:column title="${processionsH}">
-			<acme:button url="procession/member/list.do?brotherhoodId=${row.id}" code="button.show" />
+	<spring:message code="brotherhood.paradesH" var="paradesH" />
+	<display:column title="${paradesH}">
+			<acme:button url="parade/member/list.do?brotherhoodId=${row.id}" code="button.show" />
 	</display:column>
 	
 	<spring:message code="member.remove" var="removeH" />

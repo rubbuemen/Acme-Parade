@@ -42,12 +42,12 @@ public class BrotherhoodRequestMarchController extends AbstractController {
 
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public ModelAndView list(@RequestParam final int processionId) {
+	public ModelAndView list(@RequestParam final int paradeId) {
 		ModelAndView result;
 		Collection<RequestMarch> requestsMarch;
 
 		try {
-			requestsMarch = this.requestMarchService.findRequestsMarchByProcession(processionId);
+			requestsMarch = this.requestMarchService.findRequestsMarchByParade(paradeId);
 			result = new ModelAndView("requestMarch/list");
 			result.addObject("requestsMarch", requestsMarch);
 			result.addObject("requestURI", "requestMarch/brotherhood/list.do");
@@ -89,7 +89,7 @@ public class BrotherhoodRequestMarchController extends AbstractController {
 				result = this.createEditModelAndView(requestMarch, requestMarch.getStatus());
 			else {
 				this.requestMarchService.save(requestMarch);
-				result = new ModelAndView("redirect:/procession/brotherhood/list.do");
+				result = new ModelAndView("redirect:/parade/brotherhood/list.do");
 			}
 		} catch (final Throwable oops) {
 			if (oops.getMessage().equals("The brotherhood must provide an explanation about the request march rejected"))

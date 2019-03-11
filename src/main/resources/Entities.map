@@ -1,17 +1,13 @@
 #./src/main/resources/Entities.map
-#Mon Mar 11 21:50:32 CET 2019
+#Mon Mar 11 22:44:35 CET 2019
 positionBrotherhood7=902
 positionBrotherhood6=901
 systemConfiguration1=925
 positionBrotherhood5=900
 positionBrotherhood4=899
-procession4=906
 positionBrotherhood3=898
-procession3=905
 positionBrotherhood2=897
-procession2=904
 positionBrotherhood1=896
-procession1=903
 box39=855
 box38=854
 box37=853
@@ -71,8 +67,12 @@ member2=885
 member1=884
 socialProfile2=924
 socialProfile1=923
+parade4=906
+parade3=905
 box19=835
+parade2=904
 box18=834
+parade1=903
 box17=833
 box16=832
 box15=831

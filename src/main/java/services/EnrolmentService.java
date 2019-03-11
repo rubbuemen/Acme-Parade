@@ -20,8 +20,8 @@ import domain.Brotherhood;
 import domain.Enrolment;
 import domain.Member;
 import domain.Message;
+import domain.Parade;
 import domain.PositionBrotherhood;
-import domain.Procession;
 import domain.RequestMarch;
 
 @Service
@@ -49,7 +49,7 @@ public class EnrolmentService {
 	private MemberService				memberService;
 
 	@Autowired
-	private ProcessionService			processionService;
+	private ParadeService				paradeService;
 
 	@Autowired
 	private MessageService				messageService;
@@ -205,11 +205,11 @@ public class EnrolmentService {
 		member.setRequestsMarch(requestsMarchMemberBrotherhoodLogged);
 		this.memberService.saveAuxiliar(member);
 		for (final RequestMarch rm : requestsMarchMemberBrotherhoodLogged) {
-			final Procession pro = this.processionService.findProcessionByRequestMarchId(rm.getId());
+			final Parade pro = this.paradeService.findParadeByRequestMarchId(rm.getId());
 			final Collection<RequestMarch> requests = pro.getRequestsMarch();
 			requests.remove(rm);
 			pro.setRequestsMarch(requests);
-			this.processionService.saveForRequestMarch(pro);
+			this.paradeService.saveForRequestMarch(pro);
 			this.requestMarchService.deleteAuxiliar(rm);
 		}
 
@@ -259,11 +259,11 @@ public class EnrolmentService {
 		memberLogged.setRequestsMarch(requestsMarchMemberBrotherhoodLogged);
 		this.memberService.saveAuxiliar(memberLogged);
 		for (final RequestMarch rm : requestsMarchMemberBrotherhoodLogged) {
-			final Procession pro = this.processionService.findProcessionByRequestMarchId(rm.getId());
+			final Parade pro = this.paradeService.findParadeByRequestMarchId(rm.getId());
 			final Collection<RequestMarch> requests = pro.getRequestsMarch();
 			requests.remove(rm);
 			pro.setRequestsMarch(requests);
-			this.processionService.saveForRequestMarch(pro);
+			this.paradeService.saveForRequestMarch(pro);
 			this.requestMarchService.deleteAuxiliar(rm);
 		}
 
@@ -366,7 +366,7 @@ public class EnrolmentService {
 
 
 	// Reconstruct methods
-	@Autowired
+	@Autowired(required = false)
 	private Validator	validator;
 
 

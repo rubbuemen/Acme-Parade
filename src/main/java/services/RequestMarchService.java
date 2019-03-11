@@ -18,7 +18,7 @@ import domain.Actor;
 import domain.Brotherhood;
 import domain.Member;
 import domain.Message;
-import domain.Procession;
+import domain.Parade;
 import domain.RequestMarch;
 
 @Service
@@ -34,7 +34,7 @@ public class RequestMarchService {
 	private ActorService			actorService;
 
 	@Autowired
-	private ProcessionService		processionService;
+	private ParadeService			paradeService;
 
 	@Autowired
 	private BrotherhoodService		brotherhoodService;
@@ -93,18 +93,18 @@ public class RequestMarchService {
 
 		if (actorLogged instanceof Brotherhood) {
 			this.actorService.checkUserLoginBrotherhood(actorLogged);
-			final Procession procession = this.processionService.findProcessionByRequestMarchId(requestMarch.getId());
-			final Collection<RequestMarch> requestsMarchProcession = procession.getRequestsMarch();
+			final Parade parade = this.paradeService.findParadeByRequestMarchId(requestMarch.getId());
+			final Collection<RequestMarch> requestsMarchParade = parade.getRequestsMarch();
 
 			if (requestMarch.getStatus().equals("APPROVED")) {
-				// When the decision on a pending request is to accept it, the brotherhood must provide a position in the procession
+				// When the decision on a pending request is to accept it, the brotherhood must provide a position in the parade
 				final Integer rowNew = requestMarch.getPositionRow();
 				final Integer columnNew = requestMarch.getPositionColumn();
 				Assert.notNull(rowNew, "You must select a row position");
 				Assert.notNull(columnNew, "You must select a column position");
-				Assert.isTrue(rowNew <= procession.getMaxRows(), "You have exceeded the maximum number of rows established");
-				Assert.isTrue(columnNew <= procession.getMaxColumns(), "You have exceeded the maximum number of columns established");
-				for (final RequestMarch rm : requestsMarchProcession)
+				Assert.isTrue(rowNew <= parade.getMaxRows(), "You have exceeded the maximum number of rows established");
+				Assert.isTrue(columnNew <= parade.getMaxColumns(), "You have exceeded the maximum number of columns established");
+				for (final RequestMarch rm : requestsMarchParade)
 					if (rm.getStatus().equals("APPROVED")) {
 						final Integer rowCheck = rm.getPositionRow();
 						final Integer columnCheck = rm.getPositionColumn();
@@ -123,15 +123,15 @@ public class RequestMarchService {
 
 		// R32
 		final Message message = this.messageService.create();
-		final Procession procession = this.processionService.findProcessionByRequestMarchId(result.getId());
+		final Parade parade = this.paradeService.findParadeByRequestMarchId(result.getId());
 
 		final Locale locale = LocaleContextHolder.getLocale();
 		if (locale.getLanguage().equals("es")) {
 			message.setSubject("Su petición para marchar ha cambiado de estado");
-			message.setBody("La petición para marchar en " + procession.getTitle() + " ha cambiado de estado.");
+			message.setBody("La petición para marchar en " + parade.getTitle() + " ha cambiado de estado.");
 		} else {
 			message.setSubject("Your request to march has changed state");
-			message.setBody("The request to march to " + procession.getTitle() + " has changed its status.");
+			message.setBody("The request to march to " + parade.getTitle() + " has changed its status.");
 		}
 
 		final Actor sender = this.actorService.getSystemActor();
@@ -148,9 +148,9 @@ public class RequestMarchService {
 	}
 
 	// R11.1
-	public RequestMarch save(final RequestMarch requestMarch, final Procession procession) {
+	public RequestMarch save(final RequestMarch requestMarch, final Parade parade) {
 		Assert.notNull(requestMarch);
-		Assert.notNull(procession);
+		Assert.notNull(parade);
 		Assert.isTrue(requestMarch.getId() == 0); //Never will be edited
 
 		final Actor actorLogged = this.actorService.findActorLogged();
@@ -162,13 +162,13 @@ public class RequestMarchService {
 		final Member memberLogged = (Member) actorLogged;
 
 		final Collection<Brotherhood> brotherhoodsMemberLogged = this.brotherhoodService.findBrotherhoodsByMemberId(memberLogged.getId());
-		boolean brotherhoodContainProcession = false;
+		boolean brotherhoodContainParade = false;
 		for (final Brotherhood b : brotherhoodsMemberLogged)
-			if (b.getProcessions().contains(procession)) {
-				brotherhoodContainProcession = true;
+			if (b.getParades().contains(parade)) {
+				brotherhoodContainParade = true;
 				break;
 			}
-		Assert.isTrue(brotherhoodContainProcession, "The procession does not belong to a brotherhood to which the member belongs");
+		Assert.isTrue(brotherhoodContainParade, "The parade does not belong to a brotherhood to which the member belongs");
 
 		result = this.requestMarchRepository.save(requestMarch);
 
@@ -187,11 +187,11 @@ public class RequestMarchService {
 
 		Assert.isTrue(requestMarch.getStatus().equals("PENDING"), "You can only delete a request to march if your status is pending");
 
-		final Procession procession = this.processionService.findProcessionByRequestMarchId(requestMarch.getId());
-		final Collection<RequestMarch> requestsMarchProcession = procession.getRequestsMarch();
-		requestsMarchProcession.remove(requestMarch);
-		procession.setRequestsMarch(requestsMarchProcession);
-		this.processionService.saveForRequestMarch(procession);
+		final Parade parade = this.paradeService.findParadeByRequestMarchId(requestMarch.getId());
+		final Collection<RequestMarch> requestsMarchParade = parade.getRequestsMarch();
+		requestsMarchParade.remove(requestMarch);
+		parade.setRequestsMarch(requestsMarchParade);
+		this.paradeService.saveForRequestMarch(parade);
 
 		final Member memberLogged = (Member) actorLogged;
 		final Collection<RequestMarch> requestsMarchMember = memberLogged.getRequestsMarch();
@@ -212,16 +212,16 @@ public class RequestMarchService {
 
 	// Other business methods
 	// R10.6
-	public Collection<RequestMarch> findRequestsMarchByProcession(final int processionId) {
+	public Collection<RequestMarch> findRequestsMarchByParade(final int paradeId) {
 		final Actor actorLogged = this.actorService.findActorLogged();
 		Assert.notNull(actorLogged);
 		this.actorService.checkUserLoginBrotherhood(actorLogged);
 
 		final Collection<RequestMarch> result;
 
-		final Procession procession = this.processionService.findProcessionBrotherhoodLogged(processionId);
+		final Parade parade = this.paradeService.findParadeBrotherhoodLogged(paradeId);
 
-		result = this.requestMarchRepository.findRequestsMarchByProcessionOrderByStatus(procession.getId());
+		result = this.requestMarchRepository.findRequestsMarchByParadeOrderByStatus(parade.getId());
 
 		Assert.notNull(result);
 
@@ -261,14 +261,14 @@ public class RequestMarchService {
 	//	}
 
 	// R11.1
-	public Collection<RequestMarch> findRequestsMarchByProcessionMember(final int processionId) {
+	public Collection<RequestMarch> findRequestsMarchByParadeMember(final int paradeId) {
 		final Actor actorLogged = this.actorService.findActorLogged();
 		Assert.notNull(actorLogged);
 		this.actorService.checkUserLoginMember(actorLogged);
 
 		final Collection<RequestMarch> result;
 
-		result = this.requestMarchRepository.findRequestsMarchByProcessionMemberOrderByStatus(processionId, actorLogged.getId());
+		result = this.requestMarchRepository.findRequestsMarchByParadeMemberOrderByStatus(paradeId, actorLogged.getId());
 
 		Assert.notNull(result);
 
@@ -285,14 +285,14 @@ public class RequestMarchService {
 		return result;
 	}
 
-	public boolean memberHasPendingOrApprovedRequestToProcession(final int processionId) {
+	public boolean memberHasPendingOrApprovedRequestToParade(final int paradeId) {
 		final Actor actorLogged = this.actorService.findActorLogged();
 		Assert.notNull(actorLogged);
 		this.actorService.checkUserLoginMember(actorLogged);
 
 		final Member memberLogged = (Member) actorLogged;
 
-		final Collection<RequestMarch> requestsMarchPendingOrApproved = this.requestMarchRepository.findRequestMarchPendingOrApprovedByProcessionMember(processionId, memberLogged.getId());
+		final Collection<RequestMarch> requestsMarchPendingOrApproved = this.requestMarchRepository.findRequestMarchPendingOrApprovedByParadeMember(paradeId, memberLogged.getId());
 
 		boolean result = false;
 		if (requestsMarchPendingOrApproved.size() >= 1)
@@ -303,7 +303,7 @@ public class RequestMarchService {
 
 
 	// Reconstruct methods
-	@Autowired
+	@Autowired(required = false)
 	private Validator	validator;
 
 

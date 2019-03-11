@@ -21,7 +21,7 @@ import domain.Brotherhood;
 import domain.Enrolment;
 import domain.Float;
 import domain.Member;
-import domain.Procession;
+import domain.Parade;
 import forms.BrotherhoodForm;
 
 @Service
@@ -53,7 +53,7 @@ public class BrotherhoodService {
 
 		result = new Brotherhood();
 		final Collection<Float> floats = new HashSet<>();
-		final Collection<Procession> processions = new HashSet<>();
+		final Collection<Parade> parades = new HashSet<>();
 		final Collection<Enrolment> enrolments = new HashSet<>();
 		final Collection<Box> boxes = new HashSet<>();
 		final UserAccount userAccount = this.userAccountService.create();
@@ -62,7 +62,7 @@ public class BrotherhoodService {
 		auth.setAuthority(Authority.BROTHERHOOD);
 		userAccount.addAuthority(auth);
 		result.setFloats(floats);
-		result.setProcessions(processions);
+		result.setParades(parades);
 		result.setEnrolments(enrolments);
 		result.setBoxes(boxes);
 		result.setUserAccount(userAccount);
@@ -118,12 +118,12 @@ public class BrotherhoodService {
 		return result;
 	}
 
-	public Brotherhood findBrotherhoodByProcessionId(final int processionId) {
-		Assert.isTrue(processionId != 0);
+	public Brotherhood findBrotherhoodByParadeId(final int paradeId) {
+		Assert.isTrue(paradeId != 0);
 
 		Brotherhood result;
 
-		result = this.brotherhoodRepository.findBrotherhoodByProcessionId(processionId);
+		result = this.brotherhoodRepository.findBrotherhoodByParadeId(paradeId);
 		return result;
 	}
 
@@ -245,7 +245,7 @@ public class BrotherhoodService {
 
 
 	// Reconstruct methods
-	@Autowired
+	@Autowired(required = false)
 	private Validator	validator;
 
 
@@ -255,7 +255,7 @@ public class BrotherhoodService {
 
 		if (brotherhood.getId() == 0) {
 			final Collection<Float> floats = new HashSet<>();
-			final Collection<Procession> processions = new HashSet<>();
+			final Collection<Parade> parades = new HashSet<>();
 			final Collection<Enrolment> enrolments = new HashSet<>();
 			final Collection<Box> boxes = new HashSet<>();
 			final UserAccount userAccount = this.userAccountService.create();
@@ -265,7 +265,7 @@ public class BrotherhoodService {
 			userAccount.setUsername(brotherhoodForm.getActor().getUserAccount().getUsername());
 			userAccount.setPassword(brotherhoodForm.getActor().getUserAccount().getPassword());
 			brotherhood.setFloats(floats);
-			brotherhood.setProcessions(processions);
+			brotherhood.setParades(parades);
 			brotherhood.setEnrolments(enrolments);
 			brotherhood.setBoxes(boxes);
 			brotherhood.setUserAccount(userAccount);

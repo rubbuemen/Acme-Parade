@@ -123,7 +123,7 @@ public class SocialProfileService {
 
 
 	// Reconstruct methods
-	@Autowired
+	@Autowired(required = false)
 	private Validator	validator;
 
 

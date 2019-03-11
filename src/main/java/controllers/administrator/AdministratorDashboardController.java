@@ -24,7 +24,7 @@ import services.AdministratorService;
 import controllers.AbstractController;
 import domain.Brotherhood;
 import domain.Member;
-import domain.Procession;
+import domain.Parade;
 
 @Controller
 @RequestMapping("/dashboard/administrator")
@@ -68,7 +68,7 @@ public class AdministratorDashboardController extends AbstractController {
 		result.addObject("queryC4", queryC4);
 
 		//Query C5
-		final Collection<Procession> queryC5 = this.administratorService.dashboardQueryC5();
+		final Collection<Parade> queryC5 = this.administratorService.dashboardQueryC5();
 		result.addObject("queryC5", queryC5);
 
 		//Query C6

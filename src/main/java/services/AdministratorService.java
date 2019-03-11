@@ -19,7 +19,7 @@ import domain.Administrator;
 import domain.Box;
 import domain.Brotherhood;
 import domain.Member;
-import domain.Procession;
+import domain.Parade;
 import forms.AdministratorForm;
 
 @Service
@@ -137,8 +137,8 @@ public class AdministratorService {
 		return result;
 	}
 
-	public Collection<Procession> dashboardQueryC5() {
-		Collection<Procession> result;
+	public Collection<Parade> dashboardQueryC5() {
+		Collection<Parade> result;
 
 		result = this.administratorRepository.dashboardQueryC5();
 
@@ -213,7 +213,7 @@ public class AdministratorService {
 	// Other business methods
 
 	// Reconstruct methods
-	@Autowired
+	@Autowired(required = false)
 	private Validator	validator;
 
 

@@ -20,7 +20,7 @@ import domain.Actor;
 import domain.Area;
 import domain.Finder;
 import domain.Member;
-import domain.Procession;
+import domain.Parade;
 
 @Service
 @Transactional
@@ -38,7 +38,7 @@ public class FinderService {
 	private SystemConfigurationService	systemConfigurationService;
 
 	@Autowired
-	private ProcessionService			processionService;
+	private ParadeService				paradeService;
 
 
 	// Simple CRUD methods
@@ -47,9 +47,9 @@ public class FinderService {
 
 		result = new Finder();
 
-		final Collection<Procession> processions = new HashSet<>();
+		final Collection<Parade> parades = new HashSet<>();
 
-		result.setProcessions(processions);
+		result.setParades(parades);
 
 		return result;
 	}
@@ -120,7 +120,7 @@ public class FinderService {
 
 		Finder result;
 
-		Collection<Procession> processions = this.processionService.findProcessionsFinalMode();
+		Collection<Parade> parades = this.paradeService.findParadesFinalMode();
 		final Date searchMoment = new Date(System.currentTimeMillis() - 1);
 		finder.setKeyWord("");
 		finder.setMinDate(null);
@@ -130,12 +130,12 @@ public class FinderService {
 		final Integer maxResults = this.systemConfigurationService.getConfiguration().getMaxResultsFinder();
 
 		// R24
-		if (processions.size() > maxResults) {
-			final List<Procession> resultList = new ArrayList<>(processions);
-			processions = new HashSet<>(resultList.subList(0, maxResults));
+		if (parades.size() > maxResults) {
+			final List<Parade> resultList = new ArrayList<>(parades);
+			parades = new HashSet<>(resultList.subList(0, maxResults));
 		}
 
-		finder.setProcessions(processions);
+		finder.setParades(parades);
 		finder.setSearchMoment(searchMoment);
 		result = this.finderRepository.save(finder);
 
@@ -200,17 +200,17 @@ public class FinderService {
 			else
 				areaId = area.getId();
 
-			Collection<Procession> processionsFinder = this.processionService.findProcessionsFromFinder(keyWord, minDate, maxDate, areaId);
+			Collection<Parade> paradesFinder = this.paradeService.findParadesFromFinder(keyWord, minDate, maxDate, areaId);
 
 			final Integer maxResults = this.systemConfigurationService.getConfiguration().getMaxResultsFinder();
 
 			// R24
-			if (processionsFinder.size() > maxResults) {
-				final List<Procession> resultList = new ArrayList<>(processionsFinder);
-				processionsFinder = new HashSet<>(resultList.subList(0, maxResults));
+			if (paradesFinder.size() > maxResults) {
+				final List<Parade> resultList = new ArrayList<>(paradesFinder);
+				paradesFinder = new HashSet<>(resultList.subList(0, maxResults));
 			}
 
-			result.setProcessions(processionsFinder);
+			result.setParades(paradesFinder);
 
 			cal.setTime(result.getMinDate());
 			if (cal.get(Calendar.YEAR) == 1000)
@@ -228,7 +228,7 @@ public class FinderService {
 
 
 	// Reconstruct methods
-	@Autowired
+	@Autowired(required = false)
 	private Validator	validator;
 
 

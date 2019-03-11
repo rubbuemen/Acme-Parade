@@ -132,25 +132,25 @@ var chartQueryC1 = new Chart(chartQueryC1Id, {
 <summary style="font-size: 26px;"><spring:message code="dashboard.queryC5"/></summary>
 
 <display:table class="displaytag" name="queryC5" id="row">
-	<spring:message code="procession.ticker" var="ticker" />
+	<spring:message code="parade.ticker" var="ticker" />
 	<display:column property="ticker" title="${ticker}" />
 	
-	<spring:message code="procession.title" var="title" />
+	<spring:message code="parade.title" var="title" />
 	<display:column property="title" title="${title}" />
 	
-	<spring:message code="procession.description" var="description" />
+	<spring:message code="parade.description" var="description" />
 	<display:column property="description" title="${description}" />
 	
-	<spring:message code="procession.momentOrganise" var="momentOrganise" />
+	<spring:message code="parade.momentOrganise" var="momentOrganise" />
 	<display:column title="${momentOrganise}">
 			<fmt:formatDate var="format" value="${row.momentOrganise}" pattern="dd/MM/YYYY HH:mm" />
 			<jstl:out value="${format}" />
 	</display:column>
 	
-	<spring:message code="procession.maxRows" var="maxRows" />
+	<spring:message code="parade.maxRows" var="maxRows" />
 	<display:column property="maxRows" title="${maxRows}" />
 	
-	<spring:message code="procession.maxColumns" var="maxColumns" />
+	<spring:message code="parade.maxColumns" var="maxColumns" />
 	<display:column property="maxColumns" title="${maxColumns}" />
 	
 </display:table>

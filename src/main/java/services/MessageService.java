@@ -205,7 +205,8 @@ public class MessageService {
 	}
 
 
-	@Autowired
+	// Reconstruct methods
+	@Autowired(required = false)
 	private Validator	validator;
 
 

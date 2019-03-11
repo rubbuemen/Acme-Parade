@@ -20,10 +20,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.MemberService;
-import services.ProcessionService;
+import services.ParadeService;
 import services.RequestMarchService;
 import controllers.AbstractController;
-import domain.Procession;
+import domain.Parade;
 import domain.RequestMarch;
 
 @Controller
@@ -37,22 +37,22 @@ public class MemberRequestMarchController extends AbstractController {
 	MemberService		memberService;
 
 	@Autowired
-	ProcessionService	processionService;
+	ParadeService	paradeService;
 
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public ModelAndView list(@RequestParam final int processionId) {
+	public ModelAndView list(@RequestParam final int paradeId) {
 		ModelAndView result;
 		Collection<RequestMarch> requestsMarch;
 		boolean hasPendingOrApprovedRequests;
 
-		requestsMarch = this.requestMarchService.findRequestsMarchByProcessionMember(processionId);
-		hasPendingOrApprovedRequests = this.requestMarchService.memberHasPendingOrApprovedRequestToProcession(processionId);
+		requestsMarch = this.requestMarchService.findRequestsMarchByParadeMember(paradeId);
+		hasPendingOrApprovedRequests = this.requestMarchService.memberHasPendingOrApprovedRequestToParade(paradeId);
 
 		result = new ModelAndView("requestMarch/list");
 
 		result.addObject("requestsMarch", requestsMarch);
-		result.addObject("processionId", processionId);
+		result.addObject("paradeId", paradeId);
 		result.addObject("hasPendingOrApprovedRequests", hasPendingOrApprovedRequests);
 		result.addObject("requestURI", "requestMarch/member/list.do");
 
@@ -60,7 +60,7 @@ public class MemberRequestMarchController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public ModelAndView remove(@RequestParam final int processionId, @RequestParam final int requestMarchId) {
+	public ModelAndView remove(@RequestParam final int paradeId, @RequestParam final int requestMarchId) {
 		ModelAndView result;
 		Collection<RequestMarch> requestsMarch;
 		boolean hasPendingOrApprovedRequests;
@@ -68,13 +68,13 @@ public class MemberRequestMarchController extends AbstractController {
 		final RequestMarch requestMarch = this.requestMarchService.findOne(requestMarchId);
 		this.requestMarchService.delete(requestMarch);
 
-		requestsMarch = this.requestMarchService.findRequestsMarchByProcessionMember(processionId);
-		hasPendingOrApprovedRequests = this.requestMarchService.memberHasPendingOrApprovedRequestToProcession(processionId);
+		requestsMarch = this.requestMarchService.findRequestsMarchByParadeMember(paradeId);
+		hasPendingOrApprovedRequests = this.requestMarchService.memberHasPendingOrApprovedRequestToParade(paradeId);
 
 		result = new ModelAndView("redirect:/requestMarch/member/list.do");
 
 		result.addObject("requestsMarch", requestsMarch);
-		result.addObject("processionId", processionId);
+		result.addObject("paradeId", paradeId);
 		result.addObject("hasPendingOrApprovedRequests", hasPendingOrApprovedRequests);
 		result.addObject("requestURI", "requestMarch/member/list.do");
 
@@ -82,33 +82,33 @@ public class MemberRequestMarchController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
-	public ModelAndView create(@RequestParam final int processionId) {
+	public ModelAndView create(@RequestParam final int paradeId) {
 		ModelAndView result;
 		Collection<RequestMarch> requestsMarch;
 		boolean hasPendingOrApprovedRequests;
 
 		RequestMarch requestMarch = this.requestMarchService.create();
 
-		final Procession procession = this.processionService.findOne(processionId);
-		requestMarch = this.requestMarchService.save(requestMarch, procession);
+		final Parade parade = this.paradeService.findOne(paradeId);
+		requestMarch = this.requestMarchService.save(requestMarch, parade);
 
-		final Collection<RequestMarch> requestsMarchProcession = procession.getRequestsMarch();
-		requestsMarchProcession.add(requestMarch);
-		procession.setRequestsMarch(requestsMarchProcession);
-		this.processionService.saveForRequestMarch(procession);
+		final Collection<RequestMarch> requestsMarchParade = parade.getRequestsMarch();
+		requestsMarchParade.add(requestMarch);
+		parade.setRequestsMarch(requestsMarchParade);
+		this.paradeService.saveForRequestMarch(parade);
 
 		final Collection<RequestMarch> requestsMarchMember = requestMarch.getMember().getRequestsMarch();
 		requestsMarchMember.add(requestMarch);
 		requestMarch.getMember().setRequestsMarch(requestsMarchMember);
 		this.memberService.save(requestMarch.getMember());
 
-		requestsMarch = this.requestMarchService.findRequestsMarchByProcessionMember(processionId);
-		hasPendingOrApprovedRequests = this.requestMarchService.memberHasPendingOrApprovedRequestToProcession(processionId);
+		requestsMarch = this.requestMarchService.findRequestsMarchByParadeMember(paradeId);
+		hasPendingOrApprovedRequests = this.requestMarchService.memberHasPendingOrApprovedRequestToParade(paradeId);
 
 		result = new ModelAndView("redirect:/requestMarch/member/list.do");
 
 		result.addObject("requestsMarch", requestsMarch);
-		result.addObject("processionId", processionId);
+		result.addObject("paradeId", paradeId);
 		result.addObject("hasPendingOrApprovedRequests", hasPendingOrApprovedRequests);
 		result.addObject("requestURI", "requestMarch/member/list.do");
 

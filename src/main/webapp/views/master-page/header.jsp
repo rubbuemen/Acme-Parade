@@ -39,7 +39,7 @@
 				<ul>
 					<li class="arrow"></li>
 					<li><a href="float/brotherhood/list.do"><spring:message code="master.page.floats" /></a></li>
-					<li><a href="procession/brotherhood/list.do"><spring:message code="master.page.processions" /></a></li>
+					<li><a href="parade/brotherhood/list.do"><spring:message code="master.page.parades" /></a></li>
 					<li><a href="member/brotherhood/list.do"><spring:message code="master.page.members" /></a></li>
 					<li><a href="enrolment/brotherhood/list.do"><spring:message code="master.page.enrolments" /></a></li>
 					<jstl:if test="${showArea eq true}"><li><a href="area/brotherhood/list.do"><spring:message code="master.page.selectArea" /></a></li></jstl:if>

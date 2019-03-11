@@ -34,7 +34,7 @@ import cz.jirutka.validator.collection.constraints.EachNotNull;
 @Table(indexes = {
 	@Index(columnList = "ticker, title, description, momentOrganise, isFinalMode")
 })
-public class Procession extends DomainEntity {
+public class Parade extends DomainEntity {
 
 	// Attributes
 	private String	ticker;

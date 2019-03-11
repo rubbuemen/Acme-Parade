@@ -20,31 +20,31 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.BrotherhoodService;
-import services.ProcessionService;
-import domain.Procession;
+import services.ParadeService;
+import domain.Parade;
 
 @Controller
-@RequestMapping("/procession")
-public class ProcessionController extends AbstractController {
+@RequestMapping("/parade")
+public class ParadeController extends AbstractController {
 
 	@Autowired
-	ProcessionService	processionService;
+	ParadeService	paradeService;
 
 	@Autowired
 	BrotherhoodService	brotherhoodService;
 
 
 	@RequestMapping(value = "/listGeneric", method = RequestMethod.GET)
-	public ModelAndView listProcessionsByBrotherhood(@RequestParam final int brotherhoodId) {
+	public ModelAndView listParadesByBrotherhood(@RequestParam final int brotherhoodId) {
 		ModelAndView result;
-		Collection<Procession> processions;
+		Collection<Parade> parades;
 
-		processions = this.processionService.findProcessionsFinalModeByBrotherhoodId(brotherhoodId);
+		parades = this.paradeService.findParadesFinalModeByBrotherhoodId(brotherhoodId);
 
-		result = new ModelAndView("procession/listGeneric");
+		result = new ModelAndView("parade/listGeneric");
 
-		result.addObject("processions", processions);
-		result.addObject("requestURI", "processions/listGeneric.do");
+		result.addObject("parades", parades);
+		result.addObject("requestURI", "parades/listGeneric.do");
 
 		return result;
 	}

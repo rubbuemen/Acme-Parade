@@ -24,7 +24,7 @@
 		<bean class="converters.MemberToStringConverter" />
 		<bean class="converters.MessageToStringConverter" />
 		<bean class="converters.PositionBrotherhoodToStringConverter" />
-		<bean class="converters.ProcessionToStringConverter" />
+		<bean class="converters.ParadeToStringConverter" />
 		<bean class="converters.RequestMarchToStringConverter" />
 		<bean class="converters.SocialProfileToStringConverter" />
 		<bean class="converters.StringToSystemConfigurationConverter" />
@@ -41,7 +41,7 @@
 		<bean class="converters.StringToMemberConverter" />
 		<bean class="converters.StringToMessageConverter" />
 		<bean class="converters.StringToPositionBrotherhoodConverter" />
-		<bean class="converters.StringToProcessionConverter" />
+		<bean class="converters.StringToParadeConverter" />
 		<bean class="converters.StringToRequestMarchConverter" />
 		<bean class="converters.StringToSocialProfileConverter" />
 		<bean class="converters.StringToSystemConfigurationConverter" />

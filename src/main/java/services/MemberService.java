@@ -33,7 +33,7 @@ public class MemberService {
 
 	// Supporting services
 	@Autowired
-	UserAccountService			userAccountService;
+	private UserAccountService	userAccountService;
 
 	@Autowired
 	private FinderService		finderService;
@@ -185,7 +185,7 @@ public class MemberService {
 
 
 	// Reconstruct methods
-	@Autowired
+	@Autowired(required = false)
 	private Validator	validator;
 
 

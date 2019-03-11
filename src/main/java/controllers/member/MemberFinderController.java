@@ -22,7 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import services.AreaService;
 import services.FinderService;
 import services.MemberService;
-import services.ProcessionService;
+import services.ParadeService;
 import controllers.AbstractController;
 import domain.Area;
 import domain.Finder;
@@ -32,7 +32,7 @@ import domain.Finder;
 public class MemberFinderController extends AbstractController {
 
 	@Autowired
-	ProcessionService	processionService;
+	ParadeService	paradeService;
 
 	@Autowired
 	MemberService		memberService;
@@ -118,7 +118,7 @@ public class MemberFinderController extends AbstractController {
 			result = new ModelAndView("redirect:/welcome/index.do");
 		else {
 			result = new ModelAndView("finder/edit");
-			result.addObject("processions", finder.getProcessions());
+			result.addObject("parades", finder.getParades());
 		}
 
 		final Collection<Area> areas = this.areaService.findAll();

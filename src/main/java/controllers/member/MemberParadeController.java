@@ -20,16 +20,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import services.BrotherhoodService;
-import services.ProcessionService;
+import services.ParadeService;
 import controllers.AbstractController;
-import domain.Procession;
+import domain.Parade;
 
 @Controller
-@RequestMapping("/procession/member")
-public class MemberProcessionController extends AbstractController {
+@RequestMapping("/parade/member")
+public class MemberParadeController extends AbstractController {
 
 	@Autowired
-	ProcessionService	processionService;
+	ParadeService	paradeService;
 
 	@Autowired
 	BrotherhoodService	brotherhoodService;
@@ -39,39 +39,39 @@ public class MemberProcessionController extends AbstractController {
 	public ModelAndView listByBrotherhood(@RequestParam final int brotherhoodId) {
 		ModelAndView result;
 
-		Collection<Procession> processions = null;
+		Collection<Parade> parades = null;
 
 		try {
-			processions = this.processionService.findProcessionsFinalModeByBrotherhoodId(brotherhoodId);
-			result = this.createEditModelAndView(processions);
+			parades = this.paradeService.findParadesFinalModeByBrotherhoodId(brotherhoodId);
+			result = this.createEditModelAndView(parades);
 
 		} catch (final Throwable oops) {
 			if (oops.getMessage().equals("The logged actor is not the owner of this entity"))
-				result = this.createEditModelAndView(processions, "hacking.logged.error");
+				result = this.createEditModelAndView(parades, "hacking.logged.error");
 			else
-				result = this.createEditModelAndView(processions, "commit.error");
+				result = this.createEditModelAndView(parades, "commit.error");
 		}
 
 		return result;
 	}
 
 	// Ancillary methods
-	protected ModelAndView createEditModelAndView(final Collection<Procession> processions) {
+	protected ModelAndView createEditModelAndView(final Collection<Parade> parades) {
 		ModelAndView result;
-		result = this.createEditModelAndView(processions, null);
+		result = this.createEditModelAndView(parades, null);
 		return result;
 	}
 
-	protected ModelAndView createEditModelAndView(final Collection<Procession> processions, final String message) {
+	protected ModelAndView createEditModelAndView(final Collection<Parade> parades, final String message) {
 		ModelAndView result;
 
-		if (processions == null)
+		if (parades == null)
 			result = new ModelAndView("redirect:/welcome/index.do");
 		else
-			result = new ModelAndView("procession/list");
+			result = new ModelAndView("parade/list");
 
-		result.addObject("processions", processions);
-		result.addObject("actionURL", "procession/member/list.do");
+		result.addObject("parades", parades);
+		result.addObject("actionURL", "parade/member/list.do");
 		result.addObject("message", message);
 
 		return result;

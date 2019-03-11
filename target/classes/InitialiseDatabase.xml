@@ -156,9 +156,9 @@
 		<property name="nameSystem" value="Acme Madrugá" />
 		<property name="bannerUrl" value="https://tinyurl.com/y48xzjvy"/>
 		<property name="welcomeMessageEnglish"
-			value="Welcome to Acme Madrugá, the site to organise your processions." />
+			value="Welcome to Acme Madrugá, the site to organise your parades." />
 		<property name="welcomeMessageSpanish"
-			value="¡Bienvenidos a Acme Madrugá! Tu sitio para organizar procesiones." />
+			value="¡Bienvenidos a Acme Madrugá! Tu sitio para organizar desfiles." />
 		<property name="phoneCountryCode" value="+34" />
 		<property name="periodFinder" value="1" />
 		<property name="maxResultsFinder" value="10" />

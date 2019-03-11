@@ -530,10 +530,10 @@
 				<ref bean="float2" />
 			</list>
 		</property>
-		<property name="processions">
+		<property name="parades">
 			<list>
-				<ref bean="procession1" />
-				<ref bean="procession2" />
+				<ref bean="parade1" />
+				<ref bean="parade2" />
 			</list>
 		</property>
 		<property name="enrolments">
@@ -571,9 +571,9 @@
 				<ref bean="float3" />
 			</list>
 		</property>
-		<property name="processions">
+		<property name="parades">
 			<list>
-				<ref bean="procession3" />
+				<ref bean="parade3" />
 			</list>
 		</property>
 		<property name="enrolments">
@@ -610,9 +610,9 @@
 				<ref bean="float4" />
 			</list>
 		</property>
-		<property name="processions">
+		<property name="parades">
 			<list>
-				<ref bean="procession4" />
+				<ref bean="parade4" />
 			</list>
 		</property>
 		<property name="enrolments">
@@ -688,19 +688,19 @@
 		<property name="maxDate" value="2019/08/22" />
 		<property name="searchMoment" value="2019/01/17 18:24" />
 		<property name="area" ref="area1" />
-		<property name="processions">
+		<property name="parades">
 			<list>
-				<ref bean="procession1" />
+				<ref bean="parade1" />
 			</list>
 		</property>
 	</bean>
 	<bean id="finder2" class="domain.Finder">
 		<property name="keyWord" value="Cristo" />
 		<property name="searchMoment" value="2019/01/25 21:48" />
-		<property name="processions">
+		<property name="parades">
 			<list>
-				<ref bean="procession1" />
-				<ref bean="procession2" />
+				<ref bean="parade1" />
+				<ref bean="parade2" />
 			</list>
 		</property>
 	</bean>
@@ -708,11 +708,11 @@
 		<property name="minDate" value="2019/07/19" />
 		<property name="maxDate" value="2019/10/22" />
 		<property name="searchMoment" value="2019/02/11 23:36" />
-		<property name="processions">
+		<property name="parades">
 			<list>
-				<ref bean="procession1" />
-				<ref bean="procession2" />
-				<ref bean="procession3" />
+				<ref bean="parade1" />
+				<ref bean="parade2" />
+				<ref bean="parade3" />
 			</list>
 		</property>
 	</bean>
@@ -1059,8 +1059,8 @@
 	</bean>
 
 
-	<!-- Procession -->
-	<bean id="procession1" class="domain.Procession">
+	<!-- Parade -->
+	<bean id="parade1" class="domain.Parade">
 		<property name="ticker" value="190710-OTPFJ" />
 		<property name="title" value="Cristo santo" />
 		<property name="description" value="This is a test description." />
@@ -1088,7 +1088,7 @@
 			</list>
 		</property>
 	</bean>
-	<bean id="procession2" class="domain.Procession">
+	<bean id="parade2" class="domain.Parade">
 		<property name="ticker" value="190710-SOTJE" />
 		<property name="title" value="El cristo crucificado" />
 		<property name="description" value="This is a test description." />
@@ -1110,7 +1110,7 @@
 			</list>
 		</property>
 	</bean>
-	<bean id="procession3" class="domain.Procession">
+	<bean id="parade3" class="domain.Parade">
 		<property name="ticker" value="191003-GPLGW" />
 		<property name="title" value="El gran poder" />
 		<property name="description" value="This is a test description." />
@@ -1131,7 +1131,7 @@
 			</list>
 		</property>
 	</bean>
-	<bean id="procession4" class="domain.Procession">
+	<bean id="parade4" class="domain.Parade">
 		<property name="ticker" value="190730-RIFOH" />
 		<property name="title" value="La pasion de cristo" />
 		<property name="description" value="This is a test description." />
@@ -1253,9 +1253,9 @@
 		<property name="nameSystem" value="Acme Madrugá" />
 		<property name="bannerUrl" value="https://tinyurl.com/y48xzjvy" />
 		<property name="welcomeMessageEnglish"
-			value="Welcome to Acme Madrugá, the site to organise your processions." />
+			value="Welcome to Acme Madrugá, the site to organise your parades." />
 		<property name="welcomeMessageSpanish"
-			value="¡Bienvenidos a Acme Madrugá! Tu sitio para organizar procesiones." />
+			value="¡Bienvenidos a Acme Madrugá! Tu sitio para organizar desfiles." />
 		<property name="phoneCountryCode" value="+34" />
 		<property name="periodFinder" value="1" />
 		<property name="maxResultsFinder" value="10" />
