@@ -36,7 +36,7 @@
 
 
 
-<p>ACME-MADRUGA (IN ADVANCE THE OWNER) with address for the
+<p>ACME MADRUGÁ INC. (IN ADVANCE THE OWNER) provides the service Acme Parade, with address for the
 	purposes of notifications in Seville with NIF BXXXXXXXX makes available
 	on its website www.acme.com certain contents of an informative nature
 	about its activities. These general conditions govern solely and

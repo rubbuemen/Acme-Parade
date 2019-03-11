@@ -12,7 +12,7 @@
 	<!-- Artifact identification and properties -->
 
 	<groupId>Acme.com</groupId>
-	<artifactId>Acme-Madruga</artifactId>
+	<artifactId>Acme-Parade</artifactId>
 	<version>1.0</version>
 	<packaging>war</packaging>
 
@@ -22,9 +22,9 @@
 
 	<!-- Indexing information -->
 
-	<name>Acme Madruga</name>
+	<name>Acme Parade</name>
 	<url>http://www.acme.com</url>
-	<description>Acme Madrugá, Inc. Their business consists in helping brotherhoods across the world organise their processions.</description>
+	<description>Acme Madrugá, Inc. Their business consists in helping brotherhoods across the world organise their parades.</description>
 
 	<!-- Build commands -->
 

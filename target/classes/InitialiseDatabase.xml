@@ -154,7 +154,7 @@
 	<!-- SystemConfiguration -->
 	<bean id="systemConfiguration1" class="domain.SystemConfiguration">
 		<property name="nameSystem" value="Acme Madrugá" />
-		<property name="bannerUrl" value="https://tinyurl.com/acme-madruga" />
+		<property name="bannerUrl" value="https://tinyurl.com/y48xzjvy"/>
 		<property name="welcomeMessageEnglish"
 			value="Welcome to Acme Madrugá, the site to organise your processions." />
 		<property name="welcomeMessageSpanish"

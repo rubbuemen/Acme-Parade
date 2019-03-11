@@ -35,7 +35,7 @@
 
 
 
-<p>ACME-MADRUGA (EN ADELANTE EL PROPIETARIO) con domicilio a efectos de
+<p>ACME MADRUGÁ INC. (EN ADELANTE EL PROPIETARIO) presta el servicio Acme Parade, con domicilio a efectos de
 	notificaciones en Sevilla con CIF BXXXXXXX pone a disposición en su
 	sitio web www.acme.com determinados contenidos de carácter informativo
 	sobre sus actividades. Las presentes condiciones generales rigen única y
