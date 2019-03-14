@@ -213,7 +213,7 @@ public class AdministratorService {
 	// Other business methods
 
 	// Reconstruct methods
-	@Autowired(required = false)
+	@Autowired
 	private Validator	validator;
 
 

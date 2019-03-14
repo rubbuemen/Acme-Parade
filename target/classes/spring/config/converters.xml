@@ -46,6 +46,34 @@
 		<bean class="converters.StringToSocialProfileConverter" />
 		<bean class="converters.StringToSystemConfigurationConverter" />
 		<bean class="converters.StringToUserAccountConverter" />
+		
+		<!-- Acme Parade -->
+		<bean class="converters.ChapterToStringConverter" />
+		<bean class="converters.CreditCardToStringConverter" />
+		<bean class="converters.GPSCoordinatesToStringConverter" />
+		<bean class="converters.HistoryToStringConverter" />
+		<bean class="converters.InceptionRecordToStringConverter" />
+		<bean class="converters.LegalRecordToStringConverter" />
+		<bean class="converters.LinkRecordToStringConverter" />
+		<bean class="converters.MiscellaneousRecordToStringConverter" />
+		<bean class="converters.PeriodRecordToStringConverter" />
+		<bean class="converters.ProclaimToStringConverter" />
+		<bean class="converters.SegmentToStringConverter" />
+		<bean class="converters.SponsorshipToStringConverter" />
+		<bean class="converters.SponsorToStringConverter" />
+		<bean class="converters.StringToChapterConverter" />
+		<bean class="converters.StringToCreditCardConverter" />
+		<bean class="converters.StringToGPSCoordinatesConverter" />
+		<bean class="converters.StringToHistoryConverter" />
+		<bean class="converters.StringToInceptionRecordConverter" />
+		<bean class="converters.StringToLegalRecordConverter" />
+		<bean class="converters.StringToLinkRecordConverter" />
+		<bean class="converters.StringToMiscellaneousRecordConverter" />
+		<bean class="converters.StringToPeriodRecordConverter" />
+		<bean class="converters.StringToProclaimConverter" />
+		<bean class="converters.StringToSegmentConverter" />
+		<bean class="converters.StringToSponsorshipConverter" />
+		<bean class="converters.StringToSponsorConverter" />
 	</util:list>
 
 </beans>

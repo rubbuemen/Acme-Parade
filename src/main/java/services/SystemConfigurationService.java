@@ -305,7 +305,7 @@ public class SystemConfigurationService {
 
 
 	// Reconstruct methods
-	@Autowired(required = false)
+	@Autowired
 	private Validator	validator;
 
 

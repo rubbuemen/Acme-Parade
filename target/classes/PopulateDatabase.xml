@@ -132,6 +132,126 @@
 			</list>
 		</property>
 	</bean>
+	<bean id="userAccount11" class="security.UserAccount">
+		<property name="username" value="chapter1" />
+		<property name="password" value="178494d73a41f7d68e80f685324d3662" />
+		<property name="statusAccount" value="true" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="CHAPTER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<bean id="userAccount12" class="security.UserAccount">
+		<property name="username" value="chapter2" />
+		<property name="password" value="07a29f2348d728fad16c5260823f93ef" />
+		<property name="statusAccount" value="true" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="CHAPTER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<bean id="userAccount13" class="security.UserAccount">
+		<property name="username" value="chapter3" />
+		<property name="password" value="4cf7b4e4bb6d429f0f08bc498e397d81" />
+		<property name="statusAccount" value="true" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="CHAPTER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<bean id="userAccount14" class="security.UserAccount">
+		<property name="username" value="chapter4" />
+		<property name="password" value="82745e14bd214683724499057eed4c18" />
+		<property name="statusAccount" value="true" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="CHAPTER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<bean id="userAccount15" class="security.UserAccount">
+		<property name="username" value="chapter5" />
+		<property name="password" value="4a06d1773dbf4c62b56e15d6eeb5048d" />
+		<property name="statusAccount" value="true" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="CHAPTER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<bean id="userAccount16" class="security.UserAccount">
+		<property name="username" value="sponsor1" />
+		<property name="password" value="42c63ad66d4dc07ed17753772bef96d6" />
+		<property name="statusAccount" value="true" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="SPONSOR" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<bean id="userAccount17" class="security.UserAccount">
+		<property name="username" value="sponsor2" />
+		<property name="password" value="3dc67f80a03324e01b1640f45d107485" />
+		<property name="statusAccount" value="true" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="SPONSOR" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<bean id="userAccount18" class="security.UserAccount">
+		<property name="username" value="sponsor3" />
+		<property name="password" value="857a54956061fdc1b88d7722cafe6519" />
+		<property name="statusAccount" value="true" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="SPONSOR" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<bean id="userAccount19" class="security.UserAccount">
+		<property name="username" value="sponsor4" />
+		<property name="password" value="a8be034fe44a453e912feadc414dc803" />
+		<property name="statusAccount" value="true" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="SPONSOR" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<bean id="userAccount20" class="security.UserAccount">
+		<property name="username" value="sponsor5" />
+		<property name="password" value="d6d7f85c15bbb451ef50b704b3693033" />
+		<property name="statusAccount" value="true" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="SPONSOR" />
+				</bean>
+			</list>
+		</property>
+	</bean>
 
 	<!-- Administrator -->
 	<bean id="administrator1" class="domain.Administrator">
@@ -501,12 +621,212 @@
 		<property name="name" value="Notification box" />
 		<property name="isSystemBox" value="true" />
 	</bean>
+	<bean id="box55" class="domain.Box">
+		<property name="name" value="In box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box56" class="domain.Box">
+		<property name="name" value="Out box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box57" class="domain.Box">
+		<property name="name" value="Trash box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box58" class="domain.Box">
+		<property name="name" value="Spam box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box59" class="domain.Box">
+		<property name="name" value="Notification box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box60" class="domain.Box">
+		<property name="name" value="In box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box61" class="domain.Box">
+		<property name="name" value="Out box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box62" class="domain.Box">
+		<property name="name" value="Trash box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box63" class="domain.Box">
+		<property name="name" value="Spam box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box64" class="domain.Box">
+		<property name="name" value="Notification box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box65" class="domain.Box">
+		<property name="name" value="In box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box66" class="domain.Box">
+		<property name="name" value="Out box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box67" class="domain.Box">
+		<property name="name" value="Trash box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box68" class="domain.Box">
+		<property name="name" value="Spam box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box69" class="domain.Box">
+		<property name="name" value="Notification box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box70" class="domain.Box">
+		<property name="name" value="In box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box71" class="domain.Box">
+		<property name="name" value="Out box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box72" class="domain.Box">
+		<property name="name" value="Trash box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box73" class="domain.Box">
+		<property name="name" value="Spam box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box74" class="domain.Box">
+		<property name="name" value="Notification box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box75" class="domain.Box">
+		<property name="name" value="In box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box76" class="domain.Box">
+		<property name="name" value="Out box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box77" class="domain.Box">
+		<property name="name" value="Trash box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box78" class="domain.Box">
+		<property name="name" value="Spam box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box79" class="domain.Box">
+		<property name="name" value="Notification box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box80" class="domain.Box">
+		<property name="name" value="In box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box81" class="domain.Box">
+		<property name="name" value="Out box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box82" class="domain.Box">
+		<property name="name" value="Trash box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box83" class="domain.Box">
+		<property name="name" value="Spam box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box84" class="domain.Box">
+		<property name="name" value="Notification box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box85" class="domain.Box">
+		<property name="name" value="In box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box86" class="domain.Box">
+		<property name="name" value="Out box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box87" class="domain.Box">
+		<property name="name" value="Trash box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box88" class="domain.Box">
+		<property name="name" value="Spam box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box89" class="domain.Box">
+		<property name="name" value="Notification box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box90" class="domain.Box">
+		<property name="name" value="In box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box91" class="domain.Box">
+		<property name="name" value="Out box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box92" class="domain.Box">
+		<property name="name" value="Trash box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box93" class="domain.Box">
+		<property name="name" value="Spam box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box94" class="domain.Box">
+		<property name="name" value="Notification box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box95" class="domain.Box">
+		<property name="name" value="In box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box96" class="domain.Box">
+		<property name="name" value="Out box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box97" class="domain.Box">
+		<property name="name" value="Trash box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box98" class="domain.Box">
+		<property name="name" value="Spam box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box99" class="domain.Box">
+		<property name="name" value="Notification box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box100" class="domain.Box">
+		<property name="name" value="In box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box101" class="domain.Box">
+		<property name="name" value="Out box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box102" class="domain.Box">
+		<property name="name" value="Trash box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box103" class="domain.Box">
+		<property name="name" value="Spam box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box104" class="domain.Box">
+		<property name="name" value="Notification box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
 
 
 	<!-- Brotherhood -->
 	<bean id="brotherhood1" class="domain.Brotherhood">
 		<property name="name" value="Héctor" />
-		<property name="surname" value="Molina Ibañez" />
+		<property name="surname" value="Molina Jimenez" />
 		<property name="photo" value="http://oi63.tinypic.com/2zs0369.jpg" />
 		<property name="email" value="lapazsevilla@acmemadruga.com" />
 		<property name="phoneNumber" value="694039572" />
@@ -534,6 +854,8 @@
 			<list>
 				<ref bean="parade1" />
 				<ref bean="parade2" />
+				<ref bean="parade5" />
+				<ref bean="parade6" />
 			</list>
 		</property>
 		<property name="enrolments">
@@ -574,6 +896,8 @@
 		<property name="parades">
 			<list>
 				<ref bean="parade3" />
+				<ref bean="parade7" />
+				<ref bean="parade8" />
 			</list>
 		</property>
 		<property name="enrolments">
@@ -623,6 +947,100 @@
 		<property name="area" ref="area2" />
 	</bean>
 
+	<!-- Chapter -->
+	<bean id="chapter1" class="domain.Chapter">
+		<property name="name" value="José Manuel" />
+		<property name="surname" value="Gallego Nieto" />
+		<property name="email" value="josemanuelgallego@acmemadruga.com" />
+		<property name="phoneNumber" value="603958253" />
+		<property name="address" value="41005 Sevilla" />
+		<property name="title" value="El organizador" />
+		<property name="userAccount" ref="userAccount11" />
+		<property name="boxes">
+			<list>
+				<ref bean="box55" />
+				<ref bean="box56" />
+				<ref bean="box57" />
+				<ref bean="box58" />
+				<ref bean="box59" />
+			</list>
+		</property>
+		<property name="area" ref="area1" />
+	</bean>
+	<bean id="chapter2" class="domain.Chapter">
+		<property name="name" value="Nil" />
+		<property name="surname" value="Soler Gimenez" />
+		<property name="email" value="nilsoler@acmemadruga.com" />
+		<property name="phoneNumber" value="683579373" />
+		<property name="address" value="41005 Sevilla" />
+		<property name="title" value="Gran chapter" />
+		<property name="userAccount" ref="userAccount12" />
+		<property name="boxes">
+			<list>
+				<ref bean="box60" />
+				<ref bean="box61" />
+				<ref bean="box62" />
+				<ref bean="box63" />
+				<ref bean="box64" />
+			</list>
+		</property>
+		<property name="area" ref="area2" />
+	</bean>
+	<bean id="chapter3" class="domain.Chapter">
+		<property name="name" value="Daniel" />
+		<property name="surname" value="Diaz Caballero" />
+		<property name="email" value="danieldiaz@acmemadruga.com" />
+		<property name="phoneNumber" value="636835684" />
+		<property name="address" value="41005 Sevilla" />
+		<property name="title" value="El septón" />
+		<property name="userAccount" ref="userAccount13" />
+		<property name="boxes">
+			<list>
+				<ref bean="box65" />
+				<ref bean="box66" />
+				<ref bean="box67" />
+				<ref bean="box68" />
+				<ref bean="box69" />
+			</list>
+		</property>
+		<property name="area" ref="area3" />
+	</bean>
+	<bean id="chapter4" class="domain.Chapter">
+		<property name="name" value="Joel" />
+		<property name="surname" value="Cortes Iglesias" />
+		<property name="email" value="joelcortes@acmemadruga.com" />
+		<property name="phoneNumber" value="647025738" />
+		<property name="address" value="41005 Sevilla" />
+		<property name="title" value="La sexta sagrada" />
+		<property name="userAccount" ref="userAccount14" />
+		<property name="boxes">
+			<list>
+				<ref bean="box70" />
+				<ref bean="box71" />
+				<ref bean="box72" />
+				<ref bean="box73" />
+				<ref bean="box74" />
+			</list>
+		</property>
+	</bean>
+	<bean id="chapter5" class="domain.Chapter">
+		<property name="name" value="Manuel" />
+		<property name="surname" value="Rodriguez Leon" />
+		<property name="email" value="manuelrodriguez@acmemadruga.com" />
+		<property name="phoneNumber" value="624568438" />
+		<property name="address" value="41005 Sevilla" />
+		<property name="title" value="La luz de los 7" />
+		<property name="userAccount" ref="userAccount15" />
+		<property name="boxes">
+			<list>
+				<ref bean="box75" />
+				<ref bean="box76" />
+				<ref bean="box77" />
+				<ref bean="box78" />
+				<ref bean="box79" />
+			</list>
+		</property>
+	</bean>
 
 
 	<!-- Enrolment -->
@@ -773,6 +1191,168 @@
 		<property name="description" value="This is a test description." />
 	</bean>
 
+	<!-- History -->
+	<bean id="history1" class="domain.History">
+		<property name="brotherhood" ref="brotherhood1" />
+		<property name="inceptionRecord" ref="inceptionRecord1" />
+		<property name="periodRecords">
+			<list>
+				<ref bean="periodRecord1" />
+				<ref bean="periodRecord2" />
+			</list>
+		</property>
+		<property name="legalRecords">
+			<list>
+				<ref bean="legalRecord1" />
+				<ref bean="legalRecord2" />
+			</list>
+		</property>
+		<property name="linkRecords">
+			<list>
+				<ref bean="linkRecord1" />
+				<ref bean="linkRecord2" />
+			</list>
+		</property>
+		<property name="miscellaneousRecords">
+			<list>
+				<ref bean="miscellaneousRecord1" />
+				<ref bean="miscellaneousRecord2" />
+				<ref bean="miscellaneousRecord3" />
+			</list>
+		</property>
+	</bean>
+	<bean id="history2" class="domain.History">
+		<property name="brotherhood" ref="brotherhood2" />
+		<property name="inceptionRecord" ref="inceptionRecord2" />
+		<property name="periodRecords">
+			<list>
+				<ref bean="periodRecord3" />
+			</list>
+		</property>
+		<property name="miscellaneousRecords">
+			<list>
+				<ref bean="miscellaneousRecord4" />
+				<ref bean="miscellaneousRecord5" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- InceptionRecord -->
+	<bean id="inceptionRecord1" class="domain.InceptionRecord">
+		<property name="title" value="My beginnings" />
+		<property name="description"
+			value="My beginnings as a brotherhood in Acme Madrugá" />
+		<property name="photos">
+			<list>
+				<value>http://oi63.tinypic.com/126fko7.jpg</value>
+				<value>http://oi63.tinypic.com/126fko7.jpg</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="inceptionRecord2" class="domain.InceptionRecord">
+		<property name="title" value="My Inception Record" />
+		<property name="description" value="This is my inception record" />
+		<property name="photos">
+			<list>
+				<value>http://oi63.tinypic.com/126fko7.jpg</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- PeriodRecord -->
+	<bean id="periodRecord1" class="domain.PeriodRecord">
+		<property name="title" value="Period 1" />
+		<property name="description" value="Description of period 1" />
+		<property name="startYear" value="2015" />
+		<property name="endYear" value="2016" />
+		<property name="photos">
+			<list>
+				<value>http://oi63.tinypic.com/126fko7.jpg</value>
+				<value>http://oi63.tinypic.com/126fko7.jpg</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="periodRecord2" class="domain.PeriodRecord">
+		<property name="title" value="Period 2" />
+		<property name="description" value="Description of period 2" />
+		<property name="startYear" value="2017" />
+		<property name="endYear" value="2018" />
+		<property name="photos">
+			<list>
+				<value>http://oi63.tinypic.com/126fko7.jpg</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="periodRecord3" class="domain.PeriodRecord">
+		<property name="title" value="Period 1" />
+		<property name="description" value="Description of period 1" />
+		<property name="startYear" value="2015" />
+		<property name="endYear" value="2018" />
+		<property name="photos">
+			<list>
+				<value>http://oi63.tinypic.com/126fko7.jpg</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- LegalRecord -->
+	<bean id="legalRecord1" class="domain.LegalRecord">
+		<property name="title" value="Legal Record 1" />
+		<property name="description" value="Description of legal record 1" />
+		<property name="legalName" value="Antonio Perez S." />
+		<property name="VATNumber" value="TU463" />
+		<property name="applicableLaws">
+			<list>
+				<value>Text example law 1</value>
+				<value>Text example law 2</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="legalRecord2" class="domain.LegalRecord">
+		<property name="title" value="Legal Record 2" />
+		<property name="description" value="Description of legal record 2" />
+		<property name="legalName" value="Alfredo Reuiz H." />
+		<property name="VATNumber" value="PE742" />
+		<property name="applicableLaws">
+			<list>
+				<value>Text example law</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- LinkRecord -->
+	<bean id="linkRecord1" class="domain.LinkRecord">
+		<property name="title" value="Link Record 1" />
+		<property name="description" value="Description of link record 1" />
+		<property name="brotherhood" ref="brotherhood2" />
+	</bean>
+	<bean id="linkRecord2" class="domain.LinkRecord">
+		<property name="title" value="Link Record 2" />
+		<property name="description" value="Description of link record 2" />
+		<property name="brotherhood" ref="brotherhood3" />
+	</bean>
+
+	<!-- MiscellaneousRecord -->
+	<bean id="miscellaneousRecord1" class="domain.MiscellaneousRecord">
+		<property name="title" value="Miscellaneous Record 1" />
+		<property name="description" value="Description of miscellaneous record 1" />
+	</bean>
+	<bean id="miscellaneousRecord2" class="domain.MiscellaneousRecord">
+		<property name="title" value="Miscellaneous Record 2" />
+		<property name="description" value="Description of miscellaneous record 2" />
+	</bean>
+	<bean id="miscellaneousRecord3" class="domain.MiscellaneousRecord">
+		<property name="title" value="Miscellaneous Record 3" />
+		<property name="description" value="Description of miscellaneous record 3" />
+	</bean>
+	<bean id="miscellaneousRecord4" class="domain.MiscellaneousRecord">
+		<property name="title" value="Miscellaneous Record 1" />
+		<property name="description" value="Description of miscellaneous record 1" />
+	</bean>
+	<bean id="miscellaneousRecord5" class="domain.MiscellaneousRecord">
+		<property name="title" value="Miscellaneous Record 2" />
+		<property name="description" value="Description of miscellaneous record 2" />
+	</bean>
 
 	<!-- Member -->
 	<bean id="member1" class="domain.Member">
@@ -949,7 +1529,8 @@
 	<bean id="message2" class="domain.Message">
 		<property name="moment" value="2019/01/24 23:30" />
 		<property name="subject" value="Problem beautiful" />
-		<property name="body" value="I have a problem with the web. This is horrible, a disaster, horrible horrible horrible" />
+		<property name="body"
+			value="I have a problem with the web. This is horrible, a disaster, horrible horrible horrible" />
 		<property name="priority" value="HIGH" />
 		<property name="flagSpam" value="false" />
 		<property name="sender" ref="member1" />
@@ -962,7 +1543,8 @@
 	<bean id="message3" class="domain.Message">
 		<property name="moment" value="2019/02/10 16:38" />
 		<property name="subject" value="Important average" />
-		<property name="body" value="This is a important message sex. Good sex and fantastic satisfaction. Not bad" />
+		<property name="body"
+			value="This is a important message sex. Good sex and fantastic satisfaction. Not bad" />
 		<property name="priority" value="HIGH" />
 		<property name="flagSpam" value="false" />
 		<property name="sender" ref="brotherhood1" />
@@ -976,7 +1558,8 @@
 	<bean id="message4" class="domain.Message">
 		<property name="moment" value="2019/01/22 14:25" />
 		<property name="subject" value="ITS SPAM TIME SEXO SEXO SEXO" />
-		<property name="body" value="sex viagra palabra random sex viagra one million Nigeria. Horrible but fantastic and amazing disaster. Not Bad." />
+		<property name="body"
+			value="sex viagra palabra random sex viagra one million Nigeria. Horrible but fantastic and amazing disaster. Not Bad." />
 		<property name="priority" value="HIGH" />
 		<property name="flagSpam" value="false" />
 		<property name="sender" ref="brotherhood1" />
@@ -1003,7 +1586,8 @@
 	<bean id="message6" class="domain.Message">
 		<property name="moment" value="2019/01/22 14:25" />
 		<property name="subject" value="ITS POSITIVE WORDS good good good" />
-		<property name="body" value="good fantastic excellent great amazing terrific beautiful" />
+		<property name="body"
+			value="good fantastic excellent great amazing terrific beautiful" />
 		<property name="priority" value="HIGH" />
 		<property name="flagSpam" value="false" />
 		<property name="sender" ref="brotherhood3" />
@@ -1016,7 +1600,8 @@
 	<bean id="message7" class="domain.Message">
 		<property name="moment" value="2019/01/22 14:25" />
 		<property name="subject" value="ITS POSITIVE WORDS good good good" />
-		<property name="body" value="good fantastic excellent great amazing terrific beautiful" />
+		<property name="body"
+			value="good fantastic excellent great amazing terrific beautiful" />
 		<property name="priority" value="HIGH" />
 		<property name="flagSpam" value="false" />
 		<property name="sender" ref="member1" />
@@ -1068,6 +1653,7 @@
 		<property name="isFinalMode" value="true" />
 		<property name="maxRows" value="500" />
 		<property name="maxColumns" value="2" />
+		<property name="status" value="SUBMITTED" />
 		<property name="floats">
 			<list>
 				<ref bean="float1" />
@@ -1087,6 +1673,13 @@
 				<ref bean="requestMarch16" />
 			</list>
 		</property>
+		<property name="segments">
+			<list>
+				<ref bean="segment1" />
+				<ref bean="segment2" />
+				<ref bean="segment3" />
+			</list>
+		</property>
 	</bean>
 	<bean id="parade2" class="domain.Parade">
 		<property name="ticker" value="190710-SOTJE" />
@@ -1096,6 +1689,7 @@
 		<property name="isFinalMode" value="true" />
 		<property name="maxRows" value="450" />
 		<property name="maxColumns" value="2" />
+		<property name="status" value="SUBMITTED" />
 		<property name="floats">
 			<list>
 				<ref bean="float1" />
@@ -1109,6 +1703,13 @@
 				<ref bean="requestMarch8" />
 			</list>
 		</property>
+		<property name="segments">
+			<list>
+				<ref bean="segment1" />
+				<ref bean="segment2" />
+				<ref bean="segment3" />
+			</list>
+		</property>
 	</bean>
 	<bean id="parade3" class="domain.Parade">
 		<property name="ticker" value="191003-GPLGW" />
@@ -1118,6 +1719,7 @@
 		<property name="isFinalMode" value="true" />
 		<property name="maxRows" value="300" />
 		<property name="maxColumns" value="2" />
+		<property name="status" value="SUBMITTED" />
 		<property name="floats">
 			<list>
 				<ref bean="float3" />
@@ -1145,7 +1747,155 @@
 			</list>
 		</property>
 	</bean>
+	<bean id="parade5" class="domain.Parade">
+		<property name="ticker" value="191110-IEHNW" />
+		<property name="title" value="La tempestad" />
+		<property name="description" value="This is a test description." />
+		<property name="momentOrganise" value="2019/11/10 16:50" />
+		<property name="isFinalMode" value="true" />
+		<property name="maxRows" value="450" />
+		<property name="maxColumns" value="2" />
+		<property name="status" value="ACCEPTED" />
+		<property name="floats">
+			<list>
+				<ref bean="float1" />
+			</list>
+		</property>
+		<property name="sponsorships">
+			<list>
+				<ref bean="sponsorship1" />
+				<ref bean="sponsorship3" />
+			</list>
+		</property>
+	</bean>
+	<bean id="parade6" class="domain.Parade">
+		<property name="ticker" value="190910-SOTJE" />
+		<property name="title" value="Corazón desfilado" />
+		<property name="description" value="This is a test description." />
+		<property name="momentOrganise" value="2019/09/10 13:20" />
+		<property name="isFinalMode" value="true" />
+		<property name="maxRows" value="450" />
+		<property name="maxColumns" value="2" />
+		<property name="status" value="REJECTED" />
+		<property name="rejectReason" value="I don't like" />
+		<property name="floats">
+			<list>
+				<ref bean="float1" />
+			</list>
+		</property>
+	</bean>
+	<bean id="parade7" class="domain.Parade">
+		<property name="ticker" value="190916-IFPSK" />
+		<property name="title" value="El final" />
+		<property name="description" value="This is a test description." />
+		<property name="momentOrganise" value="2019/09/16 16:10" />
+		<property name="isFinalMode" value="true" />
+		<property name="maxRows" value="450" />
+		<property name="maxColumns" value="2" />
+		<property name="status" value="ACCEPTED" />
+		<property name="floats">
+			<list>
+				<ref bean="float3" />
+			</list>
+		</property>
+		<property name="sponsorships">
+			<list>
+				<ref bean="sponsorship2" />
+			</list>
+		</property>
+	</bean>
+	<bean id="parade8" class="domain.Parade">
+		<property name="ticker" value="190707-HPSKE" />
+		<property name="title" value="El gran defile" />
+		<property name="description" value="This is a test description." />
+		<property name="momentOrganise" value="2019/07/07 20:00" />
+		<property name="isFinalMode" value="true" />
+		<property name="maxRows" value="450" />
+		<property name="maxColumns" value="2" />
+		<property name="status" value="SUBMITTED" />
+		<property name="floats">
+			<list>
+				<ref bean="float3" />
+			</list>
+		</property>
+	</bean>
 
+	<!-- Segment -->
+	<bean id="segment1" class="domain.Segment">
+		<property name="origin" ref="gpscoordinates1" />
+		<property name="destination" ref="gpscoordinates2" />
+		<property name="timeReachOrigin">
+			<bean factory-method="valueOf" class="java.sql.Time">
+				<constructor-arg value="10:00:00" />
+			</bean>
+		</property>
+		<property name="timeReachDestination">
+			<bean factory-method="valueOf" class="java.sql.Time">
+				<constructor-arg value="12:00:00" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="segment2" class="domain.Segment">
+		<property name="origin" ref="gpscoordinates2" />
+		<property name="destination" ref="gpscoordinates3" />
+		<property name="timeReachOrigin">
+			<bean factory-method="valueOf" class="java.sql.Time">
+				<constructor-arg value="12:00:00" />
+			</bean>
+		</property>
+		<property name="timeReachDestination">
+			<bean factory-method="valueOf" class="java.sql.Time">
+				<constructor-arg value="17:00:00" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="segment3" class="domain.Segment">
+		<property name="origin" ref="gpscoordinates3" />
+		<property name="destination" ref="gpscoordinates4" />
+		<property name="timeReachOrigin">
+			<bean factory-method="valueOf" class="java.sql.Time">
+				<constructor-arg value="17:00:00" />
+			</bean>
+		</property>
+		<property name="timeReachDestination">
+			<bean factory-method="valueOf" class="java.sql.Time">
+				<constructor-arg value="20:00:00" />
+			</bean>
+		</property>
+	</bean>
+
+	<!-- GPSCoordinates -->
+	<bean id="gpscoordinates1" class="domain.GPSCoordinates">
+		<property name="latitude" value="20.53925253" />
+		<property name="longitude" value="-45.452523653" />
+	</bean>
+	<bean id="gpscoordinates2" class="domain.GPSCoordinates">
+		<property name="latitude" value="67.37345235" />
+		<property name="longitude" value="-37.422335325" />
+	</bean>
+	<bean id="gpscoordinates3" class="domain.GPSCoordinates">
+		<property name="latitude" value="-35.53473342" />
+		<property name="longitude" value="-36.436235" />
+	</bean>
+	<bean id="gpscoordinates4" class="domain.GPSCoordinates">
+		<property name="latitude" value="24.52643253" />
+		<property name="longitude" value="-100.452523653" />
+	</bean>
+
+	<!-- Proclaim -->
+	<bean id="proclaim1" class="domain.Proclaim">
+		<property name="moment" value="2018/03/06 20:32" />
+		<property name="text"
+			value="Proclaiming to the world the 'gospel of brotherhood' by means of communities rich in authentic and heartfelt relationships." />
+		<property name="chapter" ref="chapter1" />
+	</bean>
+	<bean id="proclaim2" class="domain.Proclaim">
+		<property name="moment" value="2015/08/12 7:11" />
+		<property name="text"
+			value="
+We stand for all the other qualities proposed by Jesus in the Gospel: forgiveness, unity, communion and brotherhood, a sense of responsibility and respect for our differences." />
+		<property name="chapter" ref="chapter1" />
+	</bean>
 
 	<!-- RequestMarch -->
 	<bean id="requestMarch1" class="domain.RequestMarch">
@@ -1247,6 +1997,155 @@
 		<property name="actor" ref="administrator1" />
 	</bean>
 
+	<!-- Sponsor -->
+	<bean id="sponsor1" class="domain.Sponsor">
+		<property name="name" value="Álvaro" />
+		<property name="surname" value="Fernandez Lopez" />
+		<property name="email" value="alvarofernandez@acmemadruga.com" />
+		<property name="phoneNumber" value="662839501" />
+		<property name="address" value="41005 Sevilla" />
+		<property name="userAccount" ref="userAccount16" />
+		<property name="boxes">
+			<list>
+				<ref bean="box80" />
+				<ref bean="box81" />
+				<ref bean="box82" />
+				<ref bean="box83" />
+				<ref bean="box84" />
+			</list>
+		</property>
+		<property name="sponsorships">
+			<list>
+				<ref bean="sponsorship1" />
+				<ref bean="sponsorship2" />
+			</list>
+		</property>
+	</bean>
+	<bean id="sponsor2" class="domain.Sponsor">
+		<property name="name" value="Diego" />
+		<property name="surname" value="Hidalgo Castro" />
+		<property name="email" value="diegohidalgo@acmemadruga.com" />
+		<property name="phoneNumber" value="636894484" />
+		<property name="address" value="41005 Sevilla" />
+		<property name="userAccount" ref="userAccount17" />
+		<property name="boxes">
+			<list>
+				<ref bean="box85" />
+				<ref bean="box86" />
+				<ref bean="box87" />
+				<ref bean="box88" />
+				<ref bean="box89" />
+			</list>
+		</property>
+		<property name="sponsorships">
+			<list>
+				<ref bean="sponsorship3" />
+			</list>
+		</property>
+	</bean>
+	<bean id="sponsor3" class="domain.Sponsor">
+		<property name="name" value="Alonso" />
+		<property name="surname" value="Medina Delgado" />
+		<property name="email" value="alvaromedina@acmemadruga.com" />
+		<property name="phoneNumber" value="636663802" />
+		<property name="address" value="41005 Sevilla" />
+		<property name="userAccount" ref="userAccount18" />
+		<property name="boxes">
+			<list>
+				<ref bean="box90" />
+				<ref bean="box91" />
+				<ref bean="box92" />
+				<ref bean="box93" />
+				<ref bean="box94" />
+			</list>
+		</property>
+	</bean>
+	<bean id="sponsor4" class="domain.Sponsor">
+		<property name="name" value="Ismael" />
+		<property name="surname" value="Cortes Soler" />
+		<property name="email" value="ismaelcortes@acmemadruga.com" />
+		<property name="phoneNumber" value="689025683" />
+		<property name="address" value="41005 Sevilla" />
+		<property name="userAccount" ref="userAccount19" />
+		<property name="boxes">
+			<list>
+				<ref bean="box95" />
+				<ref bean="box96" />
+				<ref bean="box97" />
+				<ref bean="box98" />
+				<ref bean="box99" />
+			</list>
+		</property>
+	</bean>
+	<bean id="sponsor5" class="domain.Sponsor">
+		<property name="name" value="Francisco" />
+		<property name="surname" value="Rubio Navarro" />
+		<property name="email" value="franciscorubio@acmemadruga.com" />
+		<property name="phoneNumber" value="653120853" />
+		<property name="address" value="41005 Sevilla" />
+		<property name="userAccount" ref="userAccount20" />
+		<property name="boxes">
+			<list>
+				<ref bean="box100" />
+				<ref bean="box101" />
+				<ref bean="box102" />
+				<ref bean="box103" />
+				<ref bean="box104" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- Sponsorship -->
+	<bean id="sponsorship1" class="domain.Sponsorship">
+		<property name="banner" value="http://oi67.tinypic.com/n1dxqd.jpg" />
+		<property name="targetURL" value="https://www.nationalbreastcancer.org/" />
+		<property name="isActivated" value="true" />
+		<property name="sponsor" ref="sponsor1" />
+		<property name="parade" ref="parade5" />
+		<property name="creditCard" ref="creditCard1" />
+	</bean>
+	<bean id="sponsorship2" class="domain.Sponsorship">
+		<property name="banner" value="http://oi65.tinypic.com/90by11.jpg" />
+		<property name="targetURL" value="https://www.petsupplies.com/" />
+		<property name="isActivated" value="true" />
+		<property name="sponsor" ref="sponsor1" />
+		<property name="parade" ref="parade7" />
+		<property name="creditCard" ref="creditCard2" />
+	</bean>
+	<bean id="sponsorship3" class="domain.Sponsorship">
+		<property name="banner" value="http://oi66.tinypic.com/2s7vtyc.jpg" />
+		<property name="targetURL" value="https://sponsor.me/" />
+		<property name="isActivated" value="true" />
+		<property name="sponsor" ref="sponsor2" />
+		<property name="parade" ref="parade5" />
+		<property name="creditCard" ref="creditCard3" />
+	</bean>
+
+	<!-- CreditCard -->
+	<bean id="creditCard1" class="domain.CreditCard">
+		<property name="holder" value="Lola Anglada Reina" />
+		<property name="make" value="VISA" />
+		<property name="number" value="4539888159789783" />
+		<property name="expirationMonth" value="9" />
+		<property name="expirationYear" value="24" />
+		<property name="ccv" value="909" />
+	</bean>
+	<bean id="creditCard2" class="domain.CreditCard">
+		<property name="holder" value="Mónica Amate Garrido" />
+		<property name="make" value="MCARD" />
+		<property name="number" value="4024007101185063" />
+		<property name="expirationMonth" value="2" />
+		<property name="expirationYear" value="22" />
+		<property name="ccv" value="482" />
+	</bean>
+	<bean id="creditCard3" class="domain.CreditCard">
+		<property name="holder" value="José Fernandez Gamez" />
+		<property name="make" value="FLY" />
+		<property name="number" value="5237382715859548" />
+		<property name="expirationMonth" value="12" />
+		<property name="expirationYear" value="23" />
+		<property name="ccv" value="724" />
+	</bean>
 
 	<!-- SystemConfiguration -->
 	<bean id="systemConfiguration1" class="domain.SystemConfiguration">
@@ -1310,6 +2209,17 @@
 				<value>ha sido seleccionado</value>
 			</list>
 		</property>
+		<property name="creditCardMakes">
+			<list>
+				<value>VISA</value>
+				<value>MCARD</value>
+				<value>AMEX</value>
+				<value>DINNERS</value>
+				<value>FLY</value>
+			</list>
+		</property>
+		<property name="fare" value="49.99" />
+		<property name="VATPercentage" value="21.00" />
 	</bean>
 
 </beans>

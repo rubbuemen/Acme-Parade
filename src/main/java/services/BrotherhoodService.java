@@ -245,7 +245,7 @@ public class BrotherhoodService {
 
 
 	// Reconstruct methods
-	@Autowired(required = false)
+	@Autowired
 	private Validator	validator;
 
 

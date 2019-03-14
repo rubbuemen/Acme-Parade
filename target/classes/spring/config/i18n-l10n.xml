@@ -22,7 +22,6 @@
 		<value>/views/misc/messages</value>
 		<value>/views/security/messages</value>		
 		<value>/views/welcome/messages</value>
-		
 		<value>/views/actor/messages</value>
 		<value>/views/area/messages</value>
 		<value>/views/box/messages</value>
@@ -38,6 +37,18 @@
 		<value>/views/socialProfile/messages</value>
 		<value>/views/systemConfiguration/messages</value>
 		<value>/views/dashboard/messages</value>
+		
+		<!-- Acme Parade -->
+		<value>/views/chapter/messages</value>
+		<value>/views/history/messages</value>
+		<value>/views/inceptionRecord/messages</value>
+		<value>/views/legalRecord/messages</value>
+		<value>/views/linkRecord/messages</value>
+		<value>/views/miscellaneousRecord/messages</value>
+		<value>/views/periodRecord/messages</value>
+		<value>/views/proclaim/messages</value>
+		<value>/views/segment/messages</value>
+		<value>/views/sponsorship/messages</value>
 	</util:list>
 
 </beans>

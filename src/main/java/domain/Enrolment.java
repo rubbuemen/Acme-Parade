@@ -68,6 +68,7 @@ public class Enrolment extends DomainEntity {
 	public void setPositionBrotherhood(final PositionBrotherhood positionBrotherhood) {
 		this.positionBrotherhood = positionBrotherhood;
 	}
+
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)

@@ -275,7 +275,7 @@ public class BoxService {
 
 
 	// Reconstruct methods
-	@Autowired(required = false)
+	@Autowired
 	private Validator	validator;
 
 

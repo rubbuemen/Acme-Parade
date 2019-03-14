@@ -44,6 +44,8 @@ public class Parade extends DomainEntity {
 	private Boolean	isFinalMode;
 	private Integer	maxRows;
 	private Integer	maxColumns;
+	private String	status;
+	private String	rejectReason;
 
 
 	// Getters and Setters
@@ -120,10 +122,31 @@ public class Parade extends DomainEntity {
 		this.maxColumns = maxColumns;
 	}
 
+	@Pattern(regexp = "^SUBMITTED|ACCEPTED|REJECTED$")
+	@SafeHtml(whitelistType = WhiteListType.NONE)
+	public String getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(final String status) {
+		this.status = status;
+	}
+
+	@SafeHtml(whitelistType = WhiteListType.NONE)
+	public String getRejectReason() {
+		return this.rejectReason;
+	}
+
+	public void setRejectReason(final String rejectReason) {
+		this.rejectReason = rejectReason;
+	}
+
 
 	// Relationships
 	private Collection<Float>			floats;
 	private Collection<RequestMarch>	requestsMarch;
+	private Collection<Segment>			segments;
+	private Collection<Sponsorship>		sponsorships;
 
 
 	@NotEmpty
@@ -147,6 +170,28 @@ public class Parade extends DomainEntity {
 
 	public void setRequestsMarch(final Collection<RequestMarch> requestsMarch) {
 		this.requestsMarch = requestsMarch;
+	}
+
+	@Valid
+	@EachNotNull
+	@ManyToMany
+	public Collection<Segment> getSegments() {
+		return this.segments;
+	}
+
+	public void setSegments(final Collection<Segment> segments) {
+		this.segments = segments;
+	}
+
+	@Valid
+	@EachNotNull
+	@OneToMany(mappedBy = "parade")
+	public Collection<Sponsorship> getSponsorships() {
+		return this.sponsorships;
+	}
+
+	public void setSponsorships(final Collection<Sponsorship> sponsorships) {
+		this.sponsorships = sponsorships;
 	}
 
 }

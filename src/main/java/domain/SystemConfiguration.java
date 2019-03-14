@@ -8,7 +8,9 @@ import javax.persistence.AccessType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
@@ -37,6 +39,9 @@ public class SystemConfiguration extends DomainEntity {
 	private Collection<String>	positiveWords;
 	private Collection<String>	negativeWords;
 	private Collection<String>	spamWords;
+	private Collection<String>	creditCardMakes;
+	private Double				fare;
+	private Double				VATPercentage;
 
 
 	// Getters and Setters
@@ -154,6 +159,39 @@ public class SystemConfiguration extends DomainEntity {
 
 	public void setSpamWords(final Collection<String> spamWords) {
 		this.spamWords = spamWords;
+	}
+
+	@ElementCollection(fetch = FetchType.EAGER)
+	@NotEmpty
+	@EachNotBlank
+	public Collection<String> getCreditCardMakes() {
+		return this.creditCardMakes;
+	}
+
+	public void setCreditCardMakes(final Collection<String> creditCardMakes) {
+		this.creditCardMakes = creditCardMakes;
+	}
+
+	@NotNull
+	@Min(0)
+	@Digits(integer = 2, fraction = 2)
+	public Double getFare() {
+		return this.fare;
+	}
+
+	public void setFare(final Double fare) {
+		this.fare = fare;
+	}
+
+	@NotNull
+	@Min(0)
+	@Digits(integer = 2, fraction = 2)
+	public Double getVATPercentage() {
+		return this.VATPercentage;
+	}
+
+	public void setVATPercentage(final Double VATPercentage) {
+		this.VATPercentage = VATPercentage;
 	}
 
 }
