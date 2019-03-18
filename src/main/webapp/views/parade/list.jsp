@@ -36,6 +36,24 @@
 			<jstl:out value="${format}" />
 	</display:column>
 	
+	<security:authorize access="hasAnyRole('BROTHERHOOD', 'CHAPTER')">
+		<spring:message code="parade.status" var="status" />
+		<display:column property="status" title="${status}" />
+		
+		<spring:message code="parade.rejectReason" var="rejectReason" />
+		<display:column property="rejectReason" title="${rejectReason}" />
+	</security:authorize>
+	
+	<security:authorize access="hasRole('CHAPTER')">
+		<spring:message code="parade.decideParade" var="decideParade" />
+		<display:column title="${decideParade}">
+			<jstl:if test="${row.status eq 'SUBMITTED'}">
+				<acme:button url="parade/chapter/edit.do?paradeId=${row.id}&decision=ACCEPTED" code="button.accept" />
+				<acme:button url="parade/chapter/edit.do?paradeId=${row.id}&decision=REJECTED" code="button.reject" />
+			</jstl:if>	
+		</display:column>
+	</security:authorize>
+	
 	<security:authorize access="hasRole('BROTHERHOOD')">
 		<spring:message code="parade.maxRows" var="maxRows" />
 		<display:column property="maxRows" title="${maxRows}" />
@@ -64,11 +82,21 @@
 			</jstl:if>
 		</display:column>
 		
+		<spring:message code="parade.copy" var="copyH" />
+		<display:column title="${copyH}" >
+			<acme:button url="parade/brotherhood/copy.do?paradeId=${row.id}" code="button.copy" />
+		</display:column>
+		
 		<spring:message code="parade.requestsMarch" var="requestsMarchH" />
 		<display:column title="${requestsMarchH}">
-			<jstl:if test="${row.isFinalMode}">
+			<jstl:if test="${row.status eq 'ACCEPTED'}">
 				<acme:button url="requestMarch/brotherhood/list.do?paradeId=${row.id}" code="button.show" />
 			</jstl:if>	
+		</display:column>
+		
+		<spring:message code="parade.segments" var="segmentsH" />
+		<display:column title="${segmentsH}">
+			<acme:button url="segment/brotherhood/list.do?paradeId=${row.id}" code="button.show" />
 		</display:column>
 	</security:authorize>
 	
@@ -77,7 +105,6 @@
 		<display:column title="${requestsMarchH}">
 				<acme:button url="requestMarch/member/list.do?paradeId=${row.id}" code="button.show" />
 		</display:column>
-	
 	</security:authorize>
 			
 </display:table>
@@ -88,4 +115,8 @@
 
 <security:authorize access="hasRole('MEMBER')">
 	<acme:button url="brotherhood/member/list.do" code="button.back" />
+</security:authorize>
+
+<security:authorize access="hasRole('CHAPTER')">
+	<acme:button url="brotherhood/chapter/list.do" code="button.back" />
 </security:authorize>

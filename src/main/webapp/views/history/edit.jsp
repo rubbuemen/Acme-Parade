@@ -22,18 +22,24 @@
 
 	<form:hidden path="id" />
 	<form:hidden path="version" />
-
-	<acme:textbox code="" path="" placeholder=""/>
-	<br />
-
-	<jstl:choose>
-		<jstl:when test="${history.id == 0}">
-			<acme:submit name="save" code="button.register" />
-		</jstl:when>
-		<jstl:otherwise>
-			<acme:submit name="save" code="button.save" />
-		</jstl:otherwise>
-	</jstl:choose>
-	<acme:cancel url="history/list.do" code="button.cancel" />
+	
+	<fieldset>
+	    <legend><spring:message code="history.inceptionRecord"/></legend>
+	    <acme:textbox code="inceptionRecord.title" path="inceptionRecord.title" placeholder="Lorem Ipsum"/>
+		<br />
+	
+		<acme:textbox code="inceptionRecord.description" path="inceptionRecord.description" placeholder="Lorem Ipsum"/>
+		<br />
+		
+		<acme:textarea code="inceptionRecord.photos" path="inceptionRecord.photos" placeholder="http://Loremipsum.com, http://Loremipsum.com, ..." />
+		<br />
+	</fieldset>
+	
+	<br /><br />
+	<spring:message code="history.createMoreRecords"/>.
+	<br /><br />
+	
+	<acme:submit name="save" code="button.register" />
+	<acme:cancel url="history/brotherhood/list.do" code="button.cancel" />
 
 </form:form>

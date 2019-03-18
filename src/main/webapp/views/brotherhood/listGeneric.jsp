@@ -49,6 +49,11 @@
 			<acme:button url="float/listGeneric.do?brotherhoodId=${row.id}" code="button.show" />
 		</display:column>
 		
+		<spring:message code="brotherhood.historyH" var="historyH" />
+		<display:column title="${historyH}">
+			<acme:button url="history/list.do?brotherhoodId=${row.id}" code="button.show" />
+		</display:column>
+		
 		<spring:message code="text.infoH" var="infoH" />
 		<display:column title="${infoH}">
 			<acme:button url="brotherhood/show.do?brotherhoodId=${row.id}" code="button.more" />

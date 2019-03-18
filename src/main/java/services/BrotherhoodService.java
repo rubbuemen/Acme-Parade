@@ -18,6 +18,7 @@ import domain.Actor;
 import domain.Area;
 import domain.Box;
 import domain.Brotherhood;
+import domain.Chapter;
 import domain.Enrolment;
 import domain.Float;
 import domain.Member;
@@ -69,6 +70,7 @@ public class BrotherhoodService {
 
 		return result;
 	}
+
 	public Collection<Brotherhood> findAll() {
 		Collection<Brotherhood> result;
 
@@ -240,6 +242,80 @@ public class BrotherhoodService {
 		brotherhoodLogged.setArea(area);
 
 		result = this.brotherhoodRepository.save(brotherhoodLogged);
+		return result;
+	}
+
+	public Brotherhood findBrotherhoodByInceptionRecordId(final int inceptionRecordId) {
+		Assert.isTrue(inceptionRecordId != 0);
+
+		Brotherhood result;
+
+		result = this.brotherhoodRepository.findBrotherhoodByInceptionRecordId(inceptionRecordId);
+		return result;
+	}
+
+	public Brotherhood findBrotherhoodByPeriodRecordId(final int periodRecordId) {
+		Assert.isTrue(periodRecordId != 0);
+
+		Brotherhood result;
+
+		result = this.brotherhoodRepository.findBrotherhoodByPeriodRecordId(periodRecordId);
+		return result;
+	}
+
+	public Brotherhood findBrotherhoodByLegalRecordId(final int legalRecordId) {
+		Assert.isTrue(legalRecordId != 0);
+
+		Brotherhood result;
+
+		result = this.brotherhoodRepository.findBrotherhoodByLegalRecordId(legalRecordId);
+		return result;
+	}
+
+	public Brotherhood findBrotherhoodByLinkRecordId(final int linkRecordId) {
+		Assert.isTrue(linkRecordId != 0);
+
+		Brotherhood result;
+
+		result = this.brotherhoodRepository.findBrotherhoodByLinkRecordId(linkRecordId);
+		return result;
+	}
+
+	public Brotherhood findBrotherhoodByMiscellaneousRecordId(final int miscellaneousRecordId) {
+		Assert.isTrue(miscellaneousRecordId != 0);
+
+		Brotherhood result;
+
+		result = this.brotherhoodRepository.findBrotherhoodByMiscellaneousRecordId(miscellaneousRecordId);
+		return result;
+	}
+
+	public Collection<Brotherhood> findBrotherhoodsToLink() {
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginBrotherhood(actorLogged);
+
+		final Brotherhood brotherhoodLogged = (Brotherhood) actorLogged;
+
+		Collection<Brotherhood> result;
+
+		result = this.brotherhoodRepository.findAll();
+		result.remove(brotherhoodLogged);
+
+		return result;
+	}
+
+	// R8.2(Acme-Parade)
+	public Collection<Brotherhood> findBrotherhoodsByChapterLogged() {
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginChapter(actorLogged);
+
+		final Chapter chapterLogged = (Chapter) actorLogged;
+
+		Collection<Brotherhood> result;
+
+		result = this.brotherhoodRepository.findBrotherhoodsByChapterId(chapterLogged.getId());
 		return result;
 	}
 

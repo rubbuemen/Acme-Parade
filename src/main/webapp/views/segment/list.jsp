@@ -21,9 +21,35 @@
 
 <display:table pagesize="5" class="displaytag" name="segments" requestURI="${requestURI}" id="row">
 
-	<spring:message code="" var="var" />
-	<display:column property="" title="${var}" />
+	<spring:message code="segment.origin" var="origin" />
+	<display:column title="${origin}">
+			<spring:message code="segment.latitude" />: ${row.origin.latitude}<br />
+			<spring:message code="segment.longitude" />: ${row.origin.longitude}
+	</display:column>
+	
+	<spring:message code="segment.destination" var="destination" />
+	<display:column title="${destination}">
+			<spring:message code="segment.latitude" />: ${row.destination.latitude}<br />
+			<spring:message code="segment.longitude" />: ${row.destination.longitude}
+	</display:column>
+	
+	<spring:message code="segment.timeReachOrigin" var="timeReachOrigin" />
+	<display:column property="timeReachOrigin" title="${timeReachOrigin}" format="{0,date,HH:mm}" />
+	
+	<spring:message code="segment.timeReachDestination" var="timeReachDestination" />
+	<display:column property="timeReachDestination" title="${timeReachDestination}" format="{0,date,HH:mm}" />
+	
+	<spring:message code="segment.editH" var="editH" />
+	<display:column title="${editH}">
+		<acme:button url="segment/brotherhood/edit.do?segmentId=${row.id}" code="button.edit" />
+	</display:column>
+	
+	<spring:message code="segment.deleteH" var="deleteH" />
+	<display:column title="${deleteH}">
+		<acme:button url="segment/brotherhood/delete.do?segmentId=${row.id}" code="button.delete" />
+	</display:column>
 			
 </display:table>
 
-<acme:button url="segment/create.do" code="button.create" />
+<acme:button url="segment/brotherhood/create.do" code="button.create" />
+<acme:button url="parade/brotherhood/list.do" code="button.back" />

@@ -120,7 +120,7 @@ public class FinderService {
 
 		Finder result;
 
-		Collection<Parade> parades = this.paradeService.findParadesFinalMode();
+		Collection<Parade> parades = this.paradeService.findParadesFinalModeAccepted();
 		final Date searchMoment = new Date(System.currentTimeMillis() - 1);
 		finder.setKeyWord("");
 		finder.setMinDate(null);

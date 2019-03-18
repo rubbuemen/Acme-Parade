@@ -9,8 +9,10 @@ import org.springframework.stereotype.Repository;
 
 import domain.Administrator;
 import domain.Brotherhood;
+import domain.Chapter;
 import domain.Member;
 import domain.Parade;
+import domain.Sponsor;
 
 @Repository
 public interface AdministratorRepository extends JpaRepository<Administrator, Integer> {
@@ -53,5 +55,38 @@ public interface AdministratorRepository extends JpaRepository<Administrator, In
 
 	@Query("select avg(b.polarityScore), avg(m.polarityScore), avg(a.polarityScore) from Brotherhood b, Member m, Administrator a")
 	Double[] dashboardQueryAPlus2();
+
+	@Query("select avg(h.periodRecords.size + h.legalRecords.size + h.linkRecords.size + h.miscellaneousRecords.size + 1), min(h.periodRecords.size + h.legalRecords.size + h.linkRecords.size + h.miscellaneousRecords.size + 1), max(h.periodRecords.size + h.legalRecords.size + h.linkRecords.size + h.miscellaneousRecords.size + 1), stddev(h.periodRecords.size + h.legalRecords.size + h.linkRecords.size + h.miscellaneousRecords.size + 1.0) from History h")
+	String dashboardQueryAcmeParadeC1();
+
+	@Query("select b from History h1 join h1.brotherhood b where (select h2.periodRecords.size + h2.legalRecords.size + h2.linkRecords.size + h2.miscellaneousRecords.size + 1 from History h2 where h1 = h2) = 1*(select max(h.periodRecords.size + h.legalRecords.size + h.linkRecords.size + h.miscellaneousRecords.size + 1) from History h)")
+	Collection<Brotherhood> dashboardQueryAcmeParadeC2();
+
+	@Query("select b from History h1 join h1.brotherhood b where (select h2.periodRecords.size + h2.legalRecords.size + h2.linkRecords.size + h2.miscellaneousRecords.size + (case when h2.inceptionRecord is not null then 1.0 else 0.0 end) from History h2 where h1 = h2) > 1.0*(select avg(h.periodRecords.size + h.legalRecords.size + h.linkRecords.size + h.miscellaneousRecords.size + 1) from History h)")
+	Collection<Brotherhood> dashboardQueryAcmeParadeC3();
+
+	@Query("select 1.0*count(a1)/(select count(a) from Area a) from Area a1 where a1 not in (select a from Chapter c join c.area a)")
+	String dashboardQueryAcmeParadeB1();
+
+	@Query("select avg(1.0*(select count(p1) from Brotherhood b join b.parades p1 join b.area a where a in (select a from Chapter c1 join c1.area a where c1.id = c2.id ))), min(1*(select count(p1) from Brotherhood b join b.parades p1 join b.area a where a in (select a from Chapter c1 join c1.area a where c1.id = c2.id ))), max(1*(select count(p1) from Brotherhood b join b.parades p1 join b.area a where a in (select a from Chapter c1 join c1.area a where c1.id = c2.id ))), stddev(1.0*(select count(p1) from Brotherhood b join b.parades p1 join b.area a where a in (select a from Chapter c1 join c1.area a where c1.id = c2.id ))) from Chapter c2")
+	String dashboardQueryAcmeParadeB2();
+
+	@Query("select c2 from Chapter c2 where (select count(p1) from Brotherhood b join b.parades p1 join b.area a where a in (select a from Chapter c1 join c1.area a where c1.id = c2.id )) >= 1.1*(select avg(1.0*(select count(p1) from Brotherhood b join b.parades p1 join b.area a where a in (select a from Chapter c1 join c1.area a where c1.id = c2.id ))) from Chapter c2)")
+	Collection<Chapter> dashboardQueryAcmeParadeB3();
+
+	@Query("select sum(case when p.isFinalMode = 0 then 1.0 else 0.0 end)/sum(case when p.isFinalMode = 1 then 1.0 else 0.0 end) from Parade p")
+	String dashboardQueryAcmeParadeB4();
+
+	@Query("select p1.status, 1.0*count(p1)/(select count(p2) from Parade p2 where p2.isFinalMode = 1) from Parade p1 where p1.isFinalMode = 1 group by p1.status")
+	Collection<Object[]> dashboardQueryAcmeParadeB5();
+
+	@Query("select 1.0*count(ss1)/(select count(ss) from Sponsorship ss) from Sponsorship ss1 where ss1.isActivated = 1")
+	String dashboardQueryAcmeParadeA1();
+
+	@Query("select avg(1.0*(select count(ss) from Sponsor s1 join s1.sponsorships ss where ss.sponsor.id = s.id and ss.isActivated = 1)), min(1*(select count(ss) from Sponsor s1 join s1.sponsorships ss where ss.sponsor.id = s.id and ss.isActivated = 1)), max(1*(select count(ss) from Sponsor s1 join s1.sponsorships ss where ss.sponsor.id = s.id and ss.isActivated = 1)), stddev(1.0*(select count(ss) from Sponsor s1 join s1.sponsorships ss where ss.sponsor.id = s.id and ss.isActivated = 1)) from Sponsor s")
+	String dashboardQueryAcmeParadeA2();
+
+	@Query("select s from Sponsor s join s.sponsorships ss where ss.isActivated = 1 group by s order by sum(ss) desc")
+	Collection<Sponsor> dashboardQueryAcmeParadeA3();
 
 }

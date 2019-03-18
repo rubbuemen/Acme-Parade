@@ -173,6 +173,20 @@ public class ActorService {
 		Assert.isTrue(authorities.contains(auth), "The logged actor is not a administrator");
 	}
 
+	public void checkUserLoginChapter(final Actor actor) {
+		final Authority auth = new Authority();
+		auth.setAuthority(Authority.CHAPTER);
+		final Collection<Authority> authorities = actor.getUserAccount().getAuthorities();
+		Assert.isTrue(authorities.contains(auth), "The logged actor is not a chapter");
+	}
+
+	public void checkUserLoginSponsor(final Actor actor) {
+		final Authority auth = new Authority();
+		auth.setAuthority(Authority.SPONSOR);
+		final Collection<Authority> authorities = actor.getUserAccount().getAuthorities();
+		Assert.isTrue(authorities.contains(auth), "The logged actor is not a sposor");
+	}
+
 	// Other business methods
 	public Actor findActorBySocialProfileId(final int socialProfileId) {
 		Assert.isTrue(socialProfileId != 0);

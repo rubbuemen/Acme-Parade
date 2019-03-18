@@ -88,6 +88,15 @@ public class AreaService {
 		return result;
 	}
 
+	// R8.1
+	public Collection<Area> findAreasToSelfAssign() {
+		final Collection<Area> result = this.areaRepository.findAreasBrotherhoodUsed();
+		final Collection<Area> freeAreas = this.areaRepository.findFreeAreas();
+		result.retainAll(freeAreas);
+
+		return result;
+	}
+
 
 	// Reconstruct methods
 	@Autowired

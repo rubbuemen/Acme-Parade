@@ -20,9 +20,4 @@
 		<put-attribute name="body" value="/views/periodRecord/edit.jsp" />
 	</definition>
 
-	<definition name="periodRecord/list" extends="master.page">
-		<put-attribute name="title" value="Lista de registros temporales" />
-		<put-attribute name="body" value="/views/periodRecord/list.jsp" />
-	</definition>
-
 </tiles-definitions>

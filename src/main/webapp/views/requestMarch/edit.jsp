@@ -34,8 +34,6 @@
 		<acme:textbox code="requestMarch.positionColumn" path="positionColumn" placeholder="1" type="number" min="1" />
 		(<spring:message code="requestMarch.suggested" />: ${columnSuggested})
 		<br /><br />
-
-		
 	</jstl:if>
 	
 	<jstl:if test="${decision eq 'REJECTED'}">

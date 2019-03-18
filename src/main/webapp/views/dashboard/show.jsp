@@ -19,8 +19,8 @@
 <%@ taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 
-<details style="cursor:pointer;">
-<summary style="font-size: 26px;"><spring:message code="dashboard.queryC1"/></summary>
+<details>
+<summary style="font-size: 26px; cursor:pointer;"><spring:message code="dashboard.queryC1"/></summary>
 
 <spring:message var="avg" code="dashboard.avg"/>
 <spring:message var="min" code="dashboard.min"/>
@@ -70,8 +70,8 @@ var chartQueryC1 = new Chart(chartQueryC1Id, {
 
 </details><br/>
 
-<details style="cursor:pointer;">
-<summary style="font-size: 26px;"><spring:message code="dashboard.queryC2"/></summary>
+<details>
+<summary style="font-size: 26px; cursor:pointer;"><spring:message code="dashboard.queryC2"/></summary>
 
 <display:table class="displaytag" name="queryC2" id="row">
 	<spring:message code="brotherhood.titleH" var="titleH" />
@@ -89,8 +89,8 @@ var chartQueryC1 = new Chart(chartQueryC1Id, {
 
 </details><br/>
 
-<details style="cursor:pointer;">
-<summary style="font-size: 26px;"><spring:message code="dashboard.queryC3"/></summary>
+<details>
+<summary style="font-size: 26px; cursor:pointer;"><spring:message code="dashboard.queryC3"/></summary>
 
 <display:table class="displaytag" name="queryC3" id="row">
 	<spring:message code="brotherhood.titleH" var="titleH" />
@@ -108,8 +108,8 @@ var chartQueryC1 = new Chart(chartQueryC1Id, {
 
 </details><br/>
 
-<details style="cursor:pointer;">
-<summary style="font-size: 26px;"><spring:message code="dashboard.queryC4"/></summary>
+<details>
+<summary style="font-size: 26px; cursor:pointer;"><spring:message code="dashboard.queryC4"/></summary>
 
 <display:table class="displaytag" name="queryC4" id="row">
 	<spring:message code="brotherhood.titleH" var="titleH" />
@@ -128,8 +128,8 @@ var chartQueryC1 = new Chart(chartQueryC1Id, {
 
 </details><br/>
 
-<details style="cursor:pointer;">
-<summary style="font-size: 26px;"><spring:message code="dashboard.queryC5"/></summary>
+<details>
+<summary style="font-size: 26px; cursor:pointer;"><spring:message code="dashboard.queryC5"/></summary>
 
 <display:table class="displaytag" name="queryC5" id="row">
 	<spring:message code="parade.ticker" var="ticker" />
@@ -157,8 +157,8 @@ var chartQueryC1 = new Chart(chartQueryC1Id, {
 
 </details><br/>
 
-<details style="cursor:pointer;">
-<summary style="font-size: 26px;"><spring:message code="dashboard.queryC6"/></summary>
+<details>
+<summary style="font-size: 26px; cursor:pointer;"><spring:message code="dashboard.queryC6"/></summary>
 
 <display:table class="displaytag" name="queryC6" id="row">
 	<spring:message code="requestMarch.status" var="statusH" />
@@ -173,8 +173,8 @@ var chartQueryC1 = new Chart(chartQueryC1Id, {
 
 </details><br/>
 
-<details style="cursor:pointer;">
-<summary style="font-size: 26px;"><spring:message code="dashboard.queryC7"/></summary>
+<details>
+<summary style="font-size: 26px; cursor:pointer;"><spring:message code="dashboard.queryC7"/></summary>
 
 <display:table class="displaytag" name="queryC7" id="row">
 	<<spring:message code="actor.name" var="name" />
@@ -195,8 +195,8 @@ var chartQueryC1 = new Chart(chartQueryC1Id, {
 
 </details><br/>
 
-<details style="cursor:pointer;">
-<summary style="font-size: 26px;"><spring:message code="dashboard.queryC8"/></summary>
+<details>
+<summary style="font-size: 26px; cursor:pointer;"><spring:message code="dashboard.queryC8"/></summary>
 
 <spring:message code="dashboard.count" var="count" />
 <div class="chartQueryC8" style="width:50%;">
@@ -248,8 +248,8 @@ var chartQueryC8 = new Chart(chartQueryC8Id, {
 </details><br/>
 
 
-<details style="cursor:pointer;">
-<summary style="font-size: 26px;"><spring:message code="dashboard.queryB1"/></summary>
+<details>
+<summary style="font-size: 26px; cursor:pointer;"><spring:message code="dashboard.queryB1"/></summary>
 
 <spring:message var="ratio" code="dashboard.ratio"/>
 <spring:message var="count" code="dashboard.count"/>
@@ -303,8 +303,8 @@ var chartQueryB1 = new Chart(chartQueryB1Id, {
 
 </details><br/>
 
-<details style="cursor:pointer;">
-<summary style="font-size: 26px;"><spring:message code="dashboard.queryB2"/></summary>
+<details>
+<summary style="font-size: 26px; cursor:pointer;"><spring:message code="dashboard.queryB2"/></summary>
 
 <ul>
 <li><b><spring:message code="dashboard.min"/>:</b> <jstl:out value="${minQueryB2 == \"null\" ? 0 : minQueryB2}"></jstl:out></li>
@@ -315,8 +315,8 @@ var chartQueryB1 = new Chart(chartQueryB1Id, {
 
 </details><br/>
 
-<details style="cursor:pointer;">
-<summary style="font-size: 26px;"><spring:message code="dashboard.queryB3"/></summary>
+<details>
+<summary style="font-size: 26px; cursor:pointer;"><spring:message code="dashboard.queryB3"/></summary>
 
 <ul>
 <li><b><spring:message code="dashboard.ratio"/>:</b> <jstl:out value="${ratioQueryB3 == \"null\" ? 0 : ratioQueryB3}"></jstl:out></li>
@@ -324,8 +324,8 @@ var chartQueryB1 = new Chart(chartQueryB1Id, {
 
 </details><br/>
 
-<details style="cursor:pointer;">
-<summary style="font-size: 26px;"><spring:message code="dashboard.queryAPlus1"/></summary>
+<details>
+<summary style="font-size: 26px; cursor:pointer;"><spring:message code="dashboard.queryAPlus1"/></summary>
 
 <spring:message code="dashboard.notSpammer" var="notSpammer" />
 <div class="chartQueryAPlus1" style="width:20%;">
@@ -356,8 +356,8 @@ var chartQueryAPlus1 = new Chart(chartQueryAPlus1Id, {
 
 </details><br/>
 
-<details style="cursor:pointer;">
-<summary style="font-size: 26px;"><spring:message code="dashboard.queryAPlus2"/></summary>
+<details>
+<summary style="font-size: 26px; cursor:pointer;"><spring:message code="dashboard.queryAPlus2"/></summary>
 
 <spring:message code="dashboard.brotherhood" var="brotherhood" />
 <spring:message code="dashboard.member" var="member" />
@@ -388,5 +388,163 @@ var chartQueryAPlus2 = new Chart(chartQueryAPlus2Id, {
     },
 });
 </script>
+
+</details><br/>
+
+<details>
+<summary style="font-size: 26px; cursor:pointer;"><spring:message code="dashboard.queryAcmeParadeC1"/></summary>
+
+<ul>
+<li><b><spring:message code="dashboard.avg"/>:</b> <jstl:out value="${avgQueryAcmeParadeC1 == \"null\" ? 0 : avgQueryAcmeParadeC1}"></jstl:out></li>
+<li><b><spring:message code="dashboard.min"/>:</b> <jstl:out value="${minQueryAcmeParadeC1 == \"null\" ? 0 : minQueryAcmeParadeC1}"></jstl:out></li>
+<li><b><spring:message code="dashboard.max"/>:</b> <jstl:out value="${maxQueryAcmeParadeC1 == \"null\" ? 0 : maxQueryAcmeParadeC1}"></jstl:out></li>
+<li><b><spring:message code="dashboard.stddev"/>:</b> <jstl:out value="${stddevQueryAcmeParadeC1 == \"null\" ? 0 : stddevQueryAcmeParadeC1}"></jstl:out></li>
+</ul>
+
+</details><br/>
+
+<details>
+<summary style="font-size: 26px; cursor:pointer;"><spring:message code="dashboard.queryAcmeParadeC2"/></summary>
+
+<display:table class="displaytag" name="queryAcmeParadeC2" id="row">
+	<spring:message code="brotherhood.titleH" var="titleH" />
+	<display:column property="title" title="${titleH}" />
+	
+	<spring:message code="brotherhood.establishmentDateH" var="establishmentDateH" />
+	<display:column title="${establishmentDateH}">
+			<fmt:formatDate var="format" value="${row.establishmentDate}" pattern="dd/MM/YYYY" />
+			<jstl:out value="${format}" />
+	</display:column>
+	
+	<spring:message code="brotherhood.commentsH" var="commentsH" />
+	<display:column property="comments" title="${commentsH}" />
+</display:table>
+
+</details><br/>
+
+<details>
+<summary style="font-size: 26px; cursor:pointer;"><spring:message code="dashboard.queryAcmeParadeC3"/></summary>
+
+<display:table class="displaytag" name="queryAcmeParadeC3" id="row">
+	<spring:message code="brotherhood.titleH" var="titleH" />
+	<display:column property="title" title="${titleH}" />
+	
+	<spring:message code="brotherhood.establishmentDateH" var="establishmentDateH" />
+	<display:column title="${establishmentDateH}">
+			<fmt:formatDate var="format" value="${row.establishmentDate}" pattern="dd/MM/YYYY" />
+			<jstl:out value="${format}" />
+	</display:column>
+	
+	<spring:message code="brotherhood.commentsH" var="commentsH" />
+	<display:column property="comments" title="${commentsH}" />
+</display:table>
+
+</details><br/>
+
+<details>
+<summary style="font-size: 26px; cursor:pointer;"><spring:message code="dashboard.queryAcmeParadeB1"/></summary>
+
+<ul>
+<li><b><spring:message code="dashboard.ratio"/>:</b> <jstl:out value="${ratioQueryAcmeParadeB1 == \"null\" ? 0 : ratioQueryAcmeParadeB1}"></jstl:out></li>
+</ul>
+
+</details><br/>
+
+<details>
+<summary style="font-size: 26px; cursor:pointer;"><spring:message code="dashboard.queryAcmeParadeB2"/></summary>
+
+<ul>
+<li><b><spring:message code="dashboard.avg"/>:</b> <jstl:out value="${avgQueryAcmeParadeB2 == \"null\" ? 0 : avgQueryAcmeParadeB2}"></jstl:out></li>
+<li><b><spring:message code="dashboard.min"/>:</b> <jstl:out value="${minQueryAcmeParadeB2 == \"null\" ? 0 : minQueryAcmeParadeB2}"></jstl:out></li>
+<li><b><spring:message code="dashboard.max"/>:</b> <jstl:out value="${maxQueryAcmeParadeB2 == \"null\" ? 0 : maxQueryAcmeParadeB2}"></jstl:out></li>
+<li><b><spring:message code="dashboard.stddev"/>:</b> <jstl:out value="${stddevQueryAcmeParadeB2 == \"null\" ? 0 : stddevQueryAcmeParadeB2}"></jstl:out></li>
+</ul>
+
+</details><br/>
+
+<details>
+<summary style="font-size: 26px; cursor:pointer;"><spring:message code="dashboard.queryAcmeParadeB3"/></summary>
+
+<display:table class="displaytag" name="queryAcmeParadeB3" id="row">
+	<spring:message code="chapter.title" var="titleH" />
+	<display:column property="title" title="${titleH}" />
+	
+	<spring:message code="actor.name" var="nameH" />
+	<display:column property="name" title="${nameH}" />
+	
+	<spring:message code="actor.surname" var="surnameH" />
+	<display:column property="surname" title="${surnameH}" />
+	
+	<spring:message code="actor.email" var="emailH" />
+	<display:column property="email" title="${emailH}" />
+	
+	<spring:message code="actor.username" var="usernameH" />
+	<display:column property="userAccount.username" title="${usernameH}" />
+</display:table>
+
+</details><br/>
+
+<details>
+<summary style="font-size: 26px; cursor:pointer;"><spring:message code="dashboard.queryAcmeParadeB4"/></summary>
+
+<ul>
+<li><b><spring:message code="dashboard.ratio"/>:</b> <jstl:out value="${ratioQueryAcmeParadeB4 == \"null\" ? 0 : ratioQueryAcmeParadeB4}"></jstl:out></li>
+</ul>
+
+</details><br/>
+
+<details>
+<summary style="font-size: 26px; cursor:pointer;"><spring:message code="dashboard.queryAcmeParadeB5"/></summary>
+
+<display:table class="displaytag" name="queryAcmeParadeB5" id="row">
+	<spring:message code="parade.status" var="statusH" />
+	<display:column title="${statusH}">
+		<jstl:out value="${row[0]}" />
+	</display:column>
+	<spring:message code="dashboard.ratio" var="ratio" />
+	<display:column title="${ratio}">
+		<jstl:out value="${row[1]}" />
+	</display:column>
+</display:table>
+
+</details><br/>
+
+<details>
+<summary style="font-size: 26px; cursor:pointer;"><spring:message code="dashboard.queryAcmeParadeA1"/></summary>
+
+<ul>
+<li><b><spring:message code="dashboard.ratio"/>:</b> <jstl:out value="${ratioQueryAcmeParadeA1 == \"null\" ? 0 : ratioQueryAcmeParadeA1}"></jstl:out></li>
+</ul>
+
+</details><br/>
+
+<details>
+<summary style="font-size: 26px; cursor:pointer;"><spring:message code="dashboard.queryAcmeParadeA2"/></summary>
+
+<ul>
+<li><b><spring:message code="dashboard.avg"/>:</b> <jstl:out value="${avgQueryAcmeParadeA2 == \"null\" ? 0 : avgQueryAcmeParadeA2}"></jstl:out></li>
+<li><b><spring:message code="dashboard.min"/>:</b> <jstl:out value="${minQueryAcmeParadeA2 == \"null\" ? 0 : minQueryAcmeParadeA2}"></jstl:out></li>
+<li><b><spring:message code="dashboard.max"/>:</b> <jstl:out value="${maxQueryAcmeParadeA2 == \"null\" ? 0 : maxQueryAcmeParadeA2}"></jstl:out></li>
+<li><b><spring:message code="dashboard.stddev"/>:</b> <jstl:out value="${stddevQueryAcmeParadeA2 == \"null\" ? 0 : stddevQueryAcmeParadeA2}"></jstl:out></li>
+</ul>
+
+</details><br/>
+
+<details>
+<summary style="font-size: 26px; cursor:pointer;"><spring:message code="dashboard.queryAcmeParadeA3"/></summary>
+
+<display:table class="displaytag" name="queryAcmeParadeA3" id="row">
+	<spring:message code="actor.name" var="nameH" />
+	<display:column property="name" title="${nameH}" />
+	
+	<spring:message code="actor.surname" var="surnameH" />
+	<display:column property="surname" title="${surnameH}" />
+	
+	<spring:message code="actor.email" var="emailH" />
+	<display:column property="email" title="${emailH}" />
+	
+	<spring:message code="actor.username" var="usernameH" />
+	<display:column property="userAccount.username" title="${usernameH}" />
+</display:table>
 
 </details><br/>

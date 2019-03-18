@@ -20,9 +20,4 @@
 		<put-attribute name="body" value="/views/inceptionRecord/edit.jsp" />
 	</definition>
 
-	<definition name="inceptionRecord/list" extends="master.page">
-		<put-attribute name="title" value="Lista de registros iniciales" />
-		<put-attribute name="body" value="/views/inceptionRecord/list.jsp" />
-	</definition>
-
 </tiles-definitions>

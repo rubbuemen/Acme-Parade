@@ -252,6 +252,66 @@
 			</list>
 		</property>
 	</bean>
+	<bean id="userAccount21" class="security.UserAccount">
+		<property name="username" value="brotherhood4" />
+		<property name="password" value="ddeb3302b54a2e0dbc83f2bd3c866124" />
+		<property name="statusAccount" value="true" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="BROTHERHOOD" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<bean id="userAccount22" class="security.UserAccount">
+		<property name="username" value="brotherhood5" />
+		<property name="password" value="07f9d88d27b71fbcbe0edffa7b731dd6" />
+		<property name="statusAccount" value="true" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="BROTHERHOOD" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<bean id="userAccount23" class="security.UserAccount">
+		<property name="username" value="brotherhood6" />
+		<property name="password" value="20af5459cbe0bd421c442805e0b8b4c1" />
+		<property name="statusAccount" value="true" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="BROTHERHOOD" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<bean id="userAccount24" class="security.UserAccount">
+		<property name="username" value="brotherhood7" />
+		<property name="password" value="ce9a8de526a16b7a8fed3a18a308ed04" />
+		<property name="statusAccount" value="true" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="BROTHERHOOD" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<bean id="userAccount25" class="security.UserAccount">
+		<property name="username" value="brotherhood8" />
+		<property name="password" value="c92210f17cded1e676c7298eee3fa0ea" />
+		<property name="statusAccount" value="true" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="BROTHERHOOD" />
+				</bean>
+			</list>
+		</property>
+	</bean>
 
 	<!-- Administrator -->
 	<bean id="administrator1" class="domain.Administrator">
@@ -328,6 +388,32 @@
 			<list>
 				<value>http://oi65.tinypic.com/e9spvk.jpg</value>
 				<value>http://oi67.tinypic.com/any8i.jpg</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="area5" class="domain.Area">
+		<property name="name" value="Casco Antiguo" />
+		<property name="pictures">
+			<list>
+				<value>http://oi63.tinypic.com/rs93wh.jpg</value>
+				<value>http://oi66.tinypic.com/95to1t.jpg</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="area6" class="domain.Area">
+		<property name="name" value="Distrito Nervión" />
+		<property name="pictures">
+			<list>
+				<value>http://oi65.tinypic.com/ae1jxu.jpg</value>
+				<value>http://oi63.tinypic.com/2u410kk.jpg</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="area7" class="domain.Area">
+		<property name="name" value="Santa Justa" />
+		<property name="pictures">
+			<list>
+				<value>http://oi66.tinypic.com/1252f82.jpg</value>
 			</list>
 		</property>
 	</bean>
@@ -821,6 +907,106 @@
 		<property name="name" value="Notification box" />
 		<property name="isSystemBox" value="true" />
 	</bean>
+	<bean id="box105" class="domain.Box">
+		<property name="name" value="In box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box106" class="domain.Box">
+		<property name="name" value="Out box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box107" class="domain.Box">
+		<property name="name" value="Trash box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box108" class="domain.Box">
+		<property name="name" value="Spam box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box109" class="domain.Box">
+		<property name="name" value="Notification box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box110" class="domain.Box">
+		<property name="name" value="In box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box111" class="domain.Box">
+		<property name="name" value="Out box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box112" class="domain.Box">
+		<property name="name" value="Trash box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box113" class="domain.Box">
+		<property name="name" value="Spam box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box114" class="domain.Box">
+		<property name="name" value="Notification box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box115" class="domain.Box">
+		<property name="name" value="In box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box116" class="domain.Box">
+		<property name="name" value="Out box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box117" class="domain.Box">
+		<property name="name" value="Trash box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box118" class="domain.Box">
+		<property name="name" value="Spam box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box119" class="domain.Box">
+		<property name="name" value="Notification box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box120" class="domain.Box">
+		<property name="name" value="In box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box121" class="domain.Box">
+		<property name="name" value="Out box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box122" class="domain.Box">
+		<property name="name" value="Trash box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box123" class="domain.Box">
+		<property name="name" value="Spam box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box124" class="domain.Box">
+		<property name="name" value="Notification box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box125" class="domain.Box">
+		<property name="name" value="In box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box126" class="domain.Box">
+		<property name="name" value="Out box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box127" class="domain.Box">
+		<property name="name" value="Trash box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box128" class="domain.Box">
+		<property name="name" value="Spam box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box129" class="domain.Box">
+		<property name="name" value="Notification box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
 
 
 	<!-- Brotherhood -->
@@ -946,6 +1132,115 @@
 		</property>
 		<property name="area" ref="area2" />
 	</bean>
+	<bean id="brotherhood4" class="domain.Brotherhood">
+		<property name="name" value="Alberto" />
+		<property name="surname" value="Rodriguez Calvo" />
+		<property name="photo" value="http://oi64.tinypic.com/2daccc3.jpg" />
+		<property name="email" value="albertorodriguez@acmemadruga.com" />
+		<property name="phoneNumber" value="690359203" />
+		<property name="address" value="41005 Sevilla" />
+		<property name="title" value="San Vicente" />
+		<property name="establishmentDate" value="2018/02/15" />
+		<property name="comments" value="This is a test comment." />
+		<property name="userAccount" ref="userAccount21" />
+		<property name="boxes">
+			<list>
+				<ref bean="box105" />
+				<ref bean="box106" />
+				<ref bean="box107" />
+				<ref bean="box108" />
+				<ref bean="box109" />
+			</list>
+		</property>
+		<property name="area" ref="area3" />
+	</bean>
+	<bean id="brotherhood5" class="domain.Brotherhood">
+		<property name="name" value="Antonio" />
+		<property name="surname" value="Garrido Gallardo" />
+		<property name="photo" value="http://oi64.tinypic.com/2daccc3.jpg" />
+		<property name="email" value="antoniogarrido@acmemadruga.com" />
+		<property name="phoneNumber" value="603958205" />
+		<property name="address" value="41005 Sevilla" />
+		<property name="title" value="Los carritos" />
+		<property name="establishmentDate" value="2015/06/30" />
+		<property name="comments" value="This is a test comment." />
+		<property name="userAccount" ref="userAccount22" />
+		<property name="boxes">
+			<list>
+				<ref bean="box110" />
+				<ref bean="box111" />
+				<ref bean="box112" />
+				<ref bean="box113" />
+				<ref bean="box114" />
+			</list>
+		</property>
+		<property name="area" ref="area4" />
+	</bean>
+	<bean id="brotherhood6" class="domain.Brotherhood">
+		<property name="name" value="Rafael" />
+		<property name="surname" value="Gutierrez Ramirez" />
+		<property name="photo" value="http://oi64.tinypic.com/2daccc3.jpg" />
+		<property name="email" value="gutierrezramirez@acmemadruga.com" />
+		<property name="phoneNumber" value="603927620" />
+		<property name="address" value="41005 Sevilla" />
+		<property name="title" value="Los grandes" />
+		<property name="establishmentDate" value="2012/07/10" />
+		<property name="comments" value="This is a test comment." />
+		<property name="userAccount" ref="userAccount23" />
+		<property name="boxes">
+			<list>
+				<ref bean="box115" />
+				<ref bean="box116" />
+				<ref bean="box117" />
+				<ref bean="box118" />
+				<ref bean="box119" />
+			</list>
+		</property>
+		<property name="area" ref="area5" />
+	</bean>
+	<bean id="brotherhood7" class="domain.Brotherhood">
+		<property name="name" value="Arturo" />
+		<property name="surname" value="Caballero Marquez" />
+		<property name="photo" value="http://oi64.tinypic.com/2daccc3.jpg" />
+		<property name="email" value="arturocabellero@acmemadruga.com" />
+		<property name="phoneNumber" value="699309203" />
+		<property name="address" value="41005 Sevilla" />
+		<property name="title" value="Los gigantes" />
+		<property name="establishmentDate" value="2017/01/23" />
+		<property name="comments" value="This is a test comment." />
+		<property name="userAccount" ref="userAccount24" />
+		<property name="boxes">
+			<list>
+				<ref bean="box120" />
+				<ref bean="box121" />
+				<ref bean="box122" />
+				<ref bean="box123" />
+				<ref bean="box124" />
+			</list>
+		</property>
+		<property name="area" ref="area6" />
+	</bean>
+	<bean id="brotherhood8" class="domain.Brotherhood">
+		<property name="name" value="Jaime" />
+		<property name="surname" value="Castillo Diaz" />
+		<property name="photo" value="http://oi64.tinypic.com/2daccc3.jpg" />
+		<property name="email" value="jaimecastillo@acmemadruga.com" />
+		<property name="phoneNumber" value="610257930" />
+		<property name="address" value="41005 Sevilla" />
+		<property name="title" value="Los pasajeros" />
+		<property name="establishmentDate" value="2015/11/22" />
+		<property name="comments" value="This is a test comment." />
+		<property name="userAccount" ref="userAccount25" />
+		<property name="boxes">
+			<list>
+				<ref bean="box125" />
+				<ref bean="box126" />
+				<ref bean="box127" />
+				<ref bean="box128" />
+				<ref bean="box129" />
+			</list>
+		</property>
+	</bean>
 
 	<!-- Chapter -->
 	<bean id="chapter1" class="domain.Chapter">
@@ -1022,6 +1317,7 @@
 				<ref bean="box74" />
 			</list>
 		</property>
+		<property name="area" ref="area4" />
 	</bean>
 	<bean id="chapter5" class="domain.Chapter">
 		<property name="name" value="Manuel" />
@@ -1236,6 +1532,60 @@
 			</list>
 		</property>
 	</bean>
+	<bean id="history3" class="domain.History">
+		<property name="brotherhood" ref="brotherhood3" />
+		<property name="inceptionRecord" ref="inceptionRecord3" />
+		<property name="periodRecords">
+			<list>
+				<ref bean="periodRecord4" />
+				<ref bean="periodRecord5" />
+			</list>
+		</property>
+	</bean>
+	<bean id="history4" class="domain.History">
+		<property name="brotherhood" ref="brotherhood4" />
+		<property name="inceptionRecord" ref="inceptionRecord4" />
+		<property name="periodRecords">
+			<list>
+				<ref bean="periodRecord6" />
+			</list>
+		</property>
+		<property name="legalRecords">
+			<list>
+				<ref bean="legalRecord3" />
+				<ref bean="legalRecord4" />
+			</list>
+		</property>
+	</bean>
+	<bean id="history5" class="domain.History">
+		<property name="brotherhood" ref="brotherhood5" />
+		<property name="inceptionRecord" ref="inceptionRecord5" />
+		<property name="periodRecords">
+			<list>
+				<ref bean="periodRecord7" />
+			</list>
+		</property>
+		<property name="miscellaneousRecords">
+			<list>
+				<ref bean="miscellaneousRecord6" />
+				<ref bean="miscellaneousRecord7" />
+				<ref bean="miscellaneousRecord8" />
+			</list>
+		</property>
+	</bean>
+	<bean id="history6" class="domain.History">
+		<property name="brotherhood" ref="brotherhood6" />
+		<property name="inceptionRecord" ref="inceptionRecord6" />
+		<property name="miscellaneousRecords">
+			<list>
+				<ref bean="miscellaneousRecord9" />
+			</list>
+		</property>
+	</bean>
+	<bean id="history7" class="domain.History">
+		<property name="brotherhood" ref="brotherhood7" />
+		<property name="inceptionRecord" ref="inceptionRecord7" />
+	</bean>
 
 	<!-- InceptionRecord -->
 	<bean id="inceptionRecord1" class="domain.InceptionRecord">
@@ -1250,6 +1600,51 @@
 		</property>
 	</bean>
 	<bean id="inceptionRecord2" class="domain.InceptionRecord">
+		<property name="title" value="My Inception Record" />
+		<property name="description" value="This is my inception record" />
+		<property name="photos">
+			<list>
+				<value>http://oi63.tinypic.com/126fko7.jpg</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="inceptionRecord3" class="domain.InceptionRecord">
+		<property name="title" value="My Inception Record" />
+		<property name="description" value="This is my inception record" />
+		<property name="photos">
+			<list>
+				<value>http://oi63.tinypic.com/126fko7.jpg</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="inceptionRecord4" class="domain.InceptionRecord">
+		<property name="title" value="My Inception Record" />
+		<property name="description" value="This is my inception record" />
+		<property name="photos">
+			<list>
+				<value>http://oi63.tinypic.com/126fko7.jpg</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="inceptionRecord5" class="domain.InceptionRecord">
+		<property name="title" value="My Inception Record" />
+		<property name="description" value="This is my inception record" />
+		<property name="photos">
+			<list>
+				<value>http://oi63.tinypic.com/126fko7.jpg</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="inceptionRecord6" class="domain.InceptionRecord">
+		<property name="title" value="My Inception Record" />
+		<property name="description" value="This is my inception record" />
+		<property name="photos">
+			<list>
+				<value>http://oi63.tinypic.com/126fko7.jpg</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="inceptionRecord7" class="domain.InceptionRecord">
 		<property name="title" value="My Inception Record" />
 		<property name="description" value="This is my inception record" />
 		<property name="photos">
@@ -1294,6 +1689,50 @@
 			</list>
 		</property>
 	</bean>
+	<bean id="periodRecord4" class="domain.PeriodRecord">
+		<property name="title" value="Period 1" />
+		<property name="description" value="Description of period 1" />
+		<property name="startYear" value="2015" />
+		<property name="endYear" value="2018" />
+		<property name="photos">
+			<list>
+				<value>http://oi63.tinypic.com/126fko7.jpg</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="periodRecord5" class="domain.PeriodRecord">
+		<property name="title" value="Period 1" />
+		<property name="description" value="Description of period 1" />
+		<property name="startYear" value="2015" />
+		<property name="endYear" value="2018" />
+		<property name="photos">
+			<list>
+				<value>http://oi63.tinypic.com/126fko7.jpg</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="periodRecord6" class="domain.PeriodRecord">
+		<property name="title" value="Period 1" />
+		<property name="description" value="Description of period 1" />
+		<property name="startYear" value="2015" />
+		<property name="endYear" value="2018" />
+		<property name="photos">
+			<list>
+				<value>http://oi63.tinypic.com/126fko7.jpg</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="periodRecord7" class="domain.PeriodRecord">
+		<property name="title" value="Period 1" />
+		<property name="description" value="Description of period 1" />
+		<property name="startYear" value="2015" />
+		<property name="endYear" value="2018" />
+		<property name="photos">
+			<list>
+				<value>http://oi63.tinypic.com/126fko7.jpg</value>
+			</list>
+		</property>
+	</bean>
 
 	<!-- LegalRecord -->
 	<bean id="legalRecord1" class="domain.LegalRecord">
@@ -1316,6 +1755,30 @@
 		<property name="applicableLaws">
 			<list>
 				<value>Text example law</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="legalRecord3" class="domain.LegalRecord">
+		<property name="title" value="Legal Record 1" />
+		<property name="description" value="Description of legal record 1" />
+		<property name="legalName" value="Martín Reyes A." />
+		<property name="VATNumber" value="OS936" />
+		<property name="applicableLaws">
+			<list>
+				<value>Text example law 1</value>
+				<value>Text example law 2</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="legalRecord4" class="domain.LegalRecord">
+		<property name="title" value="Legal Record 1" />
+		<property name="description" value="Description of legal record 1" />
+		<property name="legalName" value="Hugo Dominguez L." />
+		<property name="VATNumber" value="JX482" />
+		<property name="applicableLaws">
+			<list>
+				<value>Text example law 1</value>
+				<value>Text example law 2</value>
 			</list>
 		</property>
 	</bean>
@@ -1352,6 +1815,22 @@
 	<bean id="miscellaneousRecord5" class="domain.MiscellaneousRecord">
 		<property name="title" value="Miscellaneous Record 2" />
 		<property name="description" value="Description of miscellaneous record 2" />
+	</bean>
+	<bean id="miscellaneousRecord6" class="domain.MiscellaneousRecord">
+		<property name="title" value="Miscellaneous Record" />
+		<property name="description" value="Description of miscellaneous record" />
+	</bean>
+	<bean id="miscellaneousRecord7" class="domain.MiscellaneousRecord">
+		<property name="title" value="Miscellaneous Record" />
+		<property name="description" value="Description of miscellaneous record" />
+	</bean>
+	<bean id="miscellaneousRecord8" class="domain.MiscellaneousRecord">
+		<property name="title" value="Miscellaneous Record" />
+		<property name="description" value="Description of miscellaneous record" />
+	</bean>
+	<bean id="miscellaneousRecord9" class="domain.MiscellaneousRecord">
+		<property name="title" value="Miscellaneous Record" />
+		<property name="description" value="Description of miscellaneous record" />
 	</bean>
 
 	<!-- Member -->
@@ -1653,7 +2132,7 @@
 		<property name="isFinalMode" value="true" />
 		<property name="maxRows" value="500" />
 		<property name="maxColumns" value="2" />
-		<property name="status" value="SUBMITTED" />
+		<property name="status" value="ACCEPTED" />
 		<property name="floats">
 			<list>
 				<ref bean="float1" />
@@ -1689,7 +2168,7 @@
 		<property name="isFinalMode" value="true" />
 		<property name="maxRows" value="450" />
 		<property name="maxColumns" value="2" />
-		<property name="status" value="SUBMITTED" />
+		<property name="status" value="ACCEPTED" />
 		<property name="floats">
 			<list>
 				<ref bean="float1" />
@@ -1705,9 +2184,9 @@
 		</property>
 		<property name="segments">
 			<list>
-				<ref bean="segment1" />
-				<ref bean="segment2" />
-				<ref bean="segment3" />
+				<ref bean="segment4" />
+				<ref bean="segment5" />
+				<ref bean="segment6" />
 			</list>
 		</property>
 	</bean>
@@ -1719,7 +2198,7 @@
 		<property name="isFinalMode" value="true" />
 		<property name="maxRows" value="300" />
 		<property name="maxColumns" value="2" />
-		<property name="status" value="SUBMITTED" />
+		<property name="status" value="ACCEPTED" />
 		<property name="floats">
 			<list>
 				<ref bean="float3" />
@@ -1765,6 +2244,7 @@
 			<list>
 				<ref bean="sponsorship1" />
 				<ref bean="sponsorship3" />
+				<ref bean="sponsorship4" />
 			</list>
 		</property>
 	</bean>
@@ -1860,6 +2340,48 @@
 		<property name="timeReachDestination">
 			<bean factory-method="valueOf" class="java.sql.Time">
 				<constructor-arg value="20:00:00" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="segment4" class="domain.Segment">
+		<property name="origin" ref="gpscoordinates1" />
+		<property name="destination" ref="gpscoordinates2" />
+		<property name="timeReachOrigin">
+			<bean factory-method="valueOf" class="java.sql.Time">
+				<constructor-arg value="13:00:00" />
+			</bean>
+		</property>
+		<property name="timeReachDestination">
+			<bean factory-method="valueOf" class="java.sql.Time">
+				<constructor-arg value="16:30:00" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="segment5" class="domain.Segment">
+		<property name="origin" ref="gpscoordinates2" />
+		<property name="destination" ref="gpscoordinates3" />
+		<property name="timeReachOrigin">
+			<bean factory-method="valueOf" class="java.sql.Time">
+				<constructor-arg value="16:30:00" />
+			</bean>
+		</property>
+		<property name="timeReachDestination">
+			<bean factory-method="valueOf" class="java.sql.Time">
+				<constructor-arg value="18:10:00" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="segment6" class="domain.Segment">
+		<property name="origin" ref="gpscoordinates3" />
+		<property name="destination" ref="gpscoordinates4" />
+		<property name="timeReachOrigin">
+			<bean factory-method="valueOf" class="java.sql.Time">
+				<constructor-arg value="18:10:00" />
+			</bean>
+		</property>
+		<property name="timeReachDestination">
+			<bean factory-method="valueOf" class="java.sql.Time">
+				<constructor-arg value="23:00:00" />
 			</bean>
 		</property>
 	</bean>
@@ -2018,6 +2540,7 @@ We stand for all the other qualities proposed by Jesus in the Gospel: forgivenes
 			<list>
 				<ref bean="sponsorship1" />
 				<ref bean="sponsorship2" />
+				<ref bean="sponsorship4" />
 			</list>
 		</property>
 	</bean>
@@ -2120,6 +2643,15 @@ We stand for all the other qualities proposed by Jesus in the Gospel: forgivenes
 		<property name="parade" ref="parade5" />
 		<property name="creditCard" ref="creditCard3" />
 	</bean>
+	<bean id="sponsorship4" class="domain.Sponsorship">
+		<property name="banner" value="http://oi63.tinypic.com/33xkarl.jpg" />
+		<property name="targetURL"
+			value="https://www.firestonecompleteautocare.com/repair/brakes/service/" />
+		<property name="isActivated" value="false" />
+		<property name="sponsor" ref="sponsor1" />
+		<property name="parade" ref="parade5" />
+		<property name="creditCard" ref="creditCard4" />
+	</bean>
 
 	<!-- CreditCard -->
 	<bean id="creditCard1" class="domain.CreditCard">
@@ -2145,6 +2677,14 @@ We stand for all the other qualities proposed by Jesus in the Gospel: forgivenes
 		<property name="expirationMonth" value="12" />
 		<property name="expirationYear" value="23" />
 		<property name="ccv" value="724" />
+	</bean>
+	<bean id="creditCard4" class="domain.CreditCard">
+		<property name="holder" value="Antonio Gamez Pro" />
+		<property name="make" value="FLY" />
+		<property name="number" value="4485314248483647" />
+		<property name="expirationMonth" value="5" />
+		<property name="expirationYear" value="17" />
+		<property name="ccv" value="236" />
 	</bean>
 
 	<!-- SystemConfiguration -->

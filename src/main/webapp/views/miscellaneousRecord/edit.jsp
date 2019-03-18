@@ -22,8 +22,11 @@
 
 	<form:hidden path="id" />
 	<form:hidden path="version" />
+	
+	<acme:textbox code="miscellaneousRecord.title" path="title" placeholder="Lorem Ipsum"/>
+	<br />
 
-	<acme:textbox code="" path="" placeholder=""/>
+	<acme:textbox code="miscellaneousRecord.description" path="description" placeholder="Lorem Ipsum"/>
 	<br />
 
 	<jstl:choose>
@@ -34,6 +37,6 @@
 			<acme:submit name="save" code="button.save" />
 		</jstl:otherwise>
 	</jstl:choose>
-	<acme:cancel url="miscellaneousRecord/list.do" code="button.cancel" />
+	<acme:cancel url="history/brotherhood/list.do" code="button.cancel" />
 
 </form:form>

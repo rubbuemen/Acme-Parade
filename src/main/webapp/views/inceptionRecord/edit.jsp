@@ -23,7 +23,13 @@
 	<form:hidden path="id" />
 	<form:hidden path="version" />
 
-	<acme:textbox code="" path="" placeholder=""/>
+	<acme:textbox code="inceptionRecord.title" path="title" placeholder="Lorem Ipsum"/>
+	<br />
+
+	<acme:textbox code="inceptionRecord.description" path="description" placeholder="Lorem Ipsum"/>
+	<br />
+	
+	<acme:textarea code="inceptionRecord.photos" path="photos" placeholder="http://Loremipsum.com, http://Loremipsum.com, ..." />
 	<br />
 
 	<jstl:choose>
@@ -34,6 +40,6 @@
 			<acme:submit name="save" code="button.save" />
 		</jstl:otherwise>
 	</jstl:choose>
-	<acme:cancel url="inceptionRecord/list.do" code="button.cancel" />
+	<acme:cancel url="history/brotherhood/list.do" code="button.cancel" />
 
 </form:form>

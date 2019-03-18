@@ -29,7 +29,7 @@ import domain.Parade;
 public class MemberParadeController extends AbstractController {
 
 	@Autowired
-	ParadeService	paradeService;
+	ParadeService		paradeService;
 
 	@Autowired
 	BrotherhoodService	brotherhoodService;
@@ -42,7 +42,7 @@ public class MemberParadeController extends AbstractController {
 		Collection<Parade> parades = null;
 
 		try {
-			parades = this.paradeService.findParadesFinalModeByBrotherhoodId(brotherhoodId);
+			parades = this.paradeService.findParadesAcceptedByBrotherhoodId(brotherhoodId);
 			result = this.createEditModelAndView(parades);
 
 		} catch (final Throwable oops) {

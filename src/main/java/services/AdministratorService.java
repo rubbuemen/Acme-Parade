@@ -1,8 +1,10 @@
 
 package services;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,8 +20,10 @@ import domain.Actor;
 import domain.Administrator;
 import domain.Box;
 import domain.Brotherhood;
+import domain.Chapter;
 import domain.Member;
 import domain.Parade;
+import domain.Sponsor;
 import forms.AdministratorForm;
 
 @Service
@@ -104,6 +108,7 @@ public class AdministratorService {
 		this.administratorRepository.delete(administrator);
 	}
 
+	// Other business methods
 	//Queries Dashboard
 	public String dashboardQueryC1() {
 		String result;
@@ -209,8 +214,99 @@ public class AdministratorService {
 		return result;
 	}
 
+	public String dashboardQueryAcmeParadeC1() {
+		String result;
 
-	// Other business methods
+		result = this.administratorRepository.dashboardQueryAcmeParadeC1();
+
+		return result;
+	}
+
+	public Brotherhood dashboardQueryAcmeParadeC2() {
+		Brotherhood result;
+
+		result = this.administratorRepository.dashboardQueryAcmeParadeC2().iterator().next();
+
+		return result;
+	}
+
+	public Collection<Brotherhood> dashboardQueryAcmeParadeC3() {
+		Collection<Brotherhood> result;
+
+		result = this.administratorRepository.dashboardQueryAcmeParadeC3();
+
+		return result;
+	}
+
+	public String dashboardQueryAcmeParadeB1() {
+		String result;
+
+		result = this.administratorRepository.dashboardQueryAcmeParadeB1();
+
+		return result;
+	}
+
+	public String dashboardQueryAcmeParadeB2() {
+		String result;
+
+		result = this.administratorRepository.dashboardQueryAcmeParadeB2();
+
+		return result;
+	}
+
+	public Collection<Chapter> dashboardQueryAcmeParadeB3() {
+		Collection<Chapter> result;
+
+		result = this.administratorRepository.dashboardQueryAcmeParadeB3();
+
+		return result;
+	}
+
+	public String dashboardQueryAcmeParadeB4() {
+		String result;
+
+		result = this.administratorRepository.dashboardQueryAcmeParadeB4();
+
+		return result;
+	}
+
+	public Collection<Object[]> dashboardQueryAcmeParadeB5() {
+		Collection<Object[]> result;
+
+		result = this.administratorRepository.dashboardQueryAcmeParadeB5();
+
+		return result;
+	}
+
+	public String dashboardQueryAcmeParadeA1() {
+		String result;
+
+		result = this.administratorRepository.dashboardQueryAcmeParadeA1();
+
+		return result;
+	}
+
+	public String dashboardQueryAcmeParadeA2() {
+		String result;
+
+		result = this.administratorRepository.dashboardQueryAcmeParadeA2();
+
+		return result;
+	}
+
+	public Collection<Sponsor> dashboardQueryAcmeParadeA3() {
+		Collection<Sponsor> result;
+
+		result = this.administratorRepository.dashboardQueryAcmeParadeA3();
+
+		final List<Sponsor> resultList = new ArrayList<>(result);
+
+		if (resultList.size() > 3)
+			result = resultList.subList(0, 3);
+
+		return result;
+	}
+
 
 	// Reconstruct methods
 	@Autowired

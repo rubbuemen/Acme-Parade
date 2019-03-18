@@ -22,8 +22,20 @@
 
 	<form:hidden path="id" />
 	<form:hidden path="version" />
+	
+	<acme:textbox code="legalRecord.title" path="title" placeholder="Lorem Ipsum"/>
+	<br />
 
-	<acme:textbox code="" path="" placeholder=""/>
+	<acme:textbox code="legalRecord.description" path="description" placeholder="Lorem Ipsum"/>
+	<br />
+	
+	<acme:textbox code="legalRecord.legalName" path="legalName" placeholder="Lorem Ipsum"/>
+	<br />
+	
+	<acme:textbox code="legalRecord.VATNumber" path="VATNumber" placeholder="Lorem Ipsum"/>
+	<br />
+	
+	<acme:textarea code="legalRecord.applicableLaws" path="applicableLaws" placeholder="Lorem ipsum, Lorem ipsum, Lorem ipsum, Lorem ipsum, ..." />
 	<br />
 
 	<jstl:choose>
@@ -34,6 +46,6 @@
 			<acme:submit name="save" code="button.save" />
 		</jstl:otherwise>
 	</jstl:choose>
-	<acme:cancel url="legalRecord/list.do" code="button.cancel" />
+	<acme:cancel url="history/brotherhood/list.do" code="button.cancel" />
 
 </form:form>

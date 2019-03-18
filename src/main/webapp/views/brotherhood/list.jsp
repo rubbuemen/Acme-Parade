@@ -38,13 +38,20 @@
 	
 	<spring:message code="brotherhood.paradesH" var="paradesH" />
 	<display:column title="${paradesH}">
-			<acme:button url="parade/member/list.do?brotherhoodId=${row.id}" code="button.show" />
+			<security:authorize access="hasRole('MEMBER')">
+				<acme:button url="parade/member/list.do?brotherhoodId=${row.id}" code="button.show" />
+			</security:authorize>
+			<security:authorize access="hasRole('CHAPTER')">
+				<acme:button url="parade/chapter/list.do?brotherhoodId=${row.id}" code="button.show" />
+			</security:authorize>
 	</display:column>
 	
+	<security:authorize access="hasRole('MEMBER')">
 	<spring:message code="member.remove" var="removeH" />
 	<display:column title="${removeH}">
 		<acme:button url="brotherhood/member/remove.do?brotherhoodId=${row.id}" code="button.remove" />
 	</display:column>
+	</security:authorize>
 </display:table>
 
 <security:authorize access="hasRole('MEMBER')">

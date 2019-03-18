@@ -79,6 +79,7 @@ public class BrotherhoodRequestMarchController extends AbstractController {
 
 		return result;
 	}
+
 	@RequestMapping(value = "/edit", method = RequestMethod.POST, params = "save")
 	public ModelAndView createOrEdit(RequestMarch requestMarch, final BindingResult binding) {
 		ModelAndView result;
@@ -114,6 +115,7 @@ public class BrotherhoodRequestMarchController extends AbstractController {
 
 		return result;
 	}
+
 	// Ancillary methods
 	protected ModelAndView createEditModelAndView(final RequestMarch requestMarch, final String decision) {
 		ModelAndView result;

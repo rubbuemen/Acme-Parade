@@ -20,6 +20,13 @@
 <%@ taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 
+
+<jstl:choose>
+<jstl:when test="${authority == 'CHAPTER' and empty areas}">
+		<spring:message code="area.noAreaToAssign" />
+</jstl:when>
+
+<jstl:otherwise>
 <display:table pagesize="5" class="displaytag" name="areas" requestURI="${requestURI}" id="row">
 
 	<spring:message code="area.name" var="name" />
@@ -36,6 +43,13 @@
 		<spring:message code="area.select" var="selectH" />
 		<display:column title="${selectH}">
 			<acme:button url="area/brotherhood/edit.do?areaId=${row.id}" code="button.select" />
+		</display:column>
+	</security:authorize>
+	
+	<security:authorize access="hasRole('CHAPTER')">
+		<spring:message code="area.selfAssign" var="selfAssignH" />
+		<display:column title="${selfAssignH}">
+			<acme:button url="area/chapter/edit.do?areaId=${row.id}" code="button.assign" />
 		</display:column>
 	</security:authorize>
 	
@@ -56,6 +70,8 @@
 	</security:authorize>
 			
 </display:table>
+</jstl:otherwise>
+</jstl:choose>
 
 <security:authorize access="hasRole('ADMIN')">
 	<acme:button url="area/administrator/create.do" code="button.create" />

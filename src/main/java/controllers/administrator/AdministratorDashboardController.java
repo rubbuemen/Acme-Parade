@@ -23,8 +23,10 @@ import org.springframework.web.servlet.ModelAndView;
 import services.AdministratorService;
 import controllers.AbstractController;
 import domain.Brotherhood;
+import domain.Chapter;
 import domain.Member;
 import domain.Parade;
+import domain.Sponsor;
 
 @Controller
 @RequestMapping("/dashboard/administrator")
@@ -136,6 +138,71 @@ public class AdministratorDashboardController extends AbstractController {
 		result.addObject("avgPolarityBrotherhoodsQueryAplus2", avgPolarityBrotherhoodsQueryAplus2);
 		result.addObject("avgPolarityMembersQueryAplus2", avgPolarityMembersQueryAplus2);
 		result.addObject("avgPolarityAdministratorsQueryAplus2", avgPolarityAdministratorsQueryAplus2);
+
+		//Query C1 (Acme-Parade)
+		final String[] queryAcmeParadeC1 = this.administratorService.dashboardQueryAcmeParadeC1().split(",");
+		final String avgQueryAcmeParadeC1 = queryAcmeParadeC1[0];
+		final String minQueryAcmeParadeC1 = queryAcmeParadeC1[1];
+		final String maxQueryAcmeParadeC1 = queryAcmeParadeC1[2];
+		final String stddevQueryAcmeParadeC1 = queryAcmeParadeC1[3];
+		result.addObject("avgQueryAcmeParadeC1", avgQueryAcmeParadeC1);
+		result.addObject("minQueryAcmeParadeC1", minQueryAcmeParadeC1);
+		result.addObject("maxQueryAcmeParadeC1", maxQueryAcmeParadeC1);
+		result.addObject("stddevQueryAcmeParadeC1", stddevQueryAcmeParadeC1);
+
+		//Query C2 (Acme-Parade)
+		final Brotherhood queryAcmeParadeC2 = this.administratorService.dashboardQueryAcmeParadeC2();
+		result.addObject("queryAcmeParadeC2", queryAcmeParadeC2);
+
+		//Query C3 (Acme-Parade)
+		final Collection<Brotherhood> queryAcmeParadeC3 = this.administratorService.dashboardQueryAcmeParadeC3();
+		result.addObject("queryAcmeParadeC3", queryAcmeParadeC3);
+
+		//Query B1 (Acme-Parade)
+		final String ratioQueryAcmeParadeB1 = this.administratorService.dashboardQueryAcmeParadeB1();
+		result.addObject("ratioQueryAcmeParadeB1", ratioQueryAcmeParadeB1);
+
+		//Query B2 (Acme-Parade)
+		final String[] queryAcmeParadeB2 = this.administratorService.dashboardQueryAcmeParadeB2().split(",");
+		final String avgQueryAcmeParadeB2 = queryAcmeParadeB2[0];
+		final String minQueryAcmeParadeB2 = queryAcmeParadeB2[1];
+		final String maxQueryAcmeParadeB2 = queryAcmeParadeB2[2];
+		final String stddevQueryAcmeParadeB2 = queryAcmeParadeB2[3];
+		result.addObject("avgQueryAcmeParadeB2", avgQueryAcmeParadeB2);
+		result.addObject("minQueryAcmeParadeB2", minQueryAcmeParadeB2);
+		result.addObject("maxQueryAcmeParadeB2", maxQueryAcmeParadeB2);
+		result.addObject("stddevQueryAcmeParadeB2", stddevQueryAcmeParadeB2);
+
+		//Query B3 (Acme-Parade)
+		final Collection<Chapter> queryAcmeParadeB3 = this.administratorService.dashboardQueryAcmeParadeB3();
+		result.addObject("queryAcmeParadeB3", queryAcmeParadeB3);
+
+		//Query B4 (Acme-Parade)
+		final String ratioQueryAcmeParadeB4 = this.administratorService.dashboardQueryAcmeParadeB4();
+		result.addObject("ratioQueryAcmeParadeB4", ratioQueryAcmeParadeB4);
+
+		//Query B5 (Acme-Parade)
+		final Collection<Object[]> queryAcmeParadeB5 = this.administratorService.dashboardQueryAcmeParadeB5();
+		result.addObject("queryAcmeParadeB5", queryAcmeParadeB5);
+
+		//Query A1 (Acme-Parade)
+		final String ratioQueryAcmeParadeA1 = this.administratorService.dashboardQueryAcmeParadeA1();
+		result.addObject("ratioQueryAcmeParadeA1", ratioQueryAcmeParadeA1);
+
+		//Query A2 (Acme-Parade)
+		final String[] queryAcmeParadeA2 = this.administratorService.dashboardQueryAcmeParadeA2().split(",");
+		final String avgQueryAcmeParadeA2 = queryAcmeParadeA2[0];
+		final String minQueryAcmeParadeA2 = queryAcmeParadeA2[1];
+		final String maxQueryAcmeParadeA2 = queryAcmeParadeA2[2];
+		final String stddevQueryAcmeParadeA2 = queryAcmeParadeA2[3];
+		result.addObject("avgQueryAcmeParadeA2", avgQueryAcmeParadeA2);
+		result.addObject("minQueryAcmeParadeA2", minQueryAcmeParadeA2);
+		result.addObject("maxQueryAcmeParadeA2", maxQueryAcmeParadeA2);
+		result.addObject("stddevQueryAcmeParadeA2", stddevQueryAcmeParadeA2);
+
+		//Query A3 (Acme-Parade)
+		final Collection<Sponsor> queryAcmeParadeA3 = this.administratorService.dashboardQueryAcmeParadeA3();
+		result.addObject("queryAcmeParadeA3", queryAcmeParadeA3);
 
 		return result;
 	}

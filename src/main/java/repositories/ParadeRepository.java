@@ -13,8 +13,8 @@ import domain.Parade;
 @Repository
 public interface ParadeRepository extends JpaRepository<Parade, Integer> {
 
-	@Query("select p from Brotherhood b join b.parades p where b.id = ?1 and p.isFinalMode = 1")
-	Collection<Parade> findParadesFinalModeByBrotherhoodId(int brotherhoodId);
+	@Query("select p from Brotherhood b join b.parades p where b.id = ?1 and p.status = 'ACCEPTED'")
+	Collection<Parade> findParadesAcceptedByBrotherhoodId(int brotherhoodId);
 
 	@Query("select p from Parade p where ?1 member of p.floats")
 	Collection<Parade> findParadesByFloatId(int floatId);
@@ -22,16 +22,22 @@ public interface ParadeRepository extends JpaRepository<Parade, Integer> {
 	@Query("select p from Parade p join p.requestsMarch rm where rm.id = ?1")
 	Parade findParadeByRequestMarchId(int requestMarchId);
 
-	@Query("select p from Parade p where p.isFinalMode = 1 and (p.ticker like %?1% or p.title like %?1% or p.description like %?1%)")
+	@Query("select p from Parade p where p.isFinalMode = 1 and p.status = 'ACCEPTED' and (p.ticker like %?1% or p.title like %?1% or p.description like %?1%)")
 	Collection<Parade> findParadesFilterByKeyWord(String keyWord);
 
-	@Query("select p from Parade p where p.isFinalMode = 1 and p.momentOrganise between ?1 and ?2")
+	@Query("select p from Parade p where p.isFinalMode = 1 and p.status = 'ACCEPTED' and p.momentOrganise between ?1 and ?2")
 	Collection<Parade> findParadesFilterDate(Date minDate, Date maxDate);
 
-	@Query("select distinct p from Brotherhood b join b.parades p where p.isFinalMode = 1 and b.area.id = ?1")
+	@Query("select distinct p from Brotherhood b join b.parades p where p.isFinalMode = 1 and p.status = 'ACCEPTED' and b.area.id = ?1")
 	Collection<Parade> findParadesFilterByAreaId(int areaId);
 
-	@Query("select p from Parade p where p.isFinalMode = 1")
-	Collection<Parade> findParadesFinalMode();
+	@Query("select p from Parade p where p.isFinalMode = 1 and p.status = 'ACCEPTED'")
+	Collection<Parade> findParadesFinalModeAccepted();
+
+	@Query("select p from Brotherhood b join b.parades p where b.id = ?1 and p.isFinalMode = 1 order by p.status")
+	Collection<Parade> findParadesFinalModeOrderByStatusByBrotherhoodId(int brotherhoodId);
+
+	@Query("select p from Brotherhood b join b.parades p where b.id = ?1 order by p.status")
+	Collection<Parade> findParadesOrderByStatusByBrotherhoodId(int brotherhoodId);
 
 }

@@ -27,6 +27,7 @@ import services.ActorService;
 import services.SystemConfigurationService;
 import domain.Actor;
 import domain.Brotherhood;
+import domain.Chapter;
 import domain.SystemConfiguration;
 
 @Controller
@@ -75,6 +76,14 @@ public class AbstractController {
 				final Brotherhood brotherhoodLogged = (Brotherhood) actorLogged;
 				boolean showArea = false;
 				if (brotherhoodLogged.getArea() == null) {
+					showArea = true;
+					model.addAttribute("showArea", showArea);
+				}
+
+			} else if (actorLogged instanceof Chapter) {
+				final Chapter chapterLogged = (Chapter) actorLogged;
+				boolean showArea = false;
+				if (chapterLogged.getArea() == null) {
 					showArea = true;
 					model.addAttribute("showArea", showArea);
 				}

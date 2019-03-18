@@ -22,8 +22,20 @@
 
 	<form:hidden path="id" />
 	<form:hidden path="version" />
+	
+	<acme:textbox code="periodRecord.title" path="title" placeholder="Lorem Ipsum"/>
+	<br />
 
-	<acme:textbox code="" path="" placeholder=""/>
+	<acme:textbox code="periodRecord.description" path="description" placeholder="Lorem Ipsum"/>
+	<br />
+	
+	<acme:textbox code="periodRecord.startYear" path="startYear" placeholder="YYYY"/>
+	<br />
+	
+	<acme:textbox code="periodRecord.endYear" path="endYear" placeholder="YYYY"/>
+	<br />
+	
+	<acme:textarea code="periodRecord.photos" path="photos" placeholder="http://Loremipsum.com, http://Loremipsum.com, ..." />
 	<br />
 
 	<jstl:choose>
@@ -34,6 +46,6 @@
 			<acme:submit name="save" code="button.save" />
 		</jstl:otherwise>
 	</jstl:choose>
-	<acme:cancel url="periodRecord/list.do" code="button.cancel" />
+	<acme:cancel url="history/brotherhood/list.do" code="button.cancel" />
 
 </form:form>

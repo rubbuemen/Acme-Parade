@@ -174,7 +174,7 @@ public class Parade extends DomainEntity {
 
 	@Valid
 	@EachNotNull
-	@ManyToMany
+	@OneToMany
 	public Collection<Segment> getSegments() {
 		return this.segments;
 	}

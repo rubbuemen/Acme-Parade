@@ -23,12 +23,15 @@ import security.Authority;
 import services.ActorService;
 import services.AdministratorService;
 import services.BrotherhoodService;
+import services.ChapterService;
 import services.MemberService;
 import services.UserAccountService;
 import domain.Actor;
 import domain.Brotherhood;
+import domain.Chapter;
 import domain.Member;
 import forms.BrotherhoodForm;
+import forms.ChapterForm;
 import forms.MemberForm;
 
 @Controller
@@ -49,6 +52,9 @@ public class ActorController extends AbstractController {
 
 	@Autowired
 	UserAccountService		userAccountService;
+
+	@Autowired
+	ChapterService			chapterService;
 
 
 	@RequestMapping(value = "/register-brotherhood", method = RequestMethod.GET)
@@ -81,6 +87,24 @@ public class ActorController extends AbstractController {
 		result = new ModelAndView("actor/register");
 
 		result.addObject("actionURL", "actor/register-member.do");
+		result.addObject("actorForm", actorForm);
+
+		return result;
+	}
+
+	@RequestMapping(value = "/register-chapter", method = RequestMethod.GET)
+	public ModelAndView registerChapter() {
+		ModelAndView result;
+		Chapter actor;
+
+		actor = this.chapterService.create();
+
+		final ChapterForm actorForm = new ChapterForm(actor);
+
+		result = new ModelAndView("actor/register");
+
+		result.addObject("authority", Authority.CHAPTER);
+		result.addObject("actionURL", "actor/register-chapter.do");
 		result.addObject("actorForm", actorForm);
 
 		return result;
@@ -146,6 +170,36 @@ public class ActorController extends AbstractController {
 		return result;
 	}
 
+	@RequestMapping(value = "/register-chapter", method = RequestMethod.POST, params = "save")
+	public ModelAndView registerChapter(@ModelAttribute("actorForm") ChapterForm actorForm, final BindingResult binding) {
+		ModelAndView result;
+
+		actorForm = this.chapterService.reconstruct(actorForm, binding);
+
+		if (binding.hasErrors())
+			result = this.createEditModelAndView(actorForm.getActor());
+		else
+			try {
+				Assert.isTrue(actorForm.getActor().getUserAccount().getPassword().equals(actorForm.getPasswordCheck()), "Password does not match");
+				Assert.isTrue(actorForm.getTermsConditions(), "The terms and conditions must be accepted");
+				this.chapterService.save(actorForm.getActor());
+				result = new ModelAndView("redirect:/welcome/index.do");
+			} catch (final Throwable oops) {
+				if (oops.getMessage().equals("Password does not match"))
+					result = this.createEditModelAndView(actorForm.getActor(), "actor.password.match");
+				else if (oops.getMessage().equals("The terms and conditions must be accepted"))
+					result = this.createEditModelAndView(actorForm.getActor(), "actor.conditions.accept");
+				else if (oops.getMessage().equals("could not execute statement; SQL [n/a]; constraint [null]" + "; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement"))
+					result = this.createEditModelAndView(actorForm.getActor(), "actor.error.duplicate.user");
+				else if (oops.getMessage().equals("This entity does not exist"))
+					result = this.createEditModelAndView(null, "hacking.notExist.error");
+				else
+					result = this.createEditModelAndView(actorForm.getActor(), "commit.error");
+			}
+
+		return result;
+	}
+
 	// Ancillary methods
 
 	protected ModelAndView createEditModelAndView(final Actor actor) {
@@ -163,6 +217,8 @@ public class ActorController extends AbstractController {
 
 		if (actor instanceof Brotherhood)
 			result.addObject("authority", Authority.BROTHERHOOD);
+		else if (actor instanceof Chapter)
+			result.addObject("authority", Authority.CHAPTER);
 		result.addObject("actor", actor);
 		result.addObject("message", message);
 

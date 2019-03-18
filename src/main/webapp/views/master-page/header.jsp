@@ -28,6 +28,7 @@
 					<li class="arrow"></li>
 					<li><a href="actor/register-brotherhood.do"><spring:message code="master.page.register.brotherhood" /></a></li>
 					<li><a href="actor/register-member.do"><spring:message code="master.page.register.member" /></a></li>
+					<li><a href="actor/register-chapter.do"><spring:message code="master.page.register.chapter" /></a></li>
 				</ul>
 			</li>
 			<li><a class="fNiv" href="security/login.do"><spring:message code="master.page.login" /></a></li>
@@ -43,6 +44,7 @@
 					<li><a href="member/brotherhood/list.do"><spring:message code="master.page.members" /></a></li>
 					<li><a href="enrolment/brotherhood/list.do"><spring:message code="master.page.enrolments" /></a></li>
 					<jstl:if test="${showArea eq true}"><li><a href="area/brotherhood/list.do"><spring:message code="master.page.selectArea" /></a></li></jstl:if>
+					<li><a href="history/brotherhood/list.do"><spring:message code="master.page.history" /></a></li>
 				</ul>
 			</li>
 		</security:authorize>
@@ -54,6 +56,17 @@
 					<li class="arrow"></li>
 					<li><a href="brotherhood/member/list.do"><spring:message code="master.page.brotherhoods" /></a></li>
 					<li><a href="finder/member/edit.do"><spring:message code="master.page.finder" /></a></li>
+				</ul>
+			</li>
+		</security:authorize>
+		
+		<security:authorize access="hasRole('CHAPTER')">
+			<li>
+				<a class="fNiv"><spring:message code="master.page.chapter" /></a>
+				<ul>
+					<li class="arrow"></li>
+					<jstl:if test="${showArea eq true}"><li><a href="area/chapter/list.do"><spring:message code="master.page.assignArea" /></a></li></jstl:if>
+					<li><a href="brotherhood/chapter/list.do"><spring:message code="master.page.brotherhoods" /></a></li>
 				</ul>
 			</li>
 		</security:authorize>
@@ -93,7 +106,10 @@
 					</security:authorize>
 					<security:authorize access="hasRole('ADMIN')">
 						<li><a href="actor/administrator/edit.do"><spring:message code="master.page.edit.profile" /></a></li>
-					</security:authorize>		
+					</security:authorize>
+					<security:authorize access="hasRole('CHAPTER')">
+						<li><a href="actor/chapter/edit.do"><spring:message code="master.page.edit.profile" /></a></li>
+					</security:authorize>				
 					<li><a href="j_spring_security_logout"><spring:message code="master.page.logout" /> </a></li>
 				</ul>
 			</li>

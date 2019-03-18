@@ -28,7 +28,7 @@ import domain.Parade;
 public class ParadeController extends AbstractController {
 
 	@Autowired
-	ParadeService	paradeService;
+	ParadeService		paradeService;
 
 	@Autowired
 	BrotherhoodService	brotherhoodService;
@@ -39,7 +39,7 @@ public class ParadeController extends AbstractController {
 		ModelAndView result;
 		Collection<Parade> parades;
 
-		parades = this.paradeService.findParadesFinalModeByBrotherhoodId(brotherhoodId);
+		parades = this.paradeService.findParadesAcceptedByBrotherhoodId(brotherhoodId);
 
 		result = new ModelAndView("parade/listGeneric");
 

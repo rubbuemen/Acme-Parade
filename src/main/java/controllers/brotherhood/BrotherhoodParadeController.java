@@ -32,7 +32,7 @@ import domain.Parade;
 public class BrotherhoodParadeController extends AbstractController {
 
 	@Autowired
-	ParadeService	paradeService;
+	ParadeService		paradeService;
 
 	@Autowired
 	BrotherhoodService	brotherhoodService;
@@ -136,10 +136,10 @@ public class BrotherhoodParadeController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/change", method = RequestMethod.GET)
-	public ModelAndView changeFinalMode(Parade parade, final BindingResult binding, @RequestParam final int paradeId) {
+	public ModelAndView changeFinalMode(@RequestParam final int paradeId) {
 		ModelAndView result;
 
-		parade = this.paradeService.findParadeBrotherhoodLogged(paradeId);
+		final Parade parade = this.paradeService.findParadeBrotherhoodLogged(paradeId);
 
 		try {
 			this.paradeService.changeFinalMode(parade);
@@ -148,6 +148,26 @@ public class BrotherhoodParadeController extends AbstractController {
 		} catch (final Throwable oops) {
 			if (oops.getMessage().equals("This parade is already in final mode"))
 				result = this.createEditModelAndView(parade, "parade.error.change.finalMode");
+			else
+				result = this.createEditModelAndView(parade, "commit.error");
+		}
+
+		return result;
+	}
+
+	@RequestMapping(value = "/copy", method = RequestMethod.GET)
+	public ModelAndView copy(@RequestParam final int paradeId) {
+		ModelAndView result;
+
+		final Parade parade = this.paradeService.findParadeBrotherhoodLogged(paradeId);
+
+		try {
+			this.paradeService.copyParade(parade);
+			result = new ModelAndView("redirect:/parade/brotherhood/list.do");
+
+		} catch (final Throwable oops) {
+			if (oops.getMessage().equals("The logged actor is not the owner of this entity"))
+				result = this.createEditModelAndView(parade, "hacking.logged.error");
 			else
 				result = this.createEditModelAndView(parade, "commit.error");
 		}

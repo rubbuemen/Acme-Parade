@@ -22,9 +22,16 @@
 
 	<form:hidden path="id" />
 	<form:hidden path="version" />
-
-	<acme:textbox code="" path="" placeholder=""/>
+	
+	<acme:textbox code="linkRecord.title" path="title" placeholder="Lorem Ipsum"/>
 	<br />
+
+	<acme:textbox code="linkRecord.description" path="description" placeholder="Lorem Ipsum"/>
+	<br />
+	
+	<acme:select items="${brotherhoodsToLink}" itemLabel="title" code="linkRecord.brotherhood" path="brotherhood"/>
+	<br />
+	
 
 	<jstl:choose>
 		<jstl:when test="${linkRecord.id == 0}">
@@ -34,6 +41,6 @@
 			<acme:submit name="save" code="button.save" />
 		</jstl:otherwise>
 	</jstl:choose>
-	<acme:cancel url="linkRecord/list.do" code="button.cancel" />
+	<acme:cancel url="history/brotherhood/list.do" code="button.cancel" />
 
 </form:form>

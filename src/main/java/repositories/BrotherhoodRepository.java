@@ -33,4 +33,22 @@ public interface BrotherhoodRepository extends JpaRepository<Brotherhood, Intege
 	@Query("select distinct b from Brotherhood b join b.enrolments e where e.momentDropOut is null and e.member.id = ?1")
 	Collection<Brotherhood> findBrotherhoodsAcceptedOrPendingByMemberId(int memberId);
 
+	@Query("select h.brotherhood from History h join h.inceptionRecord i where i.id = ?1")
+	Brotherhood findBrotherhoodByInceptionRecordId(int inceptionRecordId);
+
+	@Query("select h.brotherhood from History h join h.periodRecords p where p.id = ?1")
+	Brotherhood findBrotherhoodByPeriodRecordId(int periodRecordId);
+
+	@Query("select h.brotherhood from History h join h.legalRecords l where l.id = ?1")
+	Brotherhood findBrotherhoodByLegalRecordId(int legalRecordId);
+
+	@Query("select h.brotherhood from History h join h.linkRecords l where l.id = ?1")
+	Brotherhood findBrotherhoodByLinkRecordId(int linkRecordId);
+
+	@Query("select h.brotherhood from History h join h.miscellaneousRecords m where m.id = ?1")
+	Brotherhood findBrotherhoodByMiscellaneousRecordId(int miscellaneousRecordId);
+
+	@Query("select b from Brotherhood b join b.area a where a in (select a from Chapter c join c.area a where c.id = ?1)")
+	Collection<Brotherhood> findBrotherhoodsByChapterId(int chapterId);
+
 }

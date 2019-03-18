@@ -22,24 +22,36 @@
 
 	<form:hidden path="id" />
 	<form:hidden path="version" />
+	<security:authorize access="hasRole('CHAPTER')">
+		<form:hidden path="status" value="${decision}"/>
+	</security:authorize>
 
-	<acme:textbox code="parade.title" path="title" placeholder="Lorem Ipsum"/>
-	<br />
-
-	<acme:textbox code="parade.description" path="description" placeholder="Lorem Ipsum"/>
-	<br />
+	<security:authorize access="hasRole('BROTHERHOOD')">
+		<acme:textbox code="parade.title" path="title" placeholder="Lorem Ipsum"/>
+		<br />
 	
-	<acme:textbox code="parade.momentOrganise" path="momentOrganise" placeholder="dd/MM/yyyy HH:mm" type="datetime"  />
-	<br />
-	
-	<acme:textbox code="parade.maxRows" path="maxRows" placeholder="1" type="number" min="1" />
-	<br />
-	
-	<acme:textbox code="parade.maxColumns" path="maxColumns" placeholder="1" type="number"  min="1" />
-	<br />
-	
-	<acme:select items="${floats}" itemLabel="title" code="parade.floats" path="floats" multiple="true" />
-	<br />
+		<acme:textbox code="parade.description" path="description" placeholder="Lorem Ipsum"/>
+		<br />
+		
+		<acme:textbox code="parade.momentOrganise" path="momentOrganise" placeholder="dd/MM/yyyy HH:mm" type="datetime"  />
+		<br />
+		
+		<acme:textbox code="parade.maxRows" path="maxRows" placeholder="1" type="number" min="1" />
+		<br />
+		
+		<acme:textbox code="parade.maxColumns" path="maxColumns" placeholder="1" type="number"  min="1" />
+		<br />
+		
+		<acme:select items="${floats}" itemLabel="title" code="parade.floats" path="floats" multiple="true" />
+		<br />
+	</security:authorize>
+	<security:authorize access="hasRole('CHAPTER')">
+		<jstl:if test="${decision eq 'REJECTED'}">
+			<h3><spring:message code="parade.infoNeedExplain" /></h3>
+			<acme:textarea code="parade.rejectReason" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at auctor massa" path="rejectReason" />
+			<br />
+		</jstl:if>
+	</security:authorize>
 
 	<jstl:choose>
 		<jstl:when test="${parade.id == 0}">
@@ -49,6 +61,12 @@
 			<acme:submit name="save" code="button.save" />
 		</jstl:otherwise>
 	</jstl:choose>
-	<acme:cancel url="parade/brotherhood/list.do" code="button.cancel" />
+	
+	<security:authorize access="hasRole('BROTHERHOOD')">
+		<acme:cancel url="parade/brotherhood/list.do" code="button.cancel" />
+	</security:authorize>
+	<security:authorize access="hasRole('CHAPTER')">
+		<acme:cancel url="parade/chapter/list.do?brotherhoodId=${brotherhood.id}" code="button.cancel" />
+	</security:authorize>
 
 </form:form>

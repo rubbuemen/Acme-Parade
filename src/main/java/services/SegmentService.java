@@ -9,6 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import repositories.SegmentRepository;
+import domain.Actor;
+import domain.Parade;
 import domain.Segment;
 
 @Service
@@ -19,8 +21,13 @@ public class SegmentService {
 	@Autowired
 	private SegmentRepository	segmentRepository;
 
-
 	// Supporting services
+	@Autowired
+	ActorService				actorService;
+
+	@Autowired
+	ParadeService				paradeService;
+
 
 	// Simple CRUD methods
 	public Segment create() {
@@ -70,6 +77,21 @@ public class SegmentService {
 	}
 
 	// Other business methods
+	// R9.3 (Acme-Parade)
+	public Collection<Segment> findSegmentsByParade(final int paradeId) {
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginBrotherhood(actorLogged);
+
+		final Collection<Segment> result;
+
+		final Parade parade = this.paradeService.findParadeBrotherhoodLogged(paradeId);
+
+		result = parade.getSegments();
+		Assert.notNull(result);
+
+		return result;
+	}
 
 	// Reconstruct methods
 

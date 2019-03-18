@@ -78,6 +78,11 @@
 		<acme:textarea code="brotherhood.comments" path="actor.comments" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at auctor massa" />
 		<br />
 	</jstl:if>
+	
+	<jstl:if test="${authority == 'CHAPTER'}">
+		<acme:textbox code="chapter.title" path="actor.title" placeholder="Lorem Ipsum" />
+		<br />
+	</jstl:if>
 
 	<jstl:if test="${actorForm.actor.id == 0}">
 		<acme:checkbox code="actor.legal.accept" path="termsConditions" />
