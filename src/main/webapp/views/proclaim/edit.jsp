@@ -18,22 +18,16 @@
 
 <%@ taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
-<form:form action="${actionURL}" modelAttribute="proclaim">
+<spring:message code="proclaim.confirm" var="confirm" />
+<form:form action="${actionURL}" modelAttribute="proclaim" onsubmit="return checkPosting('${confirm}');">
 
 	<form:hidden path="id" />
 	<form:hidden path="version" />
-
-	<acme:textbox code="" path="" placeholder=""/>
+	
+	<acme:textarea code="proclaim.text" path="text" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at auctor massa" />
 	<br />
 
-	<jstl:choose>
-		<jstl:when test="${proclaim.id == 0}">
-			<acme:submit name="save" code="button.register" />
-		</jstl:when>
-		<jstl:otherwise>
-			<acme:submit name="save" code="button.save" />
-		</jstl:otherwise>
-	</jstl:choose>
+	<acme:submit name="save" code="button.register" />
 	<acme:cancel url="proclaim/list.do" code="button.cancel" />
 
 </form:form>

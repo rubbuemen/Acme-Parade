@@ -41,15 +41,15 @@
 	
 	<spring:message code="segment.editH" var="editH" />
 	<display:column title="${editH}">
-		<acme:button url="segment/brotherhood/edit.do?segmentId=${row.id}" code="button.edit" />
+		<acme:button url="segment/brotherhood/edit.do?paradeId=${parade.id}&segmentId=${row.id}" code="button.edit" />
 	</display:column>
 	
 	<spring:message code="segment.deleteH" var="deleteH" />
 	<display:column title="${deleteH}">
-		<acme:button url="segment/brotherhood/delete.do?segmentId=${row.id}" code="button.delete" />
+		<acme:button url="segment/brotherhood/delete.do?paradeId=${parade.id}&segmentId=${row.id}" code="button.delete" />
 	</display:column>
 			
 </display:table>
 
-<acme:button url="segment/brotherhood/create.do" code="button.create" />
+<acme:button url="segment/brotherhood/create.do?paradeId=${parade.id}" code="button.create" />
 <acme:button url="parade/brotherhood/list.do" code="button.back" />

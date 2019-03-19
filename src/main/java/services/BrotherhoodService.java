@@ -319,6 +319,16 @@ public class BrotherhoodService {
 		return result;
 	}
 
+	// R14.1(Acme-Parade)
+	public Collection<Brotherhood> findBrotherhoodsByAreaId(final int areaId) {
+		Assert.isTrue(areaId != 0);
+
+		Collection<Brotherhood> result;
+
+		result = this.brotherhoodRepository.findBrotherhoodsByAreaId(areaId);
+		return result;
+	}
+
 
 	// Reconstruct methods
 	@Autowired

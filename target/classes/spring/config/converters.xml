@@ -74,6 +74,9 @@
 		<bean class="converters.StringToSegmentConverter" />
 		<bean class="converters.StringToSponsorshipConverter" />
 		<bean class="converters.StringToSponsorConverter" />
+		
+		<bean class="converters.TimeSqlToStringConverter" />
+		<bean class="converters.StringToTimeSqlConverter" />
 	</util:list>
 
 </beans>

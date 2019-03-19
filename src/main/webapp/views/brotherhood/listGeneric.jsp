@@ -36,9 +36,10 @@
 	
 	<spring:message code="brotherhood.paradesH" var="paradesH" />
 	<display:column title="${paradesH}">
-			<acme:button url="parade/listGeneric.do?brotherhoodId=${row.id}" code="button.show" />
+			<acme:button url="parade/listGeneric.do?brotherhoodId=${row.id}&areaId=${areaId}" code="button.show" />
 	</display:column>
 	
+	<jstl:if test="${chapter == null}">
 		<spring:message code="brotherhood.membersH" var="membersH" />
 		<display:column title="${membersH}">
 			<acme:button url="member/listGeneric.do?brotherhoodId=${row.id}" code="button.show" />
@@ -69,5 +70,10 @@
 				</jstl:if>
 			</display:column>
 		</security:authorize>
+	</jstl:if>
 
 </display:table>
+
+<jstl:if test="${chapter != null}">
+	<acme:button url="area/listGeneric.do?chapterId=${chapter.id}" code="button.back" />
+</jstl:if>

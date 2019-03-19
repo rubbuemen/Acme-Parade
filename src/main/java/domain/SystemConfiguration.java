@@ -184,7 +184,7 @@ public class SystemConfiguration extends DomainEntity {
 	}
 
 	@NotNull
-	@Min(0)
+	@Range(min = 0, max = 100)
 	@Digits(integer = 2, fraction = 2)
 	public Double getVATPercentage() {
 		return this.VATPercentage;

@@ -11,6 +11,8 @@
 package controllers.chapter;
 
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,9 +24,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import services.BrotherhoodService;
 import services.ParadeService;
+import services.SponsorshipService;
 import controllers.AbstractController;
 import domain.Brotherhood;
 import domain.Parade;
+import domain.Sponsorship;
 
 @Controller
 @RequestMapping("/parade/chapter")
@@ -35,6 +39,9 @@ public class ChapterParadeController extends AbstractController {
 
 	@Autowired
 	BrotherhoodService	brotherhoodService;
+
+	@Autowired
+	SponsorshipService	sponsorshipService;
 
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
@@ -124,6 +131,16 @@ public class ChapterParadeController extends AbstractController {
 			result = new ModelAndView("redirect:/welcome/index.do");
 		else
 			result = new ModelAndView("parade/list");
+
+		if (parades == null || !parades.isEmpty()) {
+			final Map<Parade, Sponsorship> randomSponsorship = new HashMap<>();
+			for (final Parade p : parades) {
+				final Sponsorship sponsorship = this.sponsorshipService.findRandomSponsorShip(p);
+				if (sponsorship != null)
+					randomSponsorship.put(p, sponsorship);
+			}
+			result.addObject("randomSponsorship", randomSponsorship);
+		}
 
 		final Brotherhood brotherhoodParade = this.brotherhoodService.findBrotherhoodByParadeId(parades.iterator().next().getId());
 		result.addObject("parades", parades);

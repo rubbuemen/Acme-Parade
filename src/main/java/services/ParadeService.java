@@ -316,7 +316,7 @@ public class ParadeService {
 		return result;
 	}
 
-	public Parade saveForRequestMarch(final Parade parade) {
+	public Parade saveAuxiliar(final Parade parade) {
 		Assert.notNull(parade);
 
 		Parade result;
@@ -436,7 +436,7 @@ public class ParadeService {
 			seg.setDestination(s.getDestination());
 			seg.setTimeReachOrigin(s.getTimeReachOrigin());
 			seg.setTimeReachDestination(s.getTimeReachDestination());
-			seg = this.segmentService.save(seg);
+			seg = this.segmentService.saveAuxiliar(seg);
 			segments.add(seg);
 		}
 		result.setSegments(segments);

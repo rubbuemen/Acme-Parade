@@ -32,10 +32,25 @@
 	
 	<spring:message code="parade.momentOrganise" var="momentOrganise" />
 	<display:column title="${momentOrganise}">
-			<fmt:formatDate var="format" value="${row.momentOrganise}" pattern="dd/MM/YYYY HH:mm" />
+			<fmt:formatDate var="format" value="${row.momentOrganise}" pattern="dd/MM/YYYY" />
 			<jstl:out value="${format}" />
+	</display:column>
+	
+	<spring:message code="parade.sponsorship" var="sponsorship" />
+	<display:column title="${sponsorship}" >
+		<jstl:if test="${randomSponsorship.containsKey(row)}">
+			<jstl:set var="banner" value="${randomSponsorship.get(row).banner}"/>
+			<img src="<jstl:out value='${banner}'/>" width="200px" height="100px" />
+		</jstl:if>
 	</display:column>
 			
 </display:table>
 
-<acme:button url="brotherhood/listGeneric.do" code="button.back" />
+<jstl:choose>
+<jstl:when test="${area != null}">
+	<acme:button url="brotherhood/listGeneric.do?areaId=${area.id}" code="button.back" />
+</jstl:when>
+<jstl:otherwise>
+	<acme:button url="brotherhood/listGeneric.do" code="button.back" />
+</jstl:otherwise>
+</jstl:choose>

@@ -21,9 +21,27 @@
 
 <display:table pagesize="5" class="displaytag" name="chapters" requestURI="${requestURI}" id="row">
 
-	<spring:message code="" var="var" />
-	<display:column property="" title="${var}" />
+	<spring:message code="chapter.title" var="title" />
+	<display:column property="title" title="${title}" />
+	
+	<spring:message code="actor.name" var="name" />
+	<display:column property="name" title="${name}" />
+	
+	<spring:message code="actor.surname" var="surname" />
+	<display:column property="name" title="${name}" />
+	
+	<spring:message code="actor.email" var="email" />
+	<display:column property="email" title="${email}" />
+	
+	<spring:message code="text.infoH" var="infoH" />
+	<display:column title="${infoH}">
+		<acme:button url="chapter/show.do?chapterId=${row.id}" code="button.more" />
+	</display:column>
+	
+	<spring:message code="text.areasH" var="areasH" />
+	<display:column title="${areasH}">
+		<acme:button url="area/listGeneric.do?chapterId=${row.id}" code="button.show" />
+	</display:column>
+	
 			
 </display:table>
-
-<acme:button url="chapter/create.do" code="button.create" />

@@ -44,10 +44,15 @@
 		<security:intercept-url pattern="/float/listGeneric.do"	access="permitAll" />
 		<security:intercept-url pattern="/welcome/legal.do" access="permitAll"/>
 		<security:intercept-url pattern="/history/list.do"	access="permitAll" />
+		<security:intercept-url pattern="/chapter/list.do"	access="permitAll" />
+		<security:intercept-url pattern="/chapter/show.do"	access="permitAll" />
+		<security:intercept-url pattern="/area/listGeneric.do"	access="permitAll" />
+		<security:intercept-url pattern="/proclaim/list.do"	access="permitAll" />
 
 		<security:intercept-url pattern="/actor/register-brotherhood.do" access="isAnonymous()" />
 		<security:intercept-url pattern="/actor/register-member.do" access="isAnonymous()" />
 		<security:intercept-url pattern="/actor/register-chapter.do" access="isAnonymous()" />
+		<security:intercept-url pattern="/actor/register-sponsor.do" access="isAnonymous()" />
 		
 		<security:intercept-url pattern="/actor/brotherhood/**" access="hasRole('BROTHERHOOD')" />
 		<security:intercept-url pattern="/float/brotherhood/**" access="hasRole('BROTHERHOOD')" />
@@ -81,6 +86,10 @@
 		<security:intercept-url pattern="/area/chapter/**" access="hasRole('CHAPTER')" />
 		<security:intercept-url pattern="/brotherhood/chapter/**" access="hasRole('CHAPTER')" />
 		<security:intercept-url pattern="/parade/chapter/**" access="hasRole('CHAPTER')" />
+		<security:intercept-url pattern="/proclaim/chapter/**" access="hasRole('CHAPTER')" />
+		
+		<security:intercept-url pattern="/actor/sponsor/**" access="hasRole('SPONSOR')" />
+		<security:intercept-url pattern="/sponsorship/sponsor/**" access="hasRole('SPONSOR')" />
 		
 		<security:intercept-url pattern="/socialProfile/**" access="isAuthenticated()" />
 		<security:intercept-url pattern="/box/**" access="isAuthenticated()" />

@@ -21,6 +21,8 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.SafeHtml;
@@ -82,8 +84,8 @@ public class Parade extends DomainEntity {
 	}
 
 	@NotNull
-	@Temporal(TemporalType.TIMESTAMP)
-	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Future
 	public Date getMomentOrganise() {
 		return this.momentOrganise;
@@ -174,7 +176,8 @@ public class Parade extends DomainEntity {
 
 	@Valid
 	@EachNotNull
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER)
+	@Fetch(FetchMode.SELECT)
 	public Collection<Segment> getSegments() {
 		return this.segments;
 	}

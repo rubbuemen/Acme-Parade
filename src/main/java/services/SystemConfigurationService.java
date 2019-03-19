@@ -21,6 +21,7 @@ import domain.Actor;
 import domain.Message;
 import domain.Parade;
 import domain.RequestMarch;
+import domain.Sponsorship;
 import domain.SystemConfiguration;
 
 @Service
@@ -40,6 +41,9 @@ public class SystemConfigurationService {
 
 	@Autowired
 	private ActorService					actorService;
+	
+	@Autowired
+	private SponsorshipService					sponsorshipService;;
 
 
 	// Simple CRUD methods
@@ -302,6 +306,16 @@ public class SystemConfigurationService {
 			this.actorService.saveForComputes(a);
 		}
 	}
+	
+	// R18.1 (Acme-Parade)
+	public void deactivatesSponsorships() {
+		final Collection<Sponsorship> sponsorships = this.sponsorshipService.findAll();
+		for (Sponsorship ss : sponsorships) {
+			if (!sponsorshipService.checkCreditCard(ss.getCreditCard())) {
+				sponsorshipService.deactivateByAdmin(ss);
+			}
+		}		
+	}
 
 
 	// Reconstruct methods
@@ -325,6 +339,9 @@ public class SystemConfigurationService {
 		result.setPositiveWords(systemConfiguration.getPositiveWords());
 		result.setNegativeWords(systemConfiguration.getNegativeWords());
 		result.setSpamWords(systemConfiguration.getSpamWords());
+		result.setCreditCardMakes(systemConfiguration.getCreditCardMakes());
+		result.setFare(systemConfiguration.getFare());
+		result.setVATPercentage(systemConfiguration.getVATPercentage());
 
 		this.validator.validate(result, binding);
 

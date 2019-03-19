@@ -184,7 +184,7 @@ public class ActorService {
 		final Authority auth = new Authority();
 		auth.setAuthority(Authority.SPONSOR);
 		final Collection<Authority> authorities = actor.getUserAccount().getAuthorities();
-		Assert.isTrue(authorities.contains(auth), "The logged actor is not a sposor");
+		Assert.isTrue(authorities.contains(auth), "The logged actor is not a sponsor");
 	}
 
 	// Other business methods

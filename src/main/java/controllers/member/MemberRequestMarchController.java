@@ -95,7 +95,7 @@ public class MemberRequestMarchController extends AbstractController {
 		final Collection<RequestMarch> requestsMarchParade = parade.getRequestsMarch();
 		requestsMarchParade.add(requestMarch);
 		parade.setRequestsMarch(requestsMarchParade);
-		this.paradeService.saveForRequestMarch(parade);
+		this.paradeService.saveAuxiliar(parade);
 
 		final Collection<RequestMarch> requestsMarchMember = requestMarch.getMember().getRequestsMarch();
 		requestsMarchMember.add(requestMarch);

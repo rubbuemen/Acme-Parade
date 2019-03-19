@@ -3,7 +3,7 @@ package domain;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
-import javax.persistence.Entity;
+import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.CreditCardNumber;
@@ -12,9 +12,9 @@ import org.hibernate.validator.constraints.Range;
 import org.hibernate.validator.constraints.SafeHtml;
 import org.hibernate.validator.constraints.SafeHtml.WhiteListType;
 
-@Entity
+@Embeddable
 @Access(AccessType.PROPERTY)
-public class CreditCard extends DomainEntity {
+public class CreditCard {
 
 	// Attributes
 	private String	holder;
@@ -22,7 +22,7 @@ public class CreditCard extends DomainEntity {
 	private String	number;
 	private Integer	expirationMonth;
 	private Integer	expirationYear;
-	private Integer	ccv;
+	private Integer	cvv;
 
 
 	// Getters and Setters
@@ -79,12 +79,12 @@ public class CreditCard extends DomainEntity {
 
 	@NotNull
 	@Range(min = 100, max = 999)
-	public Integer getCcv() {
-		return this.ccv;
+	public Integer getCvv() {
+		return this.cvv;
 	}
 
-	public void setCcv(final Integer ccv) {
-		this.ccv = ccv;
+	public void setCvv(final Integer cvv) {
+		this.cvv = cvv;
 	}
 
 }

@@ -27,7 +27,7 @@
 </jstl:when>
 
 <jstl:otherwise>
-<display:table pagesize="5" class="displaytag" name="areas" requestURI="${requestURI}" id="row">
+<display:table pagesize="5" class="displaytag" name="areas" id="row">
 
 	<spring:message code="area.name" var="name" />
 	<display:column property="name" title="${name}" />

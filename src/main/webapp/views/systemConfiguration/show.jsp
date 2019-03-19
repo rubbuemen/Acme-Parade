@@ -57,8 +57,18 @@
 	
 	<spring:message code="systemConfiguration.spamWords" var="spamWords" />
 	<li><b>${spamWords}:</b> <jstl:out value="${systemConfiguration.spamWords}" /></li>
+	
+	<spring:message code="systemConfiguration.creditCardMakes" var="creditCardMakes" />
+	<li><b>${creditCardMakes}:</b> <jstl:out value="${systemConfiguration.creditCardMakes}" /></li>
+	
+	<spring:message code="systemConfiguration.fare" var="fare" />
+	<li><b>${fare}:</b> <jstl:out value="${systemConfiguration.fare}" /></li>
+	
+	<spring:message code="systemConfiguration.VATPercentage" var="VATPercentage" />
+	<li><b>${VATPercentage}:</b> <jstl:out value="${systemConfiguration.VATPercentage}" /></li>
 </ul>
 
 <acme:button url="systemConfiguration/administrator/edit.do" code="button.edit" /><br /><br />
 <acme:button url="systemConfiguration/administrator/computeSpammer.do" code="button.computeSpammer" />
 <acme:button url="systemConfiguration/administrator/computePolarityScore.do" code="button.computePolarityScore" />
+<acme:button url="systemConfiguration/administrator/deactivatesSponsorships.do" code="button.deactivatesSponsorships" />

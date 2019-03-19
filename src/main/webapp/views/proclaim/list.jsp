@@ -20,10 +20,23 @@
 <%@ taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <display:table pagesize="5" class="displaytag" name="proclaims" requestURI="${requestURI}" id="row">
-
-	<spring:message code="" var="var" />
-	<display:column property="" title="${var}" />
-			
+	
+	<spring:message code="proclaim.moment" var="moment" />
+	<display:column title="${moment}">
+			<fmt:formatDate var="format" value="${row.moment}" pattern="dd/MM/YYYY HH:mm" />
+			<jstl:out value="${format}" />
+	</display:column>
+	
+	<spring:message code="proclaim.text" var="text" />
+	<display:column property="text" title="${text}" />
+	
+	<spring:message code="proclaim.chapter" var="chapter" />
+	<display:column title="${chapter}">
+		<acme:button url="chapter/show.do?chapterId=${row.chapter.id}" code="button.show" />
+	</display:column>
+		
 </display:table>
 
-<acme:button url="proclaim/create.do" code="button.create" />
+<security:authorize access="hasRole('CHAPTER')">
+	<acme:button url="proclaim/chapter/create.do" code="button.create" />
+</security:authorize>

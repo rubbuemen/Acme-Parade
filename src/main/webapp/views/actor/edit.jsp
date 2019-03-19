@@ -20,7 +20,8 @@
 
 <%@ taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
-<form:form id="form" action="${actionURL}" modelAttribute="actorForm">
+<spring:message code="actor.confirm.phone" var="confirmPhone" />
+<form:form id="form" action="${actionURL}" modelAttribute="actorForm" onsubmit="return checkPhone('${confirmPhone}');">
 
 	<form:hidden path="actor.id" />
 	<form:hidden path="actor.version" />
@@ -90,13 +91,12 @@
 		<br /><br />
 	</jstl:if>
 
-	<spring:message code="actor.confirm.phone" var="confirmPhone" />
 	<jstl:choose>
 		<jstl:when test="${actorForm.actor.id == 0}">
-			<acme:submit name="save" code="button.register" onclick="return checkPhone('${confirmPhone}');" />
+			<acme:submit name="save" code="button.register"/>
 		</jstl:when>
 		<jstl:otherwise>
-			<acme:submit name="save" code="button.save" onclick="return checkPhone('${confirmPhone}');" />
+			<acme:submit name="save" code="button.save"/>
 		</jstl:otherwise>
 	</jstl:choose>
 	<acme:cancel url="welcome/index.do" code="button.cancel" />

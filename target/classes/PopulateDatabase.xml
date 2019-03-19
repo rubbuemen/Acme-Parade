@@ -2128,7 +2128,7 @@
 		<property name="ticker" value="190710-OTPFJ" />
 		<property name="title" value="Cristo santo" />
 		<property name="description" value="This is a test description." />
-		<property name="momentOrganise" value="2019/07/30 10:00" />
+		<property name="momentOrganise" value="2019/07/30" />
 		<property name="isFinalMode" value="true" />
 		<property name="maxRows" value="500" />
 		<property name="maxColumns" value="2" />
@@ -2164,7 +2164,7 @@
 		<property name="ticker" value="190710-SOTJE" />
 		<property name="title" value="El cristo crucificado" />
 		<property name="description" value="This is a test description." />
-		<property name="momentOrganise" value="2019/07/10 10:00" />
+		<property name="momentOrganise" value="2019/07/10" />
 		<property name="isFinalMode" value="true" />
 		<property name="maxRows" value="450" />
 		<property name="maxColumns" value="2" />
@@ -2194,7 +2194,7 @@
 		<property name="ticker" value="191003-GPLGW" />
 		<property name="title" value="El gran poder" />
 		<property name="description" value="This is a test description." />
-		<property name="momentOrganise" value="2019/10/03 10:00" />
+		<property name="momentOrganise" value="2019/10/03" />
 		<property name="isFinalMode" value="true" />
 		<property name="maxRows" value="300" />
 		<property name="maxColumns" value="2" />
@@ -2216,7 +2216,7 @@
 		<property name="ticker" value="190730-RIFOH" />
 		<property name="title" value="La pasion de cristo" />
 		<property name="description" value="This is a test description." />
-		<property name="momentOrganise" value="2019/07/30 15:00" />
+		<property name="momentOrganise" value="2019/07/30" />
 		<property name="isFinalMode" value="false" />
 		<property name="maxRows" value="600" />
 		<property name="maxColumns" value="2" />
@@ -2230,7 +2230,7 @@
 		<property name="ticker" value="191110-IEHNW" />
 		<property name="title" value="La tempestad" />
 		<property name="description" value="This is a test description." />
-		<property name="momentOrganise" value="2019/11/10 16:50" />
+		<property name="momentOrganise" value="2019/11/10" />
 		<property name="isFinalMode" value="true" />
 		<property name="maxRows" value="450" />
 		<property name="maxColumns" value="2" />
@@ -2252,7 +2252,7 @@
 		<property name="ticker" value="190910-SOTJE" />
 		<property name="title" value="Corazón desfilado" />
 		<property name="description" value="This is a test description." />
-		<property name="momentOrganise" value="2019/09/10 13:20" />
+		<property name="momentOrganise" value="2019/09/10" />
 		<property name="isFinalMode" value="true" />
 		<property name="maxRows" value="450" />
 		<property name="maxColumns" value="2" />
@@ -2268,7 +2268,7 @@
 		<property name="ticker" value="190916-IFPSK" />
 		<property name="title" value="El final" />
 		<property name="description" value="This is a test description." />
-		<property name="momentOrganise" value="2019/09/16 16:10" />
+		<property name="momentOrganise" value="2019/09/16" />
 		<property name="isFinalMode" value="true" />
 		<property name="maxRows" value="450" />
 		<property name="maxColumns" value="2" />
@@ -2288,7 +2288,7 @@
 		<property name="ticker" value="190707-HPSKE" />
 		<property name="title" value="El gran defile" />
 		<property name="description" value="This is a test description." />
-		<property name="momentOrganise" value="2019/07/07 20:00" />
+		<property name="momentOrganise" value="2019/07/07" />
 		<property name="isFinalMode" value="true" />
 		<property name="maxRows" value="450" />
 		<property name="maxColumns" value="2" />
@@ -2416,7 +2416,12 @@
 		<property name="text"
 			value="
 We stand for all the other qualities proposed by Jesus in the Gospel: forgiveness, unity, communion and brotherhood, a sense of responsibility and respect for our differences." />
-		<property name="chapter" ref="chapter1" />
+		<property name="chapter" ref="chapter2" />
+	</bean>
+	<bean id="proclaim3" class="domain.Proclaim">
+		<property name="moment" value="2016/05/23 12:52" />
+		<property name="text" value="Vivan los desfiles" />
+		<property name="chapter" ref="chapter3" />
 	</bean>
 
 	<!-- RequestMarch -->
@@ -2647,9 +2652,9 @@ We stand for all the other qualities proposed by Jesus in the Gospel: forgivenes
 		<property name="banner" value="http://oi63.tinypic.com/33xkarl.jpg" />
 		<property name="targetURL"
 			value="https://www.firestonecompleteautocare.com/repair/brakes/service/" />
-		<property name="isActivated" value="false" />
+		<property name="isActivated" value="true" />
 		<property name="sponsor" ref="sponsor1" />
-		<property name="parade" ref="parade5" />
+		<property name="parade" ref="parade1" />
 		<property name="creditCard" ref="creditCard4" />
 	</bean>
 
@@ -2660,15 +2665,15 @@ We stand for all the other qualities proposed by Jesus in the Gospel: forgivenes
 		<property name="number" value="4539888159789783" />
 		<property name="expirationMonth" value="9" />
 		<property name="expirationYear" value="24" />
-		<property name="ccv" value="909" />
+		<property name="cvv" value="909" />
 	</bean>
 	<bean id="creditCard2" class="domain.CreditCard">
 		<property name="holder" value="Mónica Amate Garrido" />
 		<property name="make" value="MCARD" />
 		<property name="number" value="4024007101185063" />
 		<property name="expirationMonth" value="2" />
-		<property name="expirationYear" value="22" />
-		<property name="ccv" value="482" />
+		<property name="expirationYear" value="18" />
+		<property name="cvv" value="482" />
 	</bean>
 	<bean id="creditCard3" class="domain.CreditCard">
 		<property name="holder" value="José Fernandez Gamez" />
@@ -2676,7 +2681,7 @@ We stand for all the other qualities proposed by Jesus in the Gospel: forgivenes
 		<property name="number" value="5237382715859548" />
 		<property name="expirationMonth" value="12" />
 		<property name="expirationYear" value="23" />
-		<property name="ccv" value="724" />
+		<property name="cvv" value="724" />
 	</bean>
 	<bean id="creditCard4" class="domain.CreditCard">
 		<property name="holder" value="Antonio Gamez Pro" />
@@ -2684,7 +2689,7 @@ We stand for all the other qualities proposed by Jesus in the Gospel: forgivenes
 		<property name="number" value="4485314248483647" />
 		<property name="expirationMonth" value="5" />
 		<property name="expirationYear" value="17" />
-		<property name="ccv" value="236" />
+		<property name="cvv" value="236" />
 	</bean>
 
 	<!-- SystemConfiguration -->

@@ -5,7 +5,6 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
@@ -19,9 +18,10 @@ import org.hibernate.validator.constraints.URL;
 public class Sponsorship extends DomainEntity {
 
 	// Attributes
-	private String	banner;
-	private String	targetURL;
-	private Boolean	isActivated;
+	private String		banner;
+	private String		targetURL;
+	private Boolean		isActivated;
+	private CreditCard	creditCard;
 
 
 	// Getters and Setters
@@ -56,11 +56,19 @@ public class Sponsorship extends DomainEntity {
 		this.isActivated = isActivated;
 	}
 
+	@NotNull
+	@Valid
+	public CreditCard getCreditCard() {
+		return this.creditCard;
+	}
+	public void setCreditCard(final CreditCard creditCard) {
+		this.creditCard = creditCard;
+	}
+
 
 	// Relationships
-	private Sponsor		sponsor;
-	private Parade		parade;
-	private CreditCard	creditCard;
+	private Sponsor	sponsor;
+	private Parade	parade;
 
 
 	@NotNull
@@ -81,16 +89,6 @@ public class Sponsorship extends DomainEntity {
 	}
 	public void setParade(final Parade parade) {
 		this.parade = parade;
-	}
-
-	@NotNull
-	@Valid
-	@OneToOne(optional = false)
-	public CreditCard getCreditCard() {
-		return this.creditCard;
-	}
-	public void setCreditCard(final CreditCard creditCard) {
-		this.creditCard = creditCard;
 	}
 
 }

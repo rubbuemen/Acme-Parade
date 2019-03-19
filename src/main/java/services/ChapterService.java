@@ -128,6 +128,15 @@ public class ChapterService {
 		return result;
 	}
 
+	public Chapter findChapterByAreaId(final int areaId) {
+		Assert.isTrue(areaId != 0);
+
+		Chapter result;
+
+		result = this.chapterRepository.findChapterByAreaId(areaId);
+		return result;
+	}
+
 
 	// Reconstruct methods
 	@Autowired
@@ -169,4 +178,5 @@ public class ChapterService {
 
 		return result;
 	}
+
 }

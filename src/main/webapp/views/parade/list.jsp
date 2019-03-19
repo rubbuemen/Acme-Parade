@@ -21,32 +21,49 @@
 
 <display:table pagesize="5" class="displaytag" name="parades" requestURI="${requestURI}" id="row">
 
+	<security:authorize access="!hasRole('MEMBER')">
+		<jstl:choose>
+		  <jstl:when test="${row.status eq 'SUBMITTED'}">
+		  	<jstl:set var="color" value="grey"/>
+		  </jstl:when>
+		  <jstl:when test="${row.status eq 'ACCEPTED'}">
+		    <jstl:set var="color" value="green"/>
+		  </jstl:when>
+		  <jstl:when test="${row.status eq 'REJECTED'}">
+		    <jstl:set var="color" value="red"/>
+		  </jstl:when>
+		  <jstl:otherwise>
+		    <jstl:set var="color" value="inherit"/>
+		  </jstl:otherwise>
+		</jstl:choose>
+	</security:authorize>
+
 	<spring:message code="parade.ticker" var="ticker" />
-	<display:column property="ticker" title="${ticker}" />
+	<display:column property="ticker" title="${ticker}" style="background-color: ${color};" />
 	
 	<spring:message code="parade.title" var="title" />
-	<display:column property="title" title="${title}" />
+	<display:column property="title" title="${title}" style="background-color: ${color};"  />
 	
 	<spring:message code="parade.description" var="description" />
-	<display:column property="description" title="${description}" />
+	<display:column property="description" title="${description}" style="background-color: ${color};" />
 	
 	<spring:message code="parade.momentOrganise" var="momentOrganise" />
-	<display:column title="${momentOrganise}">
-			<fmt:formatDate var="format" value="${row.momentOrganise}" pattern="dd/MM/YYYY HH:mm" />
+	<display:column title="${momentOrganise}" style="background-color: ${color};" >
+			<fmt:formatDate var="format" value="${row.momentOrganise}" pattern="dd/MM/YYYY" />
 			<jstl:out value="${format}" />
 	</display:column>
 	
 	<security:authorize access="hasAnyRole('BROTHERHOOD', 'CHAPTER')">
 		<spring:message code="parade.status" var="status" />
-		<display:column property="status" title="${status}" />
+		<display:column property="status" title="${status}" style="background-color: ${color};" />
 		
 		<spring:message code="parade.rejectReason" var="rejectReason" />
-		<display:column property="rejectReason" title="${rejectReason}" />
+		<display:column property="rejectReason" title="${rejectReason}" style="background-color: ${color};" />
 	</security:authorize>
 	
 	<security:authorize access="hasRole('CHAPTER')">
 		<spring:message code="parade.decideParade" var="decideParade" />
-		<display:column title="${decideParade}">
+		<display:column title="${decideParade}" style="background-color: ${color};" >
 			<jstl:if test="${row.status eq 'SUBMITTED'}">
 				<acme:button url="parade/chapter/edit.do?paradeId=${row.id}&decision=ACCEPTED" code="button.accept" />
 				<acme:button url="parade/chapter/edit.do?paradeId=${row.id}&decision=REJECTED" code="button.reject" />
@@ -56,56 +73,64 @@
 	
 	<security:authorize access="hasRole('BROTHERHOOD')">
 		<spring:message code="parade.maxRows" var="maxRows" />
-		<display:column property="maxRows" title="${maxRows}" />
+		<display:column property="maxRows" title="${maxRows}" style="background-color: ${color};" />
 		
 		<spring:message code="parade.maxColumns" var="maxColumns" />
-		<display:column property="maxColumns" title="${maxColumns}" />
+		<display:column property="maxColumns" title="${maxColumns}" style="background-color: ${color};" />
 	
 		<spring:message code="parade.edit" var="editH" />
-		<display:column title="${editH}">
+		<display:column title="${editH}" style="background-color: ${color};" >
 			<jstl:if test="${!row.isFinalMode}">
 				<acme:button url="parade/brotherhood/edit.do?paradeId=${row.id}" code="button.edit" />
 			</jstl:if>	
 		</display:column>
 		
 		<spring:message code="parade.delete" var="deleteH" />
-		<display:column title="${deleteH}">
+		<display:column title="${deleteH}" style="background-color: ${color};" >
 			<jstl:if test="${!row.isFinalMode}">
 				<acme:button url="parade/brotherhood/delete.do?paradeId=${row.id}" code="button.delete" />
 			</jstl:if>	
 		</display:column>
 		
 		<spring:message code="parade.changeFinalMode" var="changeFinalModeH" />
-		<display:column title="${changeFinalModeH}" >
+		<display:column title="${changeFinalModeH}" style="background-color: ${color};" >
 			<jstl:if test="${!row.isFinalMode}">
 				<acme:button url="parade/brotherhood/change.do?paradeId=${row.id}" code="button.change" />
 			</jstl:if>
 		</display:column>
 		
 		<spring:message code="parade.copy" var="copyH" />
-		<display:column title="${copyH}" >
+		<display:column title="${copyH}" style="background-color: ${color};" >
 			<acme:button url="parade/brotherhood/copy.do?paradeId=${row.id}" code="button.copy" />
 		</display:column>
 		
 		<spring:message code="parade.requestsMarch" var="requestsMarchH" />
-		<display:column title="${requestsMarchH}">
+		<display:column title="${requestsMarchH}" style="background-color: ${color};" >
 			<jstl:if test="${row.status eq 'ACCEPTED'}">
 				<acme:button url="requestMarch/brotherhood/list.do?paradeId=${row.id}" code="button.show" />
 			</jstl:if>	
 		</display:column>
 		
 		<spring:message code="parade.segments" var="segmentsH" />
-		<display:column title="${segmentsH}">
+		<display:column title="${segmentsH}" style="background-color: ${color};" >
 			<acme:button url="segment/brotherhood/list.do?paradeId=${row.id}" code="button.show" />
 		</display:column>
 	</security:authorize>
 	
 	<security:authorize access="hasRole('MEMBER')">
 		<spring:message code="parade.requestsMarch" var="requestsMarchH" />
-		<display:column title="${requestsMarchH}">
+		<display:column title="${requestsMarchH}" style="background-color: ${color};" >
 				<acme:button url="requestMarch/member/list.do?paradeId=${row.id}" code="button.show" />
 		</display:column>
 	</security:authorize>
+	
+	<spring:message code="parade.sponsorship" var="sponsorship" />
+	<display:column title="${sponsorship}" style="background-color: ${color};" >
+		<jstl:if test="${randomSponsorship.containsKey(row)}">
+			<jstl:set var="banner" value="${randomSponsorship.get(row).banner}"/>
+			<img src="<jstl:out value='${banner}'/>" width="200px" height="100px" />
+		</jstl:if>
+	</display:column>
 			
 </display:table>
 

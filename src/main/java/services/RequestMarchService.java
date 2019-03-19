@@ -191,7 +191,7 @@ public class RequestMarchService {
 		final Collection<RequestMarch> requestsMarchParade = parade.getRequestsMarch();
 		requestsMarchParade.remove(requestMarch);
 		parade.setRequestsMarch(requestsMarchParade);
-		this.paradeService.saveForRequestMarch(parade);
+		this.paradeService.saveAuxiliar(parade);
 
 		final Member memberLogged = (Member) actorLogged;
 		final Collection<RequestMarch> requestsMarchMember = memberLogged.getRequestsMarch();

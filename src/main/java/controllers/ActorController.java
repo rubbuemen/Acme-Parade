@@ -25,14 +25,17 @@ import services.AdministratorService;
 import services.BrotherhoodService;
 import services.ChapterService;
 import services.MemberService;
+import services.SponsorService;
 import services.UserAccountService;
 import domain.Actor;
 import domain.Brotherhood;
 import domain.Chapter;
 import domain.Member;
+import domain.Sponsor;
 import forms.BrotherhoodForm;
 import forms.ChapterForm;
 import forms.MemberForm;
+import forms.SponsorForm;
 
 @Controller
 @RequestMapping("/actor")
@@ -55,6 +58,9 @@ public class ActorController extends AbstractController {
 
 	@Autowired
 	ChapterService			chapterService;
+
+	@Autowired
+	SponsorService			sponsorService;
 
 
 	@RequestMapping(value = "/register-brotherhood", method = RequestMethod.GET)
@@ -105,6 +111,23 @@ public class ActorController extends AbstractController {
 
 		result.addObject("authority", Authority.CHAPTER);
 		result.addObject("actionURL", "actor/register-chapter.do");
+		result.addObject("actorForm", actorForm);
+
+		return result;
+	}
+
+	@RequestMapping(value = "/register-sponsor", method = RequestMethod.GET)
+	public ModelAndView registerSponsor() {
+		ModelAndView result;
+		Sponsor actor;
+
+		actor = this.sponsorService.create();
+
+		final SponsorForm actorForm = new SponsorForm(actor);
+
+		result = new ModelAndView("actor/register");
+
+		result.addObject("actionURL", "actor/register-sponsor.do");
 		result.addObject("actorForm", actorForm);
 
 		return result;
@@ -183,6 +206,36 @@ public class ActorController extends AbstractController {
 				Assert.isTrue(actorForm.getActor().getUserAccount().getPassword().equals(actorForm.getPasswordCheck()), "Password does not match");
 				Assert.isTrue(actorForm.getTermsConditions(), "The terms and conditions must be accepted");
 				this.chapterService.save(actorForm.getActor());
+				result = new ModelAndView("redirect:/welcome/index.do");
+			} catch (final Throwable oops) {
+				if (oops.getMessage().equals("Password does not match"))
+					result = this.createEditModelAndView(actorForm.getActor(), "actor.password.match");
+				else if (oops.getMessage().equals("The terms and conditions must be accepted"))
+					result = this.createEditModelAndView(actorForm.getActor(), "actor.conditions.accept");
+				else if (oops.getMessage().equals("could not execute statement; SQL [n/a]; constraint [null]" + "; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement"))
+					result = this.createEditModelAndView(actorForm.getActor(), "actor.error.duplicate.user");
+				else if (oops.getMessage().equals("This entity does not exist"))
+					result = this.createEditModelAndView(null, "hacking.notExist.error");
+				else
+					result = this.createEditModelAndView(actorForm.getActor(), "commit.error");
+			}
+
+		return result;
+	}
+
+	@RequestMapping(value = "/register-sponsor", method = RequestMethod.POST, params = "save")
+	public ModelAndView registerSponsor(@ModelAttribute("actorForm") SponsorForm actorForm, final BindingResult binding) {
+		ModelAndView result;
+
+		actorForm = this.sponsorService.reconstruct(actorForm, binding);
+
+		if (binding.hasErrors())
+			result = this.createEditModelAndView(actorForm.getActor());
+		else
+			try {
+				Assert.isTrue(actorForm.getActor().getUserAccount().getPassword().equals(actorForm.getPasswordCheck()), "Password does not match");
+				Assert.isTrue(actorForm.getTermsConditions(), "The terms and conditions must be accepted");
+				this.sponsorService.save(actorForm.getActor());
 				result = new ModelAndView("redirect:/welcome/index.do");
 			} catch (final Throwable oops) {
 				if (oops.getMessage().equals("Password does not match"))

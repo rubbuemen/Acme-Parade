@@ -23,12 +23,15 @@
 		<!-- Do not forget the "fNiv" class for the first level links !! -->		
 		<security:authorize access="isAnonymous()">
 			<li><a class="fNiv" href="brotherhood/listGeneric.do"><spring:message code="master.page.brotherhoods" /></a></li>
+			<li><a class="fNiv" href="chapter/list.do"><spring:message code="master.page.chapters" /></a></li>
+			<li><a class="fNiv" href="proclaim/list.do"><spring:message code="master.page.proclaims" /></a></li>
 			<li><a class="fNiv"><spring:message code="master.page.register" /></a>
 				<ul>
 					<li class="arrow"></li>
 					<li><a href="actor/register-brotherhood.do"><spring:message code="master.page.register.brotherhood" /></a></li>
 					<li><a href="actor/register-member.do"><spring:message code="master.page.register.member" /></a></li>
 					<li><a href="actor/register-chapter.do"><spring:message code="master.page.register.chapter" /></a></li>
+					<li><a href="actor/register-sponsor.do"><spring:message code="master.page.register.sponsor" /></a></li>
 				</ul>
 			</li>
 			<li><a class="fNiv" href="security/login.do"><spring:message code="master.page.login" /></a></li>
@@ -71,6 +74,17 @@
 			</li>
 		</security:authorize>
 		
+		<security:authorize access="hasRole('SPONSOR')">
+			<li>
+				<a class="fNiv"><spring:message code="master.page.sponsor" /></a>
+				<ul>
+					<li class="arrow"></li>
+					<li><a href="sponsorship/sponsor/list.do"><spring:message code="master.page.sponsorships" /></a></li>
+					
+				</ul>
+			</li>
+		</security:authorize>
+		
 		
 		<security:authorize access="hasRole('ADMIN')">
 			<li>
@@ -89,6 +103,8 @@
 		
 		<security:authorize access="isAuthenticated()">
 		<li><a class="fNiv" href="brotherhood/listGeneric.do"><spring:message code="master.page.brotherhoods" /></a></li>
+		<li><a class="fNiv" href="chapter/list.do"><spring:message code="master.page.chapters" /></a></li>
+		<li><a class="fNiv" href="proclaim/list.do"><spring:message code="master.page.proclaims" /></a></li>
 		<li><a class="fNiv" href="socialProfile/list.do"><spring:message code="master.page.socialProfiles" /></a></li>
 		<li><a class="fNiv" href="box/list.do"><spring:message code="master.page.boxes" /></a></li>
 			<li>
@@ -109,7 +125,10 @@
 					</security:authorize>
 					<security:authorize access="hasRole('CHAPTER')">
 						<li><a href="actor/chapter/edit.do"><spring:message code="master.page.edit.profile" /></a></li>
-					</security:authorize>				
+					</security:authorize>
+					<security:authorize access="hasRole('SPONSOR')">
+						<li><a href="actor/sponsor/edit.do"><spring:message code="master.page.edit.profile" /></a></li>
+					</security:authorize>					
 					<li><a href="j_spring_security_logout"><spring:message code="master.page.logout" /> </a></li>
 				</ul>
 			</li>

@@ -25,8 +25,10 @@ import org.springframework.web.servlet.ModelAndView;
 import security.Authority;
 import services.ActorService;
 import services.BrotherhoodService;
+import services.ChapterService;
 import domain.Actor;
 import domain.Brotherhood;
+import domain.Chapter;
 import domain.Member;
 
 @Controller
@@ -39,16 +41,27 @@ public class BrotherhoodController extends AbstractController {
 	@Autowired
 	ActorService		actorService;
 
+	@Autowired
+	ChapterService		chapterService;
+
 
 	@RequestMapping(value = "/listGeneric", method = RequestMethod.GET)
-	public ModelAndView listBrotherhoods() {
+	public ModelAndView listBrotherhoods(@RequestParam(required = false) final Integer areaId) {
 		ModelAndView result;
 		Collection<Brotherhood> brotherhoods;
 		Authentication authentication;
 
-		brotherhoods = this.brotherhoodService.findAll();
+		Chapter chapter = null;
+
+		if (areaId != null) {
+			brotherhoods = this.brotherhoodService.findBrotherhoodsByAreaId(areaId);
+			chapter = this.chapterService.findChapterByAreaId(areaId);
+		} else
+			brotherhoods = this.brotherhoodService.findAll();
 
 		result = new ModelAndView("brotherhood/listGeneric");
+		result.addObject("areaId", areaId);
+		result.addObject("chapter", chapter);
 
 		authentication = SecurityContextHolder.getContext().getAuthentication();
 		if (!(authentication instanceof AnonymousAuthenticationToken)) {

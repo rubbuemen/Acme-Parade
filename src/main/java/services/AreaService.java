@@ -97,6 +97,25 @@ public class AreaService {
 		return result;
 	}
 
+	//R14.1 (Acme-Parade)
+	public Area findAreaByChapterId(final int chapterId) {
+		Assert.isTrue(chapterId != 0);
+
+		Area result;
+
+		result = this.areaRepository.findAreaByChapterId(chapterId);
+
+		return result;
+	}
+
+	public Area findAreaByParadeId(final int paradeId) {
+		Area result;
+
+		result = this.areaRepository.findAreaByParadeId(paradeId);
+
+		return result;
+	}
+
 
 	// Reconstruct methods
 	@Autowired

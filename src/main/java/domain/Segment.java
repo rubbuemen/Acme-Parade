@@ -9,9 +9,12 @@ import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.Type;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -55,6 +58,8 @@ public class Segment extends DomainEntity {
 
 	@NotNull
 	@DateTimeFormat(pattern = "HH:mm")
+	@Type(type = "time")
+	@Temporal(TemporalType.TIME)
 	public Time getTimeReachOrigin() {
 		return this.timeReachOrigin;
 	}
@@ -65,6 +70,8 @@ public class Segment extends DomainEntity {
 
 	@NotNull
 	@DateTimeFormat(pattern = "HH:mm")
+	@Type(type = "time")
+	@Temporal(TemporalType.TIME)
 	public Time getTimeReachDestination() {
 		return this.timeReachDestination;
 	}

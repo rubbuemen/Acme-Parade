@@ -55,6 +55,20 @@ public class MessageService {
 		return result;
 	}
 
+	public Message createAuxiliar() {
+		Message result;
+
+		result = new Message();
+		final Collection<Actor> recipients = new HashSet<>();
+		final Date moment = new Date(System.currentTimeMillis() - 1);
+
+		result.setRecipients(recipients);
+		result.setMoment(moment);
+		result.setFlagSpam(false);
+
+		return result;
+	}
+
 	public Collection<Message> findAll() {
 		Collection<Message> result;
 
@@ -80,9 +94,6 @@ public class MessageService {
 		Assert.isTrue(message.getId() == 0); //Un mensaje no tiene sentido que se edite, por lo que sólo vendrá del create
 
 		Message result;
-
-		final Actor actorLogged = this.actorService.findActorLogged();
-		Assert.notNull(actorLogged);
 
 		// R26
 		final Collection<String> spamWords = this.systemConfigurationService.getConfiguration().getSpamWords();

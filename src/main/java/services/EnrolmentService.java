@@ -209,7 +209,7 @@ public class EnrolmentService {
 			final Collection<RequestMarch> requests = pro.getRequestsMarch();
 			requests.remove(rm);
 			pro.setRequestsMarch(requests);
-			this.paradeService.saveForRequestMarch(pro);
+			this.paradeService.saveAuxiliar(pro);
 			this.requestMarchService.deleteAuxiliar(rm);
 		}
 
@@ -263,7 +263,7 @@ public class EnrolmentService {
 			final Collection<RequestMarch> requests = pro.getRequestsMarch();
 			requests.remove(rm);
 			pro.setRequestsMarch(requests);
-			this.paradeService.saveForRequestMarch(pro);
+			this.paradeService.saveAuxiliar(pro);
 			this.requestMarchService.deleteAuxiliar(rm);
 		}
 

@@ -64,6 +64,11 @@
 		<li><b>${comments}:</b> <jstl:out value="${actor.comments}" /></li>
 	</jstl:if>
 	
+	<jstl:if test="${authority == 'CHAPTER'}">
+		<spring:message code="chapter.title" var="title" />
+		<li><b>${title}:</b> <jstl:out value="${actor.title}" /></li>
+	</jstl:if>
+	
 	<security:authorize access="hasRole('ADMIN')">
 		<spring:message code="actor.isSpammer" var="isSpammer" />
 		<li>
@@ -112,8 +117,11 @@
 	<jstl:when test="${authority == 'MEMBER'}">
 		<acme:button url="member/brotherhood/list.do" code="button.back" />
 	</jstl:when>
-		<jstl:when test="${access == 'enrolment'}">
+	<jstl:when test="${access == 'enrolment'}">
 		<acme:button url="enrolment/brotherhood/list.do" code="button.back" />
+	</jstl:when>
+	<jstl:when test="${authority == 'CHAPTER'}">
+		<acme:button url="chapter/list.do" code="actor.listChapters" />
 	</jstl:when>
 	<jstl:otherwise>
 		<acme:button url="brotherhood/listGeneric.do" code="button.back" />
