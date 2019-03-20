@@ -34,7 +34,7 @@ import cz.jirutka.validator.collection.constraints.EachNotNull;
 @Entity
 @Access(AccessType.PROPERTY)
 @Table(indexes = {
-	@Index(columnList = "ticker, title, description, momentOrganise, isFinalMode")
+	@Index(columnList = "ticker, title, description, momentOrganise, isFinalMode, status")
 })
 public class Parade extends DomainEntity {
 

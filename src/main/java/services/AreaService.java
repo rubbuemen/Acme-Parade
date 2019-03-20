@@ -13,6 +13,7 @@ import org.springframework.validation.Validator;
 import repositories.AreaRepository;
 import domain.Actor;
 import domain.Area;
+import domain.Chapter;
 
 @Service
 @Transactional
@@ -93,6 +94,14 @@ public class AreaService {
 		final Collection<Area> result = this.areaRepository.findAreasBrotherhoodUsed();
 		final Collection<Area> freeAreas = this.areaRepository.findFreeAreas();
 		result.retainAll(freeAreas);
+
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginChapter(actorLogged);
+
+		final Chapter chapterLogged = (Chapter) actorLogged;
+
+		Assert.isNull(chapterLogged.getArea(), "You already have an assigned area");
 
 		return result;
 	}

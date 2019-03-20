@@ -94,6 +94,7 @@ public class HistoryService {
 
 		InceptionRecord inceptionRecord = history.getInceptionRecord();
 		inceptionRecord = this.inceptionRecordService.save(inceptionRecord);
+
 		history.setInceptionRecord(inceptionRecord);
 
 		result = this.historyRepository.save(history);
@@ -202,6 +203,10 @@ public class HistoryService {
 		this.validator.validate(result, binding);
 
 		return result;
+	}
+
+	public void flush() {
+		this.historyRepository.flush();
 	}
 
 }

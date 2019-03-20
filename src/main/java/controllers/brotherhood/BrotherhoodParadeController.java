@@ -57,15 +57,17 @@ public class BrotherhoodParadeController extends AbstractController {
 
 		result = new ModelAndView("parade/list");
 
-		if (parades == null || !parades.isEmpty()) {
-			final Map<Parade, Sponsorship> randomSponsorship = new HashMap<>();
-			for (final Parade p : parades) {
-				final Sponsorship sponsorship = this.sponsorshipService.findRandomSponsorShip(p);
-				if (sponsorship != null)
-					randomSponsorship.put(p, sponsorship);
+		if (parades != null)
+			if (!parades.isEmpty()) {
+				final Map<Parade, Sponsorship> randomSponsorship = new HashMap<>();
+				for (final Parade p : parades) {
+					final Sponsorship sponsorship = this.sponsorshipService.findRandomSponsorShip(p);
+					if (sponsorship != null)
+						randomSponsorship.put(p, sponsorship);
+
+				}
+				result.addObject("randomSponsorship", randomSponsorship);
 			}
-			result.addObject("randomSponsorship", randomSponsorship);
-		}
 
 		result.addObject("parades", parades);
 		result.addObject("requestURI", "parade/brotherhood/list.do");

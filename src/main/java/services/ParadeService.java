@@ -372,6 +372,14 @@ public class ParadeService {
 
 		Collection<Parade> result;
 
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginChapter(actorLogged);
+
+		final Chapter chapterOwner = this.chapterService.findChapterByBrotherhoodId(brotherhoodId);
+		Assert.notNull(chapterOwner, "The logged actor is not the owner of this entity");
+		Assert.isTrue(chapterOwner.equals(actorLogged), "The logged actor is not the owner of this entity");
+
 		result = this.paradeRepository.findParadesFinalModeOrderByStatusByBrotherhoodId(brotherhoodId);
 		Assert.notNull(result);
 
@@ -392,6 +400,8 @@ public class ParadeService {
 
 		result = this.paradeRepository.findOne(paradeId);
 		Assert.notNull(result);
+
+		Assert.isTrue(result.getStatus().equals("SUBMITTED"), "The parade does not have the status submitted");
 
 		return result;
 	}

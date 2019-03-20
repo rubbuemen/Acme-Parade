@@ -137,6 +137,15 @@ public class ChapterService {
 		return result;
 	}
 
+	public Chapter findChapterByBrotherhoodId(final int brotherhoodId) {
+		Assert.isTrue(brotherhoodId != 0);
+
+		Chapter result;
+
+		result = this.chapterRepository.findChapterByBrotherhoodId(brotherhoodId);
+		return result;
+	}
+
 
 	// Reconstruct methods
 	@Autowired

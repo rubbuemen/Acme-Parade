@@ -16,4 +16,7 @@ public interface ChapterRepository extends JpaRepository<Chapter, Integer> {
 	@Query("select c from Chapter c join c.area a where a.id = ?1)")
 	Chapter findChapterByAreaId(int areaId);
 
+	@Query("select c from Chapter c join c.area a where a in (select a from Brotherhood b join b.area a where b.id = ?1)")
+	Chapter findChapterByBrotherhoodId(int brotherhoodId);
+
 }

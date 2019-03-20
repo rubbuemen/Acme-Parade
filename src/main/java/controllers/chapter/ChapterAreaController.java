@@ -39,15 +39,24 @@ public class ChapterAreaController extends AbstractController {
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ModelAndView list() {
 		ModelAndView result;
-		Collection<Area> areas;
+		Collection<Area> areas = null;
 
-		areas = this.areaService.findAreasToSelfAssign();
+		try {
+			areas = this.areaService.findAreasToSelfAssign();
 
-		result = new ModelAndView("area/list");
+			result = new ModelAndView("area/list");
 
-		result.addObject("authority", Authority.CHAPTER);
-		result.addObject("areas", areas);
-		result.addObject("requestURI", "area/chapter/list.do");
+			result.addObject("authority", Authority.CHAPTER);
+			result.addObject("areas", areas);
+			result.addObject("requestURI", "area/chapter/list.do");
+
+		} catch (final Throwable oops) {
+			if (oops.getMessage().equals("You already have an assigned area"))
+				result = this.createEditModelAndView(null, "areas.error.alreadyAssigned");
+			else
+				result = this.createEditModelAndView(areas, "commit.error");
+
+		}
 
 		return result;
 	}
@@ -59,6 +68,27 @@ public class ChapterAreaController extends AbstractController {
 		this.chapterService.selfAssign(areaId);
 
 		result = new ModelAndView("redirect:/welcome/index.do");
+
+		return result;
+	}
+
+	// Ancillary methods
+	protected ModelAndView createEditModelAndView(final Collection<Area> areas) {
+		ModelAndView result;
+		result = this.createEditModelAndView(areas, null);
+		return result;
+	}
+
+	protected ModelAndView createEditModelAndView(final Collection<Area> areas, final String message) {
+		ModelAndView result;
+
+		if (areas == null)
+			result = new ModelAndView("redirect:/welcome/index.do");
+		else
+			result = new ModelAndView("area/list");
+
+		result.addObject("areas", areas);
+		result.addObject("message", message);
 
 		return result;
 	}

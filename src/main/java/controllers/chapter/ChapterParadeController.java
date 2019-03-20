@@ -80,6 +80,8 @@ public class ChapterParadeController extends AbstractController {
 		} catch (final Throwable oops) {
 			if (oops.getMessage().equals("The logged actor is not the owner of this entity"))
 				result = this.createEditModelAndView(parade, "hacking.logged.error", decision);
+			else if (oops.getMessage().equals("The parade does not have the status submitted"))
+				result = this.createEditModelAndView(parade, "parade.error.notSubmmited", decision);
 			else
 				result = this.createEditModelAndView(parade, "commit.error", decision);
 		}
@@ -132,19 +134,21 @@ public class ChapterParadeController extends AbstractController {
 		else
 			result = new ModelAndView("parade/list");
 
-		if (parades == null || !parades.isEmpty()) {
-			final Map<Parade, Sponsorship> randomSponsorship = new HashMap<>();
-			for (final Parade p : parades) {
-				final Sponsorship sponsorship = this.sponsorshipService.findRandomSponsorShip(p);
-				if (sponsorship != null)
-					randomSponsorship.put(p, sponsorship);
+		if (parades != null) {
+			if (!parades.isEmpty()) {
+				final Map<Parade, Sponsorship> randomSponsorship = new HashMap<>();
+				for (final Parade p : parades) {
+					final Sponsorship sponsorship = this.sponsorshipService.findRandomSponsorShip(p);
+					if (sponsorship != null)
+						randomSponsorship.put(p, sponsorship);
+				}
+				result.addObject("randomSponsorship", randomSponsorship);
 			}
-			result.addObject("randomSponsorship", randomSponsorship);
+			final Brotherhood brotherhoodParade = this.brotherhoodService.findBrotherhoodByParadeId(parades.iterator().next().getId());
+			result.addObject("requestURI", "parade/chapter/list.do?brotherhoodId=" + brotherhoodParade.getId());
 		}
 
-		final Brotherhood brotherhoodParade = this.brotherhoodService.findBrotherhoodByParadeId(parades.iterator().next().getId());
 		result.addObject("parades", parades);
-		result.addObject("requestURI", "parade/chapter/list.do?brotherhoodId=" + brotherhoodParade.getId());
 		result.addObject("message", message);
 
 		return result;
@@ -161,11 +165,12 @@ public class ChapterParadeController extends AbstractController {
 
 		if (parade == null)
 			result = new ModelAndView("redirect:/welcome/index.do");
-		else
+		else {
 			result = new ModelAndView("parade/edit");
+			final Brotherhood brotherhoodParade = this.brotherhoodService.findBrotherhoodByParadeId(parade.getId());
+			result.addObject("brotherhood", brotherhoodParade);
+		}
 
-		final Brotherhood brotherhoodParade = this.brotherhoodService.findBrotherhoodByParadeId(parade.getId());
-		result.addObject("brotherhood", brotherhoodParade);
 		result.addObject("decision", decision);
 		result.addObject("parade", parade);
 		result.addObject("actionURL", "parade/chapter/edit.do");

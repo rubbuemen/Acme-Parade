@@ -123,4 +123,8 @@ public class InceptionRecordService {
 		return result;
 	}
 
+	public void flush() {
+		this.inceptionRecordRepository.flush();
+	}
+
 }
