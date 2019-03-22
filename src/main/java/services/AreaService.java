@@ -148,4 +148,8 @@ public class AreaService {
 		return result;
 	}
 
+	public void flush() {
+		this.areaRepository.flush();
+	}
+
 }

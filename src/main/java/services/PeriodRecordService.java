@@ -86,9 +86,11 @@ public class PeriodRecordService {
 		final Calendar cal = Calendar.getInstance();
 		final Integer actualYear = cal.get(Calendar.YEAR);
 
-		Assert.isTrue(startYear <= actualYear, "Start year must be past");
-		Assert.isTrue(endYear <= actualYear, "End year must be past");
-		Assert.isTrue(startYear <= endYear, "Start year must be before end year");
+		if (startYear != null && endYear != null) {
+			Assert.isTrue(startYear <= actualYear, "Start year must be past");
+			Assert.isTrue(endYear <= actualYear, "End year must be past");
+			Assert.isTrue(startYear <= endYear, "Start year must be before end year");
+		}
 
 		if (periodRecord.getId() == 0) {
 			result = this.periodRecordRepository.save(periodRecord);
@@ -169,6 +171,10 @@ public class PeriodRecordService {
 		this.validator.validate(result, binding);
 
 		return result;
+	}
+
+	public void flush() {
+		this.periodRecordRepository.flush();
 	}
 
 }

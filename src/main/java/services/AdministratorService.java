@@ -113,6 +113,10 @@ public class AdministratorService {
 	public String dashboardQueryC1() {
 		String result;
 
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginAdministrator(actorLogged);
+
 		result = this.administratorRepository.dashboardQueryC1();
 
 		return result;
@@ -120,6 +124,10 @@ public class AdministratorService {
 
 	public Collection<Brotherhood> dashboardQueryC2() {
 		Collection<Brotherhood> result;
+
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginAdministrator(actorLogged);
 
 		result = this.administratorRepository.dashboardQueryC2();
 
@@ -129,6 +137,10 @@ public class AdministratorService {
 	public Collection<Brotherhood> dashboardQueryC3() {
 		Collection<Brotherhood> result;
 
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginAdministrator(actorLogged);
+
 		result = this.administratorRepository.dashboardQueryC3();
 
 		return result;
@@ -136,6 +148,10 @@ public class AdministratorService {
 
 	public Collection<Object[]> dashboardQueryC4() {
 		Collection<Object[]> result;
+
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginAdministrator(actorLogged);
 
 		result = this.administratorRepository.dashboardQueryC4();
 
@@ -145,6 +161,10 @@ public class AdministratorService {
 	public Collection<Parade> dashboardQueryC5() {
 		Collection<Parade> result;
 
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginAdministrator(actorLogged);
+
 		result = this.administratorRepository.dashboardQueryC5();
 
 		return result;
@@ -152,6 +172,10 @@ public class AdministratorService {
 
 	public Collection<Object[]> dashboardQueryC6() {
 		Collection<Object[]> result;
+
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginAdministrator(actorLogged);
 
 		result = this.administratorRepository.dashboardQueryC6();
 
@@ -161,6 +185,10 @@ public class AdministratorService {
 	public Collection<Member> dashboardQueryC7() {
 		Collection<Member> result;
 
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginAdministrator(actorLogged);
+
 		result = this.administratorRepository.dashboardQueryC7();
 
 		return result;
@@ -168,6 +196,10 @@ public class AdministratorService {
 
 	public Collection<Object[]> dashboardQueryC8() {
 		Collection<Object[]> result;
+
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginAdministrator(actorLogged);
 
 		result = this.administratorRepository.dashboardQueryC8();
 
@@ -177,6 +209,10 @@ public class AdministratorService {
 	public String dashboardQueryB1() {
 		String result;
 
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginAdministrator(actorLogged);
+
 		result = this.administratorRepository.dashboardQueryB1();
 
 		return result;
@@ -184,6 +220,10 @@ public class AdministratorService {
 
 	public String dashboardQueryB2() {
 		String result;
+
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginAdministrator(actorLogged);
 
 		result = this.administratorRepository.dashboardQueryB2();
 
@@ -193,6 +233,10 @@ public class AdministratorService {
 	public String dashboardQueryB3() {
 		String result;
 
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginAdministrator(actorLogged);
+
 		result = this.administratorRepository.dashboardQueryB3();
 
 		return result;
@@ -200,6 +244,10 @@ public class AdministratorService {
 
 	public String dashboardQueryAPlus1() {
 		String result;
+
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginAdministrator(actorLogged);
 
 		result = this.administratorRepository.dashboardQueryAPlus1();
 
@@ -209,6 +257,10 @@ public class AdministratorService {
 	public Double[] dashboardQueryAPlus2() {
 		Double[] result;
 
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginAdministrator(actorLogged);
+
 		result = this.administratorRepository.dashboardQueryAPlus2();
 
 		return result;
@@ -216,6 +268,10 @@ public class AdministratorService {
 
 	public String dashboardQueryAcmeParadeC1() {
 		String result;
+
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginAdministrator(actorLogged);
 
 		result = this.administratorRepository.dashboardQueryAcmeParadeC1();
 
@@ -225,6 +281,10 @@ public class AdministratorService {
 	public Brotherhood dashboardQueryAcmeParadeC2() {
 		Brotherhood result;
 
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginAdministrator(actorLogged);
+
 		result = this.administratorRepository.dashboardQueryAcmeParadeC2().iterator().next();
 
 		return result;
@@ -232,6 +292,10 @@ public class AdministratorService {
 
 	public Collection<Brotherhood> dashboardQueryAcmeParadeC3() {
 		Collection<Brotherhood> result;
+
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginAdministrator(actorLogged);
 
 		result = this.administratorRepository.dashboardQueryAcmeParadeC3();
 
@@ -241,6 +305,10 @@ public class AdministratorService {
 	public String dashboardQueryAcmeParadeB1() {
 		String result;
 
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginAdministrator(actorLogged);
+
 		result = this.administratorRepository.dashboardQueryAcmeParadeB1();
 
 		return result;
@@ -248,6 +316,10 @@ public class AdministratorService {
 
 	public String dashboardQueryAcmeParadeB2() {
 		String result;
+
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginAdministrator(actorLogged);
 
 		result = this.administratorRepository.dashboardQueryAcmeParadeB2();
 
@@ -257,6 +329,10 @@ public class AdministratorService {
 	public Collection<Chapter> dashboardQueryAcmeParadeB3() {
 		Collection<Chapter> result;
 
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginAdministrator(actorLogged);
+
 		result = this.administratorRepository.dashboardQueryAcmeParadeB3();
 
 		return result;
@@ -264,6 +340,10 @@ public class AdministratorService {
 
 	public String dashboardQueryAcmeParadeB4() {
 		String result;
+
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginAdministrator(actorLogged);
 
 		result = this.administratorRepository.dashboardQueryAcmeParadeB4();
 
@@ -273,6 +353,10 @@ public class AdministratorService {
 	public Collection<Object[]> dashboardQueryAcmeParadeB5() {
 		Collection<Object[]> result;
 
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginAdministrator(actorLogged);
+
 		result = this.administratorRepository.dashboardQueryAcmeParadeB5();
 
 		return result;
@@ -280,6 +364,10 @@ public class AdministratorService {
 
 	public String dashboardQueryAcmeParadeA1() {
 		String result;
+
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginAdministrator(actorLogged);
 
 		result = this.administratorRepository.dashboardQueryAcmeParadeA1();
 
@@ -289,6 +377,10 @@ public class AdministratorService {
 	public String dashboardQueryAcmeParadeA2() {
 		String result;
 
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginAdministrator(actorLogged);
+
 		result = this.administratorRepository.dashboardQueryAcmeParadeA2();
 
 		return result;
@@ -296,6 +388,10 @@ public class AdministratorService {
 
 	public Collection<Sponsor> dashboardQueryAcmeParadeA3() {
 		Collection<Sponsor> result;
+
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginAdministrator(actorLogged);
 
 		result = this.administratorRepository.dashboardQueryAcmeParadeA3();
 

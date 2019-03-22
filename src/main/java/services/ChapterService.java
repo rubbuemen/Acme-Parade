@@ -113,6 +113,7 @@ public class ChapterService {
 		Assert.isNull(chapterLogged.getArea(), "You already have an assigned area");
 
 		final Area area = this.areaService.findOne(areaId);
+		Assert.isTrue(this.areaService.findAreasToSelfAssign().contains(area), "This area is already assigned");
 		chapterLogged.setArea(area);
 
 		result = this.chapterRepository.save(chapterLogged);

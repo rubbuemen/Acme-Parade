@@ -156,4 +156,8 @@ public class MiscellaneousRecordService {
 
 		return result;
 	}
+
+	public void flush() {
+		this.miscellaneousRecordRepository.flush();
+	}
 }
