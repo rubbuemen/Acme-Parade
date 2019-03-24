@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
 
 import utilities.AbstractTest;
 import domain.Area;
@@ -51,6 +52,8 @@ public class AreaServiceTest extends AbstractTest {
 	 *         *** 1. Intento de autoasignación de un "Area" con una autoridad no permitida
 	 *         *** 2. Intento de autoasignación de un "Area" teniendo ya una asignada
 	 *         *** 3. Intento de autoasignación de un "Area" ya asignada a otro "Chapter"
+	 *         Analisis de cobertura de sentencias: 97,8% 45/46 instrucciones
+	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
 	public void driverSelfAssignArea() {
@@ -69,6 +72,32 @@ public class AreaServiceTest extends AbstractTest {
 
 		for (int i = 0; i < testingData.length; i++)
 			this.selfAssignAreaTemplate((String) testingData[i][0], (String) testingData[i][1], (Class<?>) testingData[i][2]);
+	}
+
+	/**
+	 * @author Rubén Bueno
+	 *         Requisito funcional: 14.1 (Acme-Parade)
+	 *         Caso de uso: navegar al "Area" que coordina un "Chapter" sin estar logeado
+	 *         Tests positivos: 1
+	 *         *** 1. Navegar al "Area" que coordina un "Chapter" sin estar logeado
+	 *         Tests negativos: 1
+	 *         *** 1. Intento de navegar al "Area" que coordina un "Chapter" que no tiene área
+	 *         Analisis de cobertura de sentencias: 92,3% 12/13 instrucciones
+	 *         Analisis de cobertura de datos: alto
+	 */
+	@Test
+	public void driverNavegateAreaChapter() {
+
+		final Object testingData[][] = {
+			{
+				"chapter1", null
+			}, {
+				"chapter5", IllegalArgumentException.class
+			}
+		};
+
+		for (int i = 0; i < testingData.length; i++)
+			this.navegateAreaChapterTemplate((String) testingData[i][0], (Class<?>) testingData[i][1]);
 	}
 
 	// Template methods ------------------------------------------------------
@@ -91,6 +120,24 @@ public class AreaServiceTest extends AbstractTest {
 
 		this.checkExceptions(expected, caught);
 		super.unauthenticate();
+		super.rollbackTransaction();
+	}
+
+	protected void navegateAreaChapterTemplate(final String chapter, final Class<?> expected) {
+		Class<?> caught = null;
+		Area area;
+
+		super.startTransaction();
+
+		try {
+			area = this.areaService.findAreaByChapterId(super.getEntityId(chapter));
+			Assert.notNull(area);
+		} catch (final Throwable oops) {
+			caught = oops.getClass();
+			this.entityManager.clear();
+		}
+
+		this.checkExceptions(expected, caught);
 		super.rollbackTransaction();
 	}
 }

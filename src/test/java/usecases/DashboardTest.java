@@ -65,12 +65,14 @@ public class DashboardTest extends AbstractTest {
 
 	/**
 	 * @author Rubén Bueno
-	 *         Requisitos funcionales: 4.1 (Acme-Parade)
+	 *         Requisitos funcionales: 4.1 (Acme-Parade), 8.1 (Acme-Parade), 18.2 (Acme-Parade)
 	 *         Caso de uso: mostrar una "dashboard"
 	 *         Tests positivos: 1
 	 *         *** 1. Mostrar una "dashboard" correctamente
 	 *         Tests negativos: 1
 	 *         *** 1. Intento de muestra de una "dashboard" con una autoridad no permitida
+	 *         Analisis de cobertura de sentencias: 98,75% 396/401 instrucciones
+	 *         Analisis de cobertura de datos: alto
 	 */
 	@SuppressWarnings("unchecked")
 	@Test

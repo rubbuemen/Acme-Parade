@@ -189,4 +189,8 @@ public class ChapterService {
 		return result;
 	}
 
+	public void flush() {
+		this.chapterRepository.flush();
+	}
+
 }

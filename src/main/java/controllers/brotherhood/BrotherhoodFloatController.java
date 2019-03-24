@@ -119,6 +119,8 @@ public class BrotherhoodFloatController extends AbstractController {
 		} catch (final Throwable oops) {
 			if (oops.getMessage().equals("You can not eliminate this float because the parade would run out of floats"))
 				result = this.createEditModelAndView(floatE, "float.error.occupied");
+			else if (oops.getMessage().equals("You can only save parades that are not in final mode"))
+				result = this.createEditModelAndView(floatE, "float.error.paradeFinalMode");
 			else if (oops.getMessage().equals("The logged actor is not the owner of this entity"))
 				result = this.createEditModelAndView(floatE, "hacking.logged.error");
 			else

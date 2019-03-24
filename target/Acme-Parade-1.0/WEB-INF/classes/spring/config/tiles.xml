@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- * tiles.xml * * Copyright (C) 2019 Universidad de Sevilla * * The use 
+	of this project is hereby constrained to the conditions of the * TDG Licence, 
+	a copy of which you may download from * http://www.tdg-seville.info/License.html -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
+	">
+
+	<util:list id="tiles">
+		<value>/views/master-page/tiles.xml</value>
+		<value>/views/misc/tiles.xml</value>
+		<value>/views/security/tiles.xml</value>
+		<value>/views/welcome/tiles.xml</value>
+		<value>/views/actor/tiles.xml</value>
+		<value>/views/area/tiles.xml</value>
+		<value>/views/box/tiles.xml</value>
+		<value>/views/brotherhood/tiles.xml</value>
+		<value>/views/enrolment/tiles.xml</value>
+		<value>/views/finder/tiles.xml</value>
+		<value>/views/float/tiles.xml</value>
+		<value>/views/member/tiles.xml</value>
+		<value>/views/message/tiles.xml</value>
+		<value>/views/positionBrotherhood/tiles.xml</value>
+		<value>/views/parade/tiles.xml</value>
+		<value>/views/requestMarch/tiles.xml</value>
+		<value>/views/socialProfile/tiles.xml</value>
+		<value>/views/systemConfiguration/tiles.xml</value>
+		<value>/views/dashboard/tiles.xml</value>
+		
+				<!-- Acme Parade -->
+		<value>/views/chapter/tiles.xml</value>
+		<value>/views/history/tiles.xml</value>
+		<value>/views/inceptionRecord/tiles.xml</value>
+		<value>/views/legalRecord/tiles.xml</value>
+		<value>/views/linkRecord/tiles.xml</value>
+		<value>/views/miscellaneousRecord/tiles.xml</value>
+		<value>/views/periodRecord/tiles.xml</value>
+		<value>/views/proclaim/tiles.xml</value>
+		<value>/views/segment/tiles.xml</value>
+		<value>/views/sponsorship/tiles.xml</value>
+	</util:list>
+
+</beans>

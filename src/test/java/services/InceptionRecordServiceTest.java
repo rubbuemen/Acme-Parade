@@ -54,6 +54,8 @@ public class InceptionRecordServiceTest extends AbstractTest {
 	 *         *** 3. Intento de edición de un "InceptionRecord" con descripción vacío
 	 *         *** 4. Intento de edición de un "InceptionRecord" con fotos vacía
 	 *         *** 5. Intento de edición de un "InceptionRecord" con fotos que no son URL
+	 *         Analisis de cobertura de sentencias: 98,24% 56/57 instrucciones
+	 *         Analisis de cobertura de datos: alto
 	 */
 	@SuppressWarnings("unchecked")
 	@Test

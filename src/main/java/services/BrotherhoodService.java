@@ -379,4 +379,8 @@ public class BrotherhoodService {
 		return result;
 	}
 
+	public void flush() {
+		this.brotherhoodRepository.flush();
+	}
+
 }

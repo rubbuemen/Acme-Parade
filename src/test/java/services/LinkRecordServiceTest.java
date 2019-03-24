@@ -53,6 +53,8 @@ public class LinkRecordServiceTest extends AbstractTest {
 	 *         *** 1. Intento de creación de un "LinkRecord" con una autoridad no permitida
 	 *         *** 2. Intento de creación de un "LinkRecord" con título vacío
 	 *         *** 3. Intento de creación de un "LinkRecord" con descripción vacía
+	 *         Analisis de cobertura de sentencias: 99,11% 112/113 instrucciones
+	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
 	public void driverCreateLinkRecord() {
@@ -83,6 +85,8 @@ public class LinkRecordServiceTest extends AbstractTest {
 	 *         *** 1. Intento de edición de un "LinkRecord" con una autoridad no permitida
 	 *         *** 2. Intento de edición de un "LinkRecord" con título vacío
 	 *         *** 3. Intento de edición de un "LinkRecord" con descripción vacía
+	 *         Analisis de cobertura de sentencias: 98,96% 96/97 instrucciones
+	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
 	public void driverEditLinkRecord() {
@@ -108,9 +112,11 @@ public class LinkRecordServiceTest extends AbstractTest {
 	 *         Requisito funcional: 3.1 (Acme-Parade)
 	 *         Caso de uso: eliminar un "LinkRecord"
 	 *         Tests positivos: 1
-	 *         *** 1. Eliminar de un "LinkRecord" correctamente
+	 *         *** 1. Eliminar un "LinkRecord" correctamente
 	 *         Tests negativos: 1
 	 *         *** 1. Intento de eliminación de un "LinkRecord" con una autoridad no permitida
+	 *         Analisis de cobertura de sentencias: 98% 48/49 instrucciones
+	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
 	public void driverDeleteLinkRecord() {

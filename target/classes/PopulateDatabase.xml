@@ -1118,6 +1118,7 @@
 		<property name="floats">
 			<list>
 				<ref bean="float4" />
+				<ref bean="float5" />
 			</list>
 		</property>
 		<property name="parades">

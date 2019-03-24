@@ -59,6 +59,8 @@ public class PeriodRecordServiceTest extends AbstractTest {
 	 *         *** 8. Intento de creación de un "PeriodRecord" con año de comienzo posterior al de finalización
 	 *         *** 9. Intento de creación de un "PeriodRecord" con fotos vacía
 	 *         *** 10. Intento de creación de un "PeriodRecord" con fotos que no son URL
+	 *         Analisis de cobertura de sentencias: 99,37% 159/160 instrucciones
+	 *         Analisis de cobertura de datos: alto
 	 */
 	@SuppressWarnings("unchecked")
 	@Test
@@ -115,6 +117,8 @@ public class PeriodRecordServiceTest extends AbstractTest {
 	 *         *** 8. Intento de edición de un "PeriodRecord" con año de comienzo posterior al de finalización
 	 *         *** 9. Intento de edición de un "PeriodRecord" con fotos vacía
 	 *         *** 10. Intento de edición de un "PeriodRecord" con fotos que no son URL
+	 *         Analisis de cobertura de sentencias: 99,3% 143/144 instrucciones
+	 *         Analisis de cobertura de datos: alto
 	 */
 	@SuppressWarnings("unchecked")
 	@Test
@@ -159,9 +163,11 @@ public class PeriodRecordServiceTest extends AbstractTest {
 	 *         Requisito funcional: 3.1 (Acme-Parade)
 	 *         Caso de uso: eliminar un "PeriodRecord"
 	 *         Tests positivos: 1
-	 *         *** 1. Eliminar de un "PeriodRecord" correctamente
+	 *         *** 1. Eliminar un "PeriodRecord" correctamente
 	 *         Tests negativos: 1
 	 *         *** 1. Intento de eliminación de un "PeriodRecord" con una autoridad no permitida
+	 *         Analisis de cobertura de sentencias: 98% 48/49 instrucciones
+	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
 	public void driverDeletePeriodRecord() {

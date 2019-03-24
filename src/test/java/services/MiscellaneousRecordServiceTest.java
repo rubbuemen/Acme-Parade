@@ -49,6 +49,8 @@ public class MiscellaneousRecordServiceTest extends AbstractTest {
 	 *         *** 1. Intento de creación de un "MiscellaneousRecord" con una autoridad no permitida
 	 *         *** 2. Intento de creación de un "MiscellaneousRecord" con título vacío
 	 *         *** 3. Intento de creación de un "MiscellaneousRecord" con descripción vacía
+	 *         Analisis de cobertura de sentencias: 99,11% 112/113 instrucciones
+	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
 	public void driverCreateMiscellaneousRecord() {
@@ -79,6 +81,8 @@ public class MiscellaneousRecordServiceTest extends AbstractTest {
 	 *         *** 1. Intento de edición de un "MiscellaneousRecord" con una autoridad no permitida
 	 *         *** 2. Intento de edición de un "MiscellaneousRecord" con título vacío
 	 *         *** 3. Intento de edición de un "MiscellaneousRecord" con descripción vacía
+	 *         Analisis de cobertura de sentencias: 98,96% 96/97 instrucciones
+	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
 	public void driverEditMiscellaneousRecord() {
@@ -104,9 +108,11 @@ public class MiscellaneousRecordServiceTest extends AbstractTest {
 	 *         Requisito funcional: 3.1 (Acme-Parade)
 	 *         Caso de uso: eliminar un "MiscellaneousRecord"
 	 *         Tests positivos: 1
-	 *         *** 1. Eliminar de un "MiscellaneousRecord" correctamente
+	 *         *** 1. Eliminar un "MiscellaneousRecord" correctamente
 	 *         Tests negativos: 1
 	 *         *** 1. Intento de eliminación de un "MiscellaneousRecord" con una autoridad no permitida
+	 *         Analisis de cobertura de sentencias: 98% 48/49 instrucciones
+	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
 	public void driverDeleteMiscellaneousRecord() {

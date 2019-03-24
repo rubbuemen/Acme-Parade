@@ -70,6 +70,7 @@ public class ProclaimService {
 	//R17.1 (Acme-Parade)
 	public Proclaim save(final Proclaim proclaim) {
 		Assert.notNull(proclaim);
+		Assert.isTrue(proclaim.getId() == 0, "There's no way to update a proclaim");
 
 		final Actor actorLogged = this.actorService.findActorLogged();
 		Assert.notNull(actorLogged);
@@ -114,6 +115,10 @@ public class ProclaimService {
 		this.validator.validate(result, binding);
 
 		return result;
+	}
+
+	public void flush() {
+		this.proclaimRepository.flush();
 	}
 
 }

@@ -83,7 +83,9 @@ public class SegmentService {
 
 		Segment result;
 
-		Assert.isTrue(segment.getTimeReachOrigin().compareTo(segment.getTimeReachDestination()) < 0, "The time at which the parade is expected to be reaching the origin must be before than the time at which it's expected to be reaching the destination");
+		if (segment.getTimeReachOrigin() != null && segment.getTimeReachDestination() != null)
+			Assert.isTrue(segment.getTimeReachOrigin().compareTo(segment.getTimeReachDestination()) < 0,
+				"The time at which the parade is expected to be reaching the origin must be before than the time at which it's expected to be reaching the destination");
 
 		if (segment.getId() == 0) {
 			final Brotherhood brotherhoodOwner = this.brotherhoodService.findBrotherhoodByParadeId(parade.getId());
@@ -105,15 +107,17 @@ public class SegmentService {
 			if (segmentsParade.size() > 1)
 				if (segmentsParade.get(0).equals(segment)) {
 					final Segment nextSegment = segmentsParade.get(1);
-					Assert.isTrue(segment.getTimeReachDestination().compareTo(nextSegment.getTimeReachDestination()) < 0,
-						"The time at which the parade is expected to be reaching the destination must be before than the time it is expected to reach the destination of the next segment");
+					if (segment.getTimeReachOrigin() != null && segment.getTimeReachDestination() != null)
+						Assert.isTrue(segment.getTimeReachDestination().compareTo(nextSegment.getTimeReachDestination()) < 0,
+							"The time at which the parade is expected to be reaching the destination must be before than the time it is expected to reach the destination of the next segment");
 					nextSegment.setOrigin(segment.getDestination());
 					nextSegment.setTimeReachOrigin(segment.getTimeReachDestination());
 					this.segmentRepository.save(nextSegment);
 				} else if (segmentsParade.get(segmentsParade.size() - 1).equals(segment)) {
 					final Segment previousSegment = segmentsParade.get(segmentsParade.size() - 2);
-					Assert.isTrue(segment.getTimeReachOrigin().compareTo(previousSegment.getTimeReachOrigin()) > 0,
-						"The time at which the parade is expected to be reaching the origin must be after than the time it is expected to reach the origin of the previous segment");
+					if (segment.getTimeReachOrigin() != null && segment.getTimeReachDestination() != null)
+						Assert.isTrue(segment.getTimeReachOrigin().compareTo(previousSegment.getTimeReachOrigin()) > 0,
+							"The time at which the parade is expected to be reaching the origin must be after than the time it is expected to reach the origin of the previous segment");
 					previousSegment.setDestination(segment.getOrigin());
 					previousSegment.setTimeReachDestination(segment.getTimeReachOrigin());
 					this.segmentRepository.save(previousSegment);
@@ -121,10 +125,12 @@ public class SegmentService {
 					final int actualIndex = segmentsParade.indexOf(segment);
 					final Segment nextSegment = segmentsParade.get(actualIndex + 1);
 					final Segment previousSegment = segmentsParade.get(actualIndex - 1);
-					Assert.isTrue(segment.getTimeReachOrigin().compareTo(previousSegment.getTimeReachOrigin()) > 0,
-						"The time at which the parade is expected to be reaching the origin must be after than the time it is expected to reach the origin of the previous segment");
-					Assert.isTrue(segment.getTimeReachDestination().compareTo(nextSegment.getTimeReachDestination()) < 0,
-						"The time at which the parade is expected to be reaching the destination must be before than the time it is expected to reach the destination of the next segment");
+					if (segment.getTimeReachOrigin() != null && segment.getTimeReachDestination() != null) {
+						Assert.isTrue(segment.getTimeReachOrigin().compareTo(previousSegment.getTimeReachOrigin()) > 0,
+							"The time at which the parade is expected to be reaching the origin must be after than the time it is expected to reach the origin of the previous segment");
+						Assert.isTrue(segment.getTimeReachDestination().compareTo(nextSegment.getTimeReachDestination()) < 0,
+							"The time at which the parade is expected to be reaching the destination must be before than the time it is expected to reach the destination of the next segment");
+					}
 					previousSegment.setDestination(segment.getOrigin());
 					previousSegment.setTimeReachDestination(segment.getTimeReachOrigin());
 					nextSegment.setOrigin(segment.getDestination());
@@ -138,7 +144,6 @@ public class SegmentService {
 
 		return result;
 	}
-
 	public Segment saveAuxiliar(final Segment segment) {
 		Assert.notNull(segment);
 
@@ -216,6 +221,10 @@ public class SegmentService {
 			throw new ValidationException();
 
 		return result;
+	}
+
+	public void flush() {
+		this.segmentRepository.flush();
 	}
 
 }

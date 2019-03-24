@@ -170,11 +170,10 @@ public class ParadeService {
 		if (result.getStatus() != null)
 			if (result.getStatus().equals("ACCEPTED")) {
 				// R32
-				final Collection<Member> members = this.memberService.findMembersByBrotherhoodLogged();
+				final Brotherhood brotherhoodOwner = this.brotherhoodService.findBrotherhoodByParadeId(result.getId());
+				final Collection<Member> members = this.memberService.findMembersByBrotherhoodId(brotherhoodOwner.getId());
 				if (!members.isEmpty()) {
 					final Message message = this.messageService.create();
-
-					final Brotherhood brotherhoodOwner = this.brotherhoodService.findBrotherhoodByParadeId(result.getId());
 
 					final Locale locale = LocaleContextHolder.getLocale();
 					if (locale.getLanguage().equals("es")) {
@@ -422,15 +421,19 @@ public class ParadeService {
 	}
 
 	// R9.2 (Acme-Parade)
-	public Parade copyParade(final Parade parade) {
+	public void copyParade(final int paradeId) {
 		Parade result;
-		Assert.notNull(parade);
-		Assert.isTrue(parade.getId() != 0);
-		Assert.isTrue(this.paradeRepository.exists(parade.getId()));
+		Assert.isTrue(paradeId != 0);
+		Assert.isTrue(this.paradeRepository.exists(paradeId));
 
 		final Actor actorLogged = this.actorService.findActorLogged();
 		Assert.notNull(actorLogged);
 		this.actorService.checkUserLoginBrotherhood(actorLogged);
+
+		final Brotherhood brotherhoodOwner = this.brotherhoodService.findBrotherhoodByParadeId(paradeId);
+		Assert.isTrue(actorLogged.equals(brotherhoodOwner), "The logged actor is not the owner of this entity");
+
+		final Parade parade = this.paradeRepository.findOne(paradeId);
 
 		result = this.create();
 		result.setTitle(parade.getTitle());
@@ -459,8 +462,6 @@ public class ParadeService {
 		paradesBrotherhoodLogged.add(result);
 		brotherhoodLogged.setParades(paradesBrotherhoodLogged);
 		this.brotherhoodService.save(brotherhoodLogged);
-
-		return result;
 	}
 
 
@@ -510,6 +511,10 @@ public class ParadeService {
 		this.paradeRepository.flush();
 
 		return result;
+	}
+
+	public void flush() {
+		this.paradeRepository.flush();
 	}
 
 }

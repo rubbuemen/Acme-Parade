@@ -65,7 +65,7 @@ public class ChapterParadeController extends AbstractController {
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView approveOrReject(@RequestParam final int paradeId, @RequestParam final String decision) {
+	public ModelAndView acceptOrReject(@RequestParam final int paradeId, @RequestParam final String decision) {
 		ModelAndView result;
 
 		Parade parade = null;

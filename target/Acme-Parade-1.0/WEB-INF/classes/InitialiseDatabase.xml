@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+ * PopulateDatabase.xml
+ *
+ * Copyright (C) 2019 Universidad de Sevilla
+ * 
+ * The use of this project is hereby constrained to the conditions of the 
+ * TDG Licence, a copy of which you may download from 
+ * http://www.tdg-seville.info/License.html
+ -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+	
+	<!-- User accounts -->
+
+	<bean id="userAccount1" class="security.UserAccount">
+		<property name="username" value="admin" />
+		<property name="password" value="21232f297a57a5a743894a0e4a801fc3" />
+		<property name="statusAccount" value="true" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<bean id="userAccount2" class="security.UserAccount">
+		<property name="username" value="system" />
+		<property name="password" value="54b53072540eeeb8f8e9343e71f28176" />
+		<property name="statusAccount" value="true" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Administrator -->
+	<bean id="administrator1" class="domain.Administrator">
+		<property name="name" value="Rubén" />
+		<property name="middleName" value="admin" />
+		<property name="surname" value="Bueno Menéndez" />
+		<property name="photo" value="http://oi68.tinypic.com/oh4r9j.jpg" />
+		<property name="email" value="rubbuemen@acmemadruga.com" />
+		<property name="phoneNumber" value="662839501" />
+		<property name="address" value="41005 Sevilla" />
+		<property name="userAccount" ref="userAccount1" />
+		<property name="boxes">
+			<list>
+				<ref bean="box1" />
+				<ref bean="box2" />
+				<ref bean="box3" />
+				<ref bean="box4" />
+				<ref bean="box5" />
+			</list>
+		</property>
+	</bean>
+	<bean id="administrator2" class="domain.Administrator">
+		<property name="name" value="System" />
+		<property name="surname" value="Administrator" />
+		<property name="email" value="&lt;noreply@acmemadruga.com&gt;" />
+		<property name="userAccount" ref="userAccount2" />
+		<property name="boxes">
+			<list>
+				<ref bean="box6" />
+				<ref bean="box7" />
+				<ref bean="box8" />
+				<ref bean="box9" />
+				<ref bean="box10" />
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Box -->
+	<bean id="box1" class="domain.Box">
+		<property name="name" value="In box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box2" class="domain.Box">
+		<property name="name" value="Out box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box3" class="domain.Box">
+		<property name="name" value="Trash box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box4" class="domain.Box">
+		<property name="name" value="Spam box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box5" class="domain.Box">
+		<property name="name" value="Notification box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box6" class="domain.Box">
+		<property name="name" value="In box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box7" class="domain.Box">
+		<property name="name" value="Out box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box8" class="domain.Box">
+		<property name="name" value="Trash box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box9" class="domain.Box">
+		<property name="name" value="Spam box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box10" class="domain.Box">
+		<property name="name" value="Notification box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	
+	<!-- PositionBrotherhood -->
+	<bean id="positionBrotherhood1" class="domain.PositionBrotherhood">
+		<property name="nameEnglish" value="President" />
+		<property name="nameSpanish" value="Presidente" />
+	</bean>
+	<bean id="positionBrotherhood2" class="domain.PositionBrotherhood">
+		<property name="nameEnglish" value="Vice President" />
+		<property name="nameSpanish" value="Vice Presidente" />
+	</bean>
+	<bean id="positionBrotherhood3" class="domain.PositionBrotherhood">
+		<property name="nameEnglish" value="Secretary" />
+		<property name="nameSpanish" value="Secretario" />
+	</bean>
+	<bean id="positionBrotherhood4" class="domain.PositionBrotherhood">
+		<property name="nameEnglish" value="Treasuser" />
+		<property name="nameSpanish" value="Tesorero" />
+	</bean>
+	<bean id="positionBrotherhood5" class="domain.PositionBrotherhood">
+		<property name="nameEnglish" value="Historian" />
+		<property name="nameSpanish" value="Historiador" />
+	</bean>
+	<bean id="positionBrotherhood6" class="domain.PositionBrotherhood">
+		<property name="nameEnglish" value="Fundraiser" />
+		<property name="nameSpanish" value="Promotor" />
+	</bean>
+	<bean id="positionBrotherhood7" class="domain.PositionBrotherhood">
+		<property name="nameEnglish" value="Officer" />
+		<property name="nameSpanish" value="Vocal" />
+	</bean>
+	
+	<!-- SystemConfiguration -->
+	<bean id="systemConfiguration1" class="domain.SystemConfiguration">
+		<property name="nameSystem" value="Acme Madrugá" />
+		<property name="bannerUrl" value="https://tinyurl.com/y48xzjvy"/>
+		<property name="welcomeMessageEnglish"
+			value="Welcome to Acme Madrugá, the site to organise your parades." />
+		<property name="welcomeMessageSpanish"
+			value="¡Bienvenidos a Acme Madrugá! Tu sitio para organizar desfiles." />
+		<property name="phoneCountryCode" value="+34" />
+		<property name="periodFinder" value="1" />
+		<property name="maxResultsFinder" value="10" />
+		<property name="prioritiesMessagesList">
+			<list>
+				<value>HIGH</value>
+				<value>NEUTRAL</value>
+				<value>LOW</value>
+			</list>
+		</property>
+		<property name="positiveWords">
+			<list>
+				<value>good</value>
+				<value>fantastic</value>
+				<value>excellent</value>
+				<value>great</value>
+				<value>amazing</value>
+				<value>terrific</value>
+				<value>beautiful</value>
+				<value>bueno</value>
+				<value>fantástico</value>
+				<value>excelente</value>
+				<value>asombroso</value>
+				<value>estupendo</value>
+				<value>bonito</value>
+			</list>
+		</property>
+		<property name="negativeWords">
+			<list>
+				<value>not</value>
+				<value>bad</value>
+				<value>horrible</value>
+				<value>average</value>
+				<value>disaster</value>
+				<value>no</value>
+				<value>malo</value>
+				<value>horrible</value>
+				<value>mediocre</value>
+				<value>desastre</value>
+			</list>
+		</property>
+		<property name="spamWords">
+			<list>
+				<value>sex</value>
+				<value>viagra</value>
+				<value>cialis</value>
+				<value>one million</value>
+				<value>you've been selected</value>
+				<value>Nigeria</value>
+				<value>sexo</value>
+				<value>un millón</value>
+				<value>ha sido seleccionado</value>
+			</list>
+		</property>
+	</bean>
+	
+</beans>

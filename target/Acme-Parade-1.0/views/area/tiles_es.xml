@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- * tiles_es.xml * * Copyright (C) 2019 Universidad de Sevilla * * The 
+	use of this project is hereby constrained to the conditions of the * TDG 
+	Licence, a copy of which you may download from * http://www.tdg-seville.info/License.html -->
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="area/edit" extends="master.page">
+		<put-attribute name="title" value="Editar área" />
+		<put-attribute name="body" value="/views/area/edit.jsp" />
+	</definition>
+	
+	<definition name="area/create" extends="master.page">
+		<put-attribute name="title" value="Crear área" />
+		<put-attribute name="body" value="/views/area/edit.jsp" />
+	</definition>
+
+	<definition name="area/select" extends="master.page">
+		<put-attribute name="title" value="Selecciona un área" />
+		<put-attribute name="body" value="/views/area/list.jsp" />
+	</definition>
+	
+	<definition name="area/list" extends="master.page">
+		<put-attribute name="title" value="Lista de áreas" />
+		<put-attribute name="body" value="/views/area/list.jsp" />
+	</definition>
+	
+	<definition name="area/listGeneric" extends="master.page">
+		<put-attribute name="title" value="Área" />
+		<put-attribute name="body" value="/views/area/listGeneric.jsp" />
+	</definition>
+
+</tiles-definitions>

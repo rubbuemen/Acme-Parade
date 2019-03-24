@@ -55,6 +55,8 @@ public class LegalRecordServiceTest extends AbstractTest {
 	 *         *** 4. Intento de creación de un "LegalRecord" con nombre legal vacío
 	 *         *** 5. Intento de creación de un "LegalRecord" con número de IVA vacío
 	 *         *** 6. Intento de creación de un "LegalRecord" con leyes aplicables vacía
+	 *         Analisis de cobertura de sentencias: 99,11% 112/113 instrucciones
+	 *         Analisis de cobertura de datos: alto
 	 */
 	@SuppressWarnings("unchecked")
 	@Test
@@ -86,6 +88,7 @@ public class LegalRecordServiceTest extends AbstractTest {
 
 	/**
 	 * @author Rubén Bueno
+	 *         Requisito funcional: 3.1 (Acme-Parade)
 	 *         Caso de uso: editar un "LegalRecord"
 	 *         Tests positivos: 1
 	 *         *** 1. Editar de un "LegalRecord" correctamente
@@ -96,6 +99,8 @@ public class LegalRecordServiceTest extends AbstractTest {
 	 *         *** 4. Intento de edición de un "LegalRecord" con nombre legal vacío
 	 *         *** 5. Intento de edición de un "LegalRecord" con número de IVA vacío
 	 *         *** 6. Intento de edición de un "LegalRecord" con leyes aplicables vacía
+	 *         Analisis de cobertura de sentencias: 98,96% 96/97 instrucciones
+	 *         Analisis de cobertura de datos: alto
 	 */
 	@SuppressWarnings("unchecked")
 	@Test
@@ -127,11 +132,14 @@ public class LegalRecordServiceTest extends AbstractTest {
 
 	/**
 	 * @author Rubén Bueno
+	 *         Requisito funcional: 3.1 (Acme-Parade)
 	 *         Caso de uso: eliminar un "LegalRecord"
 	 *         Tests positivos: 1
-	 *         *** 1. Eliminar de un "LegalRecord" correctamente
+	 *         *** 1. Eliminar un "LegalRecord" correctamente
 	 *         Tests negativos: 1
 	 *         *** 1. Intento de eliminación de un "LegalRecord" con una autoridad no permitida
+	 *         Analisis de cobertura de sentencias: 98% 48/49 instrucciones
+	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
 	public void driverDeleteLegalRecord() {

@@ -181,7 +181,7 @@ public class BrotherhoodParadeController extends AbstractController {
 		final Parade parade = this.paradeService.findParadeBrotherhoodLogged(paradeId);
 
 		try {
-			this.paradeService.copyParade(parade);
+			this.paradeService.copyParade(parade.getId());
 			result = new ModelAndView("redirect:/parade/brotherhood/list.do");
 
 		} catch (final Throwable oops) {

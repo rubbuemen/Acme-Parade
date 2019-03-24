@@ -100,8 +100,14 @@ public class SponsorshipService {
 
 		Sponsorship result;
 
-		Assert.isTrue(this.isNumeric(sponsorship.getCreditCard().getNumber()), "Invalid credit card");
-		Assert.isTrue(this.checkCreditCard(sponsorship.getCreditCard()), "Expired credit card");
+		if (!sponsorship.getCreditCard().getNumber().isEmpty())
+			Assert.isTrue(this.isNumeric(sponsorship.getCreditCard().getNumber()), "Invalid credit card");
+		if (sponsorship.getCreditCard().getExpirationYear() != null && sponsorship.getCreditCard().getExpirationMonth() != null && sponsorship.getCreditCard().getExpirationYear() >= 0)
+			Assert.isTrue(this.checkCreditCard(sponsorship.getCreditCard()), "Expired credit card");
+		if (!sponsorship.getCreditCard().getMake().isEmpty())
+			Assert.isTrue(this.systemConfigurationService.getConfiguration().getCreditCardMakes().contains(sponsorship.getCreditCard().getMake()), "The make of the credit card is not contained in the configuration of the system");
+
+		Assert.isTrue(sponsorship.getParade().getStatus().equals("ACCEPTED"), "To sponsor a parade, it must be accepted");
 
 		if (sponsorship.getId() == 0) {
 			result = this.sponsorshipRepository.save(sponsorship);
@@ -238,11 +244,10 @@ public class SponsorshipService {
 		actualYear = calendar.get(Calendar.YEAR);
 		actualMonth = calendar.get(Calendar.MONTH) + 1;
 		actualYear = actualYear % 100;
-		if (creditCard.getExpirationYear() != null)
-			if (creditCard.getExpirationYear() > actualYear)
-				result = true;
-			else if (creditCard.getExpirationYear() == actualYear && creditCard.getExpirationMonth() >= actualMonth)
-				result = true;
+		if (creditCard.getExpirationYear() > actualYear)
+			result = true;
+		else if (creditCard.getExpirationYear() == actualYear && creditCard.getExpirationMonth() >= actualMonth)
+			result = true;
 		return result;
 	}
 
@@ -324,6 +329,9 @@ public class SponsorshipService {
 			throw new ValidationException();
 
 		return result;
+	}
+	public void flush() {
+		this.sponsorshipRepository.flush();
 	}
 
 }

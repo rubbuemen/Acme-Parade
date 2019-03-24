@@ -52,7 +52,11 @@ public class HistoryServiceTest extends AbstractTest {
 	 *         Requisito funcional: 2.1 (Acme-Parade)
 	 *         Caso de uso: mostrar un "History"
 	 *         Tests positivos: 1
-	 *         *** 1. Mostrar de un "History" de un actor sin estar logeado
+	 *         *** 1. Mostrar un "History" de un "Brotherhood" sin estar logeado
+	 *         Tests negativos: 1
+	 *         *** 1. Intento de mostrar un "History" de un "Brotherhood" que no tiene "History"
+	 *         Analisis de cobertura de sentencias: 92,3% 12/13 instrucciones
+	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
 	public void driverListHistoryNotAuthenticated() {
@@ -60,6 +64,8 @@ public class HistoryServiceTest extends AbstractTest {
 		final Object testingData[][] = {
 			{
 				"brotherhood1", null
+			}, {
+				"brotherhood8", IllegalArgumentException.class
 			}
 		};
 
@@ -70,11 +76,13 @@ public class HistoryServiceTest extends AbstractTest {
 	/**
 	 * @author Rubén Bueno
 	 *         Requisito funcional: 3.1 (Acme-Parade)
-	 *         Caso de uso: mostrar un "History"
+	 *         Caso de uso: mostrar "History" del "Brotherhood" logeado
 	 *         Tests positivos: 1
-	 *         *** 1. Mostrar de un "History" del actor logeado correctamente
+	 *         *** 1. Mostrar un "History" del "Brotherhood" logeado correctamente
 	 *         Tests negativos: 1
 	 *         *** 1. Intento de mostrar un "History" que no existe porque aún no creó ninguno el actor logeado
+	 *         Analisis de cobertura de sentencias: 100% 18/18 instrucciones
+	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
 	public void driverListHistoryAuthenticated() {
@@ -103,6 +111,8 @@ public class HistoryServiceTest extends AbstractTest {
 	 *         *** 3. Intento de creación de un "History" con descripción de "InceptionRecord Record" vacío
 	 *         *** 4. Intento de creación de un "History" con fotos de "InceptionRecord Record" vacía
 	 *         *** 5. Intento de creación de un "History" con fotos de "InceptionRecord Record" que no son URL
+	 *         Analisis de cobertura de sentencias: 100% 86/86 instrucciones
+	 *         Analisis de cobertura de datos: alto
 	 */
 
 	@SuppressWarnings("unchecked")
