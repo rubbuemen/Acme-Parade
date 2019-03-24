@@ -99,6 +99,10 @@ public class BrotherhoodRequestMarchController extends AbstractController {
 				result = this.createEditModelAndView(requestMarch, "requestMarch.error.selectRow", requestMarch.getStatus());
 			else if (oops.getMessage().equals("You must select a column position"))
 				result = this.createEditModelAndView(requestMarch, "requestMarch.error.selectColumn", requestMarch.getStatus());
+			else if (oops.getMessage().equals("Row position must be greater than 0"))
+				result = this.createEditModelAndView(requestMarch, "requestMarch.error.rowGreater0", requestMarch.getStatus());
+			else if (oops.getMessage().equals("Column position must be greater than 0"))
+				result = this.createEditModelAndView(requestMarch, "requestMarch.error.columnGreater0", requestMarch.getStatus());
 			else if (oops.getMessage().equals("You have exceeded the maximum number of rows established"))
 				result = this.createEditModelAndView(requestMarch, "requestMarch.error.exceededRow", requestMarch.getStatus());
 			else if (oops.getMessage().equals("You have exceeded the maximum number of columns established"))

@@ -87,6 +87,10 @@ public class PositionBrotherhoodService {
 		Assert.isTrue(positionBrotherhood.getId() != 0);
 		Assert.isTrue(this.positionBrotherhoodRepository.exists(positionBrotherhood.getId()));
 
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginAdministrator(actorLogged);
+
 		final Collection<PositionBrotherhood> positionBrotherhoodsUsed = this.positionBrotherhoodRepository.findPositionsBrotherhoodUsed();
 		Assert.isTrue(!positionBrotherhoodsUsed.contains(positionBrotherhood), "This position can not be deleted because it is in use");
 
@@ -142,6 +146,10 @@ public class PositionBrotherhoodService {
 		this.validator.validate(result, binding);
 
 		return result;
+	}
+
+	public void flush() {
+		this.positionBrotherhoodRepository.flush();
 	}
 
 }

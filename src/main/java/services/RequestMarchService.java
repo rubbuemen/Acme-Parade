@@ -95,6 +95,8 @@ public class RequestMarchService {
 			this.actorService.checkUserLoginBrotherhood(actorLogged);
 			final Parade parade = this.paradeService.findParadeByRequestMarchId(requestMarch.getId());
 			final Collection<RequestMarch> requestsMarchParade = parade.getRequestsMarch();
+			final Collection<RequestMarch> requestsMarchParadeCopy = new HashSet<>(requestsMarchParade);
+			requestsMarchParadeCopy.remove(requestMarch);
 
 			if (requestMarch.getStatus().equals("APPROVED")) {
 				// When the decision on a pending request is to accept it, the brotherhood must provide a position in the parade
@@ -102,9 +104,12 @@ public class RequestMarchService {
 				final Integer columnNew = requestMarch.getPositionColumn();
 				Assert.notNull(rowNew, "You must select a row position");
 				Assert.notNull(columnNew, "You must select a column position");
+				Assert.isTrue(rowNew > 0, "Row position must be greater than 0");
+				Assert.isTrue(columnNew > 0, "Column position must be greater than 0");
+				Assert.isTrue(columnNew <= parade.getMaxColumns(), "You have exceeded the maximum number of columns established");
 				Assert.isTrue(rowNew <= parade.getMaxRows(), "You have exceeded the maximum number of rows established");
 				Assert.isTrue(columnNew <= parade.getMaxColumns(), "You have exceeded the maximum number of columns established");
-				for (final RequestMarch rm : requestsMarchParade)
+				for (final RequestMarch rm : requestsMarchParadeCopy)
 					if (rm.getStatus().equals("APPROVED")) {
 						final Integer rowCheck = rm.getPositionRow();
 						final Integer columnCheck = rm.getPositionColumn();
@@ -172,6 +177,16 @@ public class RequestMarchService {
 
 		result = this.requestMarchRepository.save(requestMarch);
 
+		final Collection<RequestMarch> requestsMarchParade = parade.getRequestsMarch();
+		requestsMarchParade.add(result);
+		parade.setRequestsMarch(requestsMarchParade);
+		this.paradeService.saveAuxiliar(parade);
+
+		final Collection<RequestMarch> requestsMarchMember = result.getMember().getRequestsMarch();
+		requestsMarchMember.add(result);
+		result.getMember().setRequestsMarch(requestsMarchMember);
+		this.memberService.save(result.getMember());
+
 		return result;
 	}
 
@@ -184,6 +199,9 @@ public class RequestMarchService {
 		final Actor actorLogged = this.actorService.findActorLogged();
 		Assert.notNull(actorLogged);
 		this.actorService.checkUserLoginMember(actorLogged);
+
+		final Member memberOwner = this.memberService.findMemberByRequestMarchId(requestMarch.getId());
+		Assert.isTrue(memberOwner.equals(actorLogged), "The logged actor is not the owner of this entity");
 
 		Assert.isTrue(requestMarch.getStatus().equals("PENDING"), "You can only delete a request to march if your status is pending");
 
@@ -322,6 +340,10 @@ public class RequestMarchService {
 		this.validator.validate(result, binding);
 
 		return result;
+	}
+
+	public void flush() {
+		this.requestMarchRepository.flush();
 	}
 
 }

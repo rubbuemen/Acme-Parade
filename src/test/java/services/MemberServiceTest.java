@@ -10,6 +10,8 @@
 
 package services;
 
+import java.util.Collection;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.validation.ConstraintViolationException;
@@ -21,6 +23,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
 
 import utilities.AbstractTest;
 import domain.Member;
@@ -34,10 +37,13 @@ public class MemberServiceTest extends AbstractTest {
 
 	// SUT Services
 	@Autowired
-	private MemberService	memberService;
+	private MemberService		memberService;
+
+	@Autowired
+	private EnrolmentService	enrolmentService;
 
 	@PersistenceContext
-	EntityManager			entityManager;
+	EntityManager				entityManager;
 
 
 	/**
@@ -123,6 +129,59 @@ public class MemberServiceTest extends AbstractTest {
 			this.editDataTemplate((String) testingData[i][0], (String) testingData[i][1], (String) testingData[i][2], (String) testingData[i][3], (String) testingData[i][4], (Class<?>) testingData[i][5]);
 	}
 
+	/**
+	 * @author Rubén Bueno
+	 *         Requisito funcional: 10.3 (Acme-Madrugá)
+	 *         Caso de uso: autentificado como "Brotherhood", listar sus "Members"
+	 *         Tests positivos: 1
+	 *         *** 1. Listar sus "Members" correctamente
+	 *         Tests negativos: 1
+	 *         *** 1. Intento de listar "Members" con una autoridad no permitida
+	 *         Analisis de cobertura de sentencias: 92,3% 12/13 instrucciones
+	 *         Analisis de cobertura de datos: alto
+	 */
+	@Test
+	public void driverListMembersBrotherhood() {
+		final Object testingData[][] = {
+			{
+				"brotherhood1", null
+			}, {
+				"member1", IllegalArgumentException.class
+			}
+		};
+
+		for (int i = 0; i < testingData.length; i++)
+			this.listMembersBrotherhoodTemplate((String) testingData[i][0], (Class<?>) testingData[i][1]);
+	}
+
+	/**
+	 * @author Rubén Bueno
+	 *         Requisito funcional: 10.3 (Acme-Madrugá)
+	 *         Caso de uso: autentificado como "Brotherhood", eliminar un "Member" de su "Brotherhood"
+	 *         Tests positivos: 1
+	 *         *** 1. Eliminar un "Float" correctamente
+	 *         Tests negativos: 2
+	 *         *** 1. Intento de eliminación de un "Member" con una autoridad no permitida
+	 *         *** 2. Intento de eliminación de un "Member" que no es del "Brotherhood" logeado
+	 *         Analisis de cobertura de sentencias: 98% 48/49 instrucciones
+	 *         Analisis de cobertura de datos: alto
+	 */
+	@Test
+	public void driverRemoveMemberOfBrotherhood() {
+		final Object testingData[][] = {
+			{
+				"brotherhood1", "member1", null
+			}, {
+				"chapter1", "member1", IllegalArgumentException.class
+			}, {
+				"brotherhood3", "member1", IllegalArgumentException.class
+			}
+		};
+
+		for (int i = 0; i < testingData.length; i++)
+			this.removeMemberOfBrotherhoodTemplate((String) testingData[i][0], (String) testingData[i][1], (Class<?>) testingData[i][2]);
+	}
+
 	// Template methods ------------------------------------------------------
 
 	protected void registerAsMemberTemplate(final String name, final String surname, final String email, final String username, final String password, final Class<?> expected) {
@@ -170,6 +229,47 @@ public class MemberServiceTest extends AbstractTest {
 
 		super.unauthenticate();
 		this.checkExceptions(expected, caught);
+		super.rollbackTransaction();
+	}
+
+	protected void listMembersBrotherhoodTemplate(final String username, final Class<?> expected) {
+		Class<?> caught = null;
+		Collection<Member> members;
+
+		super.startTransaction();
+
+		try {
+			super.authenticate(username);
+			members = this.memberService.findMembersByBrotherhoodLogged();
+			Assert.notNull(members);
+		} catch (final Throwable oops) {
+			caught = oops.getClass();
+			this.entityManager.clear();
+		}
+
+		this.checkExceptions(expected, caught);
+		super.unauthenticate();
+		super.rollbackTransaction();
+	}
+
+	protected void removeMemberOfBrotherhoodTemplate(final String username, final String member, final Class<?> expected) {
+		Class<?> caught = null;
+		Member memberEntity;
+
+		super.startTransaction();
+
+		try {
+			super.authenticate(username);
+			memberEntity = this.memberService.findMemberBrotherhoodLogged(super.getEntityId(member));
+			this.enrolmentService.removeMemberOfBrotherhood(memberEntity.getId());
+			this.enrolmentService.flush();
+		} catch (final Throwable oops) {
+			caught = oops.getClass();
+			this.entityManager.clear();
+		}
+
+		this.checkExceptions(expected, caught);
+		super.unauthenticate();
 		super.rollbackTransaction();
 	}
 }

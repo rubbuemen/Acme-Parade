@@ -62,6 +62,10 @@ public class AreaService {
 
 		Area result;
 
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginAdministrator(actorLogged);
+
 		result = this.areaRepository.save(area);
 
 		return result;
@@ -71,6 +75,10 @@ public class AreaService {
 		Assert.notNull(area);
 		Assert.isTrue(area.getId() != 0);
 		Assert.isTrue(this.areaRepository.exists(area.getId()));
+
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginAdministrator(actorLogged);
 
 		final Collection<Area> areasUsed = this.areaRepository.findAreasBrotherhoodUsed();
 		Assert.isTrue(!areasUsed.contains(area), "This position can not be deleted because it is in use");

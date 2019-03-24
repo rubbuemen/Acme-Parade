@@ -247,7 +247,11 @@ public class EnrolmentService {
 	public void dropOutOfBrotherhood(final int brotherhoodId) {
 		Enrolment result;
 
-		final Member memberLogged = (Member) this.actorService.findActorLogged();
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginMember(actorLogged);
+
+		final Member memberLogged = (Member) actorLogged;
 
 		result = this.findEnrolmentBrotherhoodMemberLogged(brotherhoodId);
 
@@ -294,7 +298,6 @@ public class EnrolmentService {
 		message.setRecipients(recipients);
 		this.messageService.save(message, true);
 	}
-
 	public Enrolment findEnrolmentMemberBrotherhoodLogged(final int memberId) {
 		final Actor actorLogged = this.actorService.findActorLogged();
 		Assert.notNull(actorLogged);
@@ -384,6 +387,10 @@ public class EnrolmentService {
 		this.validator.validate(result, binding);
 
 		return result;
+	}
+
+	public void flush() {
+		this.enrolmentRepository.flush();
 	}
 
 }

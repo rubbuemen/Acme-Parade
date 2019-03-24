@@ -37,7 +37,7 @@ public class MemberRequestMarchController extends AbstractController {
 	MemberService		memberService;
 
 	@Autowired
-	ParadeService	paradeService;
+	ParadeService		paradeService;
 
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
@@ -91,16 +91,6 @@ public class MemberRequestMarchController extends AbstractController {
 
 		final Parade parade = this.paradeService.findOne(paradeId);
 		requestMarch = this.requestMarchService.save(requestMarch, parade);
-
-		final Collection<RequestMarch> requestsMarchParade = parade.getRequestsMarch();
-		requestsMarchParade.add(requestMarch);
-		parade.setRequestsMarch(requestsMarchParade);
-		this.paradeService.saveAuxiliar(parade);
-
-		final Collection<RequestMarch> requestsMarchMember = requestMarch.getMember().getRequestsMarch();
-		requestsMarchMember.add(requestMarch);
-		requestMarch.getMember().setRequestsMarch(requestsMarchMember);
-		this.memberService.save(requestMarch.getMember());
 
 		requestsMarch = this.requestMarchService.findRequestsMarchByParadeMember(paradeId);
 		hasPendingOrApprovedRequests = this.requestMarchService.memberHasPendingOrApprovedRequestToParade(paradeId);

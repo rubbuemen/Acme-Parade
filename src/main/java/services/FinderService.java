@@ -251,4 +251,8 @@ public class FinderService {
 		return result;
 	}
 
+	public void flush() {
+		this.finderRepository.flush();
+	}
+
 }

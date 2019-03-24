@@ -183,6 +183,15 @@ public class MemberService {
 		return result;
 	}
 
+	public Member findMemberByRequestMarchId(final int requestMarchId) {
+		Assert.isTrue(requestMarchId != 0);
+
+		Member result;
+
+		result = this.memberRepository.findMemberByRequestMarchId(requestMarchId);
+		return result;
+	}
+
 
 	// Reconstruct methods
 	@Autowired
@@ -233,4 +242,5 @@ public class MemberService {
 	public void flush() {
 		this.memberRepository.flush();
 	}
+
 }
