@@ -58,7 +58,7 @@ public class AreaServiceTest extends AbstractTest {
 	 *         Tests negativos: 2
 	 *         *** 1. Intento de selección de un "Area" con una autoridad no permitida
 	 *         *** 2. Intento de selección de un "Area" teniendo ya una asignada
-	 *         Analisis de cobertura de sentencias: 97,8% 45/46 instrucciones
+	 *         Analisis de cobertura de sentencias: 97,4% 38/39 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -86,7 +86,7 @@ public class AreaServiceTest extends AbstractTest {
 	 *         *** 1. Listar "Areas" correctamente
 	 *         Tests negativos: 1
 	 *         *** 1. Intento de listar "Areas" con una autoridad no permitida
-	 *         Analisis de cobertura de sentencias: 99,11% 112/113 instrucciones
+	 *         Analisis de cobertura de sentencias: 100% 24/24 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -114,7 +114,7 @@ public class AreaServiceTest extends AbstractTest {
 	 *         *** 2. Intento de creación de un "Area" con nombre vacío
 	 *         *** 3. Intento de creación de un "Area" con pictures vacío
 	 *         *** 4. Intento de creación de un "Area" con pictures que no son URLs
-	 *         Analisis de cobertura de sentencias: 99,11% 112/113 instrucciones
+	 *         Analisis de cobertura de sentencias: 100% 26/26 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@SuppressWarnings("unchecked")
@@ -153,7 +153,7 @@ public class AreaServiceTest extends AbstractTest {
 	 *         *** 2. Intento de edición de un "Area" con nombre vacío
 	 *         *** 3. Intento de edición de un "Area" con pictures vacío
 	 *         *** 4. Intento de edición de un "Area" con pictures que no son URLs
-	 *         Analisis de cobertura de sentencias: 99,11% 112/113 instrucciones
+	 *         Analisis de cobertura de sentencias: 100% 20/20 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@SuppressWarnings("unchecked")
@@ -189,7 +189,7 @@ public class AreaServiceTest extends AbstractTest {
 	 *         Tests negativos: 2
 	 *         *** 1. Intento de eliminación de un "Area" con una autoridad no permitida
 	 *         *** 2. Intento de eliminación de un "Area" que ya está seleccionada por un "Brotherhood"
-	 *         Analisis de cobertura de sentencias: 98% 48/49 instrucciones
+	 *         Analisis de cobertura de sentencias: 97,7% 43/44 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test

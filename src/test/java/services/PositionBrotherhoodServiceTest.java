@@ -51,7 +51,7 @@ public class PositionBrotherhoodServiceTest extends AbstractTest {
 	 *         *** 1. Listar "PositionBrotherhoods" correctamente
 	 *         Tests negativos: 1
 	 *         *** 1. Intento de listar "PositionBrotherhoods" con una autoridad no permitida
-	 *         Analisis de cobertura de sentencias: 99,11% 112/113 instrucciones
+	 *         Analisis de cobertura de sentencias: 100% 24/24 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -79,7 +79,7 @@ public class PositionBrotherhoodServiceTest extends AbstractTest {
 	 *         *** 2. Intento de creación de un "PositionBrotherhood" con nombre en inglés vacío
 	 *         *** 3. Intento de creación de un "PositionBrotherhood" con nombre en español vacío
 	 *         *** 4. Intento de creación de un "PositionBrotherhood" con nombres ya creados
-	 *         Analisis de cobertura de sentencias: 99,11% 112/113 instrucciones
+	 *         Analisis de cobertura de sentencias: 88,63% 39/44 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -113,7 +113,7 @@ public class PositionBrotherhoodServiceTest extends AbstractTest {
 	 *         *** 2. Intento de edición de un "PositionBrotherhood" con nombre en inglés vacío
 	 *         *** 3. Intento de edición de un "PositionBrotherhood" con nombre en español vacío
 	 *         *** 4. Intento de edición de un "PositionBrotherhood" con nombres ya creados
-	 *         Analisis de cobertura de sentencias: 99,11% 112/113 instrucciones
+	 *         Analisis de cobertura de sentencias: 82,1% 23/28 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -145,7 +145,7 @@ public class PositionBrotherhoodServiceTest extends AbstractTest {
 	 *         Tests negativos: 2
 	 *         *** 1. Intento de eliminación de un "PositionBrotherhood" con una autoridad no permitida
 	 *         *** 2. Intento de eliminación de un "PositionBrotherhood" que ya está en uso
-	 *         Analisis de cobertura de sentencias: 98% 48/49 instrucciones
+	 *         Analisis de cobertura de sentencias: 97,7% 43/44 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test

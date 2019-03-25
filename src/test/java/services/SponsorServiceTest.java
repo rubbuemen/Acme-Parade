@@ -55,7 +55,7 @@ public class SponsorServiceTest extends AbstractTest {
 	 *         *** 6. Intento de registro como "Sponsor" con tamaño del usuario menor a 5 caracteres
 	 *         *** 7. Intento de registro como "Sponsor" con tamaño del usuario mayor a 32 caracteres
 	 *         *** 8. Intento de registro como "Sponsor" usuario ya usado
-	 *         Analisis de cobertura de sentencias: 92,3% 12/13 instrucciones
+	 *         Analisis de cobertura de sentencias: 100% 236/236 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -98,7 +98,7 @@ public class SponsorServiceTest extends AbstractTest {
 	 *         *** 3. Intento de edición como "Sponsor" con el apellido vacío
 	 *         *** 4. Intento de edición como "Sponsor" con el email vacío
 	 *         *** 5. Intento de edición como "Sponsor" con el email sin cumplir el patrón adecuado
-	 *         Analisis de cobertura de sentencias: 92,3% 12/13 instrucciones
+	 *         Analisis de cobertura de sentencias: 100% 199/199 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test

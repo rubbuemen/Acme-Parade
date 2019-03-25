@@ -77,6 +77,10 @@ public class SystemConfigurationService {
 
 	public SystemConfiguration save(final SystemConfiguration systemConfiguration) {
 		Assert.notNull(systemConfiguration);
+		
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginAdministrator(actorLogged);
 
 		SystemConfiguration result;
 
@@ -346,6 +350,10 @@ public class SystemConfigurationService {
 		this.validator.validate(result, binding);
 
 		return result;
+	}
+
+	public void flush() {
+		systemConfigurationRepository.flush();
 	}
 
 }

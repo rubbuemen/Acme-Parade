@@ -56,7 +56,7 @@ public class ChapterServiceTest extends AbstractTest {
 	 *         *** 7. Intento de registro como "Chapter" con tamaño del usuario menor a 5 caracteres
 	 *         *** 8. Intento de registro como "Chapter" con tamaño del usuario mayor a 32 caracteres
 	 *         *** 9. Intento de registro como "Chapter" usuario ya usado
-	 *         Analisis de cobertura de sentencias: 92,3% 12/13 instrucciones
+	 *         Analisis de cobertura de sentencias: 100% 250/250 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -102,7 +102,7 @@ public class ChapterServiceTest extends AbstractTest {
 	 *         *** 4. Intento de edición como "Chapter" con el email vacío
 	 *         *** 5. Intento de edición como "Chapter" con el email sin cumplir el patrón adecuado
 	 *         *** 6. Intento de edición como "Chapter" con el título vacío
-	 *         Analisis de cobertura de sentencias: 92,3% 12/13 instrucciones
+	 *         Analisis de cobertura de sentencias: 100% 199/199 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test

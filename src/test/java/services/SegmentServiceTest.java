@@ -57,7 +57,7 @@ public class SegmentServiceTest extends AbstractTest {
 	 *         Tests negativos: 2
 	 *         *** 1. Intento de listar "Segments" con una autoridad no permitida
 	 *         *** 2. Intento de listar "Segments" que no pertenecen al "Brotherhood" logeado
-	 *         Analisis de cobertura de sentencias: 99,11% 112/113 instrucciones
+	 *         Analisis de cobertura de sentencias: 100% 22/2 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -101,7 +101,7 @@ public class SegmentServiceTest extends AbstractTest {
 	 *         *** 15. Intento de creación de un "Segment" cuyo tiempo de salida es nulo
 	 *         *** 16. Intento de creación de un "Segment" cuyo tiempo de llegada es nulo
 	 *         *** 17. Intento de creación de un "Segment" cuyo tiempo de salida es posterior al tiempo de llegada
-	 *         Analisis de cobertura de sentencias: 99,11% 112/113 instrucciones
+	 *         Analisis de cobertura de sentencias: 74,66% 221/296 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -179,7 +179,7 @@ public class SegmentServiceTest extends AbstractTest {
 	 *         *** 17. Intento de edición de un "Segment" cuyo tiempo de salida es posterior al tiempo de llegada
 	 *         *** 18. Intento de edición de un "Segment" cuyo tiempo de salida es anterior al del anterior segmento
 	 *         *** 19. Intento de edición de un "Segment" cuyo tiempo de llegada es posterior al del siguiente segmento
-	 *         Analisis de cobertura de sentencias: 99,11% 112/113 instrucciones
+	 *         Analisis de cobertura de sentencias: 73,2% 205/280 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -242,7 +242,7 @@ public class SegmentServiceTest extends AbstractTest {
 	 *         Tests negativos: 2
 	 *         *** 1. Intento de eliminación de un "Segment" con una autoridad no permitida
 	 *         *** 2. Intento de eliminación de un "Segment" en un "Parade" que no es del "Brotherhood" logeado
-	 *         Analisis de cobertura de sentencias: 98% 48/49 instrucciones
+	 *         Analisis de cobertura de sentencias: 98,9% 86/87 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test

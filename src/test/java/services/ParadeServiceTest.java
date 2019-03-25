@@ -57,7 +57,7 @@ public class ParadeServiceTest extends AbstractTest {
 	 *         *** 1. Listar "Parades" correctamente
 	 *         Tests negativos: 1
 	 *         *** 1. Intento de listar "Parades" con una autoridad no permitida
-	 *         Analisis de cobertura de sentencias: 99,11% 112/113 instrucciones
+	 *         Analisis de cobertura de sentencias: 100% 23/23 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -92,7 +92,7 @@ public class ParadeServiceTest extends AbstractTest {
 	 *         *** 9. Intento de creación de un "Parade" con máximo de columnas menor a 1
 	 *         *** 10. Intento de creación de un "Parade" sin "Floats"
 	 *         *** 11. Intento de creación de un "Parade" sin tener la "Brotherhood" ningún "Area" seleccionada aún
-	 *         Analisis de cobertura de sentencias: 99,11% 112/113 instrucciones
+	 *         Analisis de cobertura de sentencias: 94,24% 311/330 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@SuppressWarnings("unchecked")
@@ -158,7 +158,7 @@ public class ParadeServiceTest extends AbstractTest {
 	 *         *** 10. Intento de edición de un "Parade" con máximo de columnas menor a 1
 	 *         *** 11. Intento de edición de un "Parade" sin "Floats"
 	 *         *** 12. Intento de edición de un "Parade" en modo final
-	 *         Analisis de cobertura de sentencias: 99,11% 112/113 instrucciones
+	 *         Analisis de cobertura de sentencias: 92,2% 224/243 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@SuppressWarnings("unchecked")
@@ -218,7 +218,7 @@ public class ParadeServiceTest extends AbstractTest {
 	 *         *** 1. Intento de eliminación de un "Parade" con una autoridad no permitida
 	 *         *** 2. Intento de eliminación de un "Parade" que no es del "Brotherhood" logeado
 	 *         *** 3. Intento de eliminación de un "Parade" que está en modo final
-	 *         Analisis de cobertura de sentencias: 98% 48/49 instrucciones
+	 *         Analisis de cobertura de sentencias: 99% 98/99 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -249,7 +249,7 @@ public class ParadeServiceTest extends AbstractTest {
 	 *         *** 1. Intento de cambiar a modo final de un "Parade" con una autoridad no permitida
 	 *         *** 2. Intento de cambiar a modo final de un "Parade" que no es del "Brotherhood" logeado
 	 *         *** 3. Intento de cambiar a modo final de un "Parade" que ya está en modo final
-	 *         Analisis de cobertura de sentencias: 98% 48/49 instrucciones
+	 *         Analisis de cobertura de sentencias: 97,5% 39/40 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -309,7 +309,7 @@ public class ParadeServiceTest extends AbstractTest {
 	 *         *** 1. Intento de aceptar un "Parade" con una autoridad no permitida
 	 *         *** 2. Intento de aceptar un "Parade" sin tener permisos para ello
 	 *         *** 3. Intento de aceptar un "Parade" que no tiene el estado "submitted"
-	 *         Analisis de cobertura de sentencias: 60,71% 170/280 instrucciones
+	 *         Analisis de cobertura de sentencias: 91,9% 34/37 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -342,7 +342,7 @@ public class ParadeServiceTest extends AbstractTest {
 	 *         *** 2. Intento de rechazar un "Parade" sin tener permisos para ello
 	 *         *** 3. Intento de rechazar un "Parade" que no tiene el estado "submitted"
 	 *         *** 4. Intento de rechazar un "Parade" sin dejar una razón de por qué
-	 *         Analisis de cobertura de sentencias: 56,3% 136/243 instrucciones
+	 *         Analisis de cobertura de sentencias: 92,1% 224/243 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -374,7 +374,7 @@ public class ParadeServiceTest extends AbstractTest {
 	 *         *** 1. Listar los "Parades" del "Brotherhood" logeado correctamente
 	 *         Tests negativos: 1
 	 *         *** 1. Intento de listar los "Parades" con una autoridad no permitida
-	 *         Analisis de cobertura de sentencias: 97,4% 37/38 instrucciones
+	 *         Analisis de cobertura de sentencias: 100% 23/23 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -401,7 +401,7 @@ public class ParadeServiceTest extends AbstractTest {
 	 *         Tests negativos: 2
 	 *         *** 1. Intento de copiar un "Parade" con una autoridad no permitida
 	 *         *** 2. Intento de copiar un "Parade" que no le pertenece
-	 *         Analisis de cobertura de sentencias: 97,4% 37/38 instrucciones
+	 *         Analisis de cobertura de sentencias: 99,3% 138/139 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -429,7 +429,7 @@ public class ParadeServiceTest extends AbstractTest {
 	 *         *** 1. Navegar a "Parades"de un "Brotherhood" sin estar logeado
 	 *         Tests negativos: 1
 	 *         *** 1. Intento de navegar a "Parades" de un "Brotherhood" inexistente
-	 *         Analisis de cobertura de sentencias: 92,3% 12/13 instrucciones
+	 *         Analisis de cobertura de sentencias: 93,3% 14/15 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -596,7 +596,6 @@ public class ParadeServiceTest extends AbstractTest {
 			super.authenticate(username);
 			paradeEntity = this.paradeService.findParadeSubmittedChapterLogged(super.getEntityId(parade));
 			this.paradeService.acceptParade(paradeEntity);
-			this.paradeService.save(paradeEntity);
 			this.paradeService.flush();
 		} catch (final Throwable oops) {
 			caught = oops.getClass();

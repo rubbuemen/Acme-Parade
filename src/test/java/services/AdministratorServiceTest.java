@@ -56,7 +56,7 @@ public class AdministratorServiceTest extends AbstractTest {
 	 *         *** 7. Intento de registro de un "Administrator" con tamaño del usuario menor a 5 caracteres
 	 *         *** 8. Intento de registro de un "Administrator" con tamaño del usuario mayor a 32 caracteres
 	 *         *** 9. Intento de registro de un "Administrator" con usuario ya usado
-	 *         Analisis de cobertura de sentencias: 92,3% 12/13 instrucciones
+	 *         Analisis de cobertura de sentencias: 100% 66/66 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -101,7 +101,7 @@ public class AdministratorServiceTest extends AbstractTest {
 	 *         *** 3. Intento de edición como "Administrator" con el apellido vacío
 	 *         *** 4. Intento de edición como "Administrator" con el email vacío
 	 *         *** 5. Intento de edición como "Administrator" con el email sin cumplir el patrón adecuado
-	 *         Analisis de cobertura de sentencias: 92,3% 12/13 instrucciones
+	 *         Analisis de cobertura de sentencias: 100% 26/26 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test

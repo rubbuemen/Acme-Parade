@@ -9,7 +9,6 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.validation.constraints.Digits;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -108,7 +107,7 @@ public class SystemConfiguration extends DomainEntity {
 	}
 
 	@NotNull
-	@Max(100)
+	@Range(min = 1, max = 100)
 	public Integer getMaxResultsFinder() {
 		return this.maxResultsFinder;
 	}

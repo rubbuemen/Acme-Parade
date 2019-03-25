@@ -61,7 +61,7 @@ public class MemberServiceTest extends AbstractTest {
 	 *         *** 6. Intento de registro como "Member" con tamaño del usuario menor a 5 caracteres
 	 *         *** 7. Intento de registro como "Member" con tamaño del usuario mayor a 32 caracteres
 	 *         *** 8. Intento de registro como "Member" usuario ya usado
-	 *         Analisis de cobertura de sentencias: 92,3% 12/13 instrucciones
+	 *         Analisis de cobertura de sentencias: 100% 262/262 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -104,7 +104,7 @@ public class MemberServiceTest extends AbstractTest {
 	 *         *** 3. Intento de edición como "Member" con el apellido vacío
 	 *         *** 4. Intento de edición como "Member" con el email vacío
 	 *         *** 5. Intento de edición como "Member" con el email sin cumplir el patrón adecuado
-	 *         Analisis de cobertura de sentencias: 92,3% 12/13 instrucciones
+	 *         Analisis de cobertura de sentencias: 100% 211/211 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -137,7 +137,7 @@ public class MemberServiceTest extends AbstractTest {
 	 *         *** 1. Listar sus "Members" correctamente
 	 *         Tests negativos: 1
 	 *         *** 1. Intento de listar "Members" con una autoridad no permitida
-	 *         Analisis de cobertura de sentencias: 92,3% 12/13 instrucciones
+	 *         Analisis de cobertura de sentencias: 100% 23/23 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -163,7 +163,7 @@ public class MemberServiceTest extends AbstractTest {
 	 *         Tests negativos: 2
 	 *         *** 1. Intento de eliminación de un "Member" con una autoridad no permitida
 	 *         *** 2. Intento de eliminación de un "Member" que no es del "Brotherhood" logeado
-	 *         Analisis de cobertura de sentencias: 98% 48/49 instrucciones
+	 *         Analisis de cobertura de sentencias: 90,2% 148/164 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test

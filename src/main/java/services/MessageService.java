@@ -44,6 +44,7 @@ public class MessageService {
 		Assert.notNull(sender);
 
 		result = new Message();
+		final Collection<String> tags = new HashSet<>();
 		final Collection<Actor> recipients = new HashSet<>();
 		final Date moment = new Date(System.currentTimeMillis() - 1);
 
@@ -51,6 +52,7 @@ public class MessageService {
 		result.setSender(sender);
 		result.setMoment(moment);
 		result.setFlagSpam(false);
+		result.setTags(tags);
 
 		return result;
 	}
@@ -238,6 +240,10 @@ public class MessageService {
 		this.validator.validate(result, binding);
 
 		return result;
+	}
+
+	public void flush() {
+		this.messageRepository.flush();
 	}
 
 }

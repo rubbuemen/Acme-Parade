@@ -64,7 +64,7 @@ public class BrotherhoodServiceTest extends AbstractTest {
 	 *         *** 10. Intento de registro como "Brotherhood" con tamaño del usuario menor a 5 caracteres
 	 *         *** 11. Intento de registro como "Brotherhood" con tamaño del usuario mayor a 32 caracteres
 	 *         *** 12. Intento de registro como "Brotherhood" usuario ya usado
-	 *         Analisis de cobertura de sentencias: 92,3% 12/13 instrucciones
+	 *         Analisis de cobertura de sentencias: 100% 250/250 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -126,7 +126,7 @@ public class BrotherhoodServiceTest extends AbstractTest {
 	 *         *** 7. Intento de edición como "Brotherhood" con el fecha de establecimiento nula
 	 *         *** 8. Intento de edición como "Brotherhood" con el fecha de establecimiento que no es pasada
 	 *         *** 9. Intento de edición como "Brotherhood" con comentarios vacío
-	 *         Analisis de cobertura de sentencias: 92,3% 12/13 instrucciones
+	 *         Analisis de cobertura de sentencias: 100% 199/199 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -163,7 +163,7 @@ public class BrotherhoodServiceTest extends AbstractTest {
 
 		for (int i = 0; i < testingData.length; i++)
 			this.editDataTemplate((String) testingData[i][0], (String) testingData[i][1], (String) testingData[i][2], (String) testingData[i][3], (String) testingData[i][4], (String) testingData[i][5], (Date) testingData[i][6], (String) testingData[i][7],
-				(Class<?>) testingData[i][10]);
+				(Class<?>) testingData[i][8]);
 	}
 
 	/**

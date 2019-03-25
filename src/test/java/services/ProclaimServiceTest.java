@@ -49,7 +49,7 @@ public class ProclaimServiceTest extends AbstractTest {
 	 *         *** 1. Intento de creación de un "Proclaim" con una autoridad no permitida
 	 *         *** 2. Intento de creación de un "Proclaim" con texto vacío
 	 *         *** 3. Intento de creación de un "Proclaim" con tamaño de texto mayor a 250 caracteres
-	 *         Analisis de cobertura de sentencias: 99,11% 112/113 instrucciones
+	 *         Analisis de cobertura de sentencias: 98,52% 67/68 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test

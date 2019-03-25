@@ -50,7 +50,7 @@ public class FloatServiceTest extends AbstractTest {
 	 *         *** 1. Listar "Floats" correctamente
 	 *         Tests negativos: 1
 	 *         *** 1. Intento de listar "Floats" con una autoridad no permitida
-	 *         Analisis de cobertura de sentencias: 99,11% 112/113 instrucciones
+	 *         Analisis de cobertura de sentencias: 100% 20/20 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -77,7 +77,7 @@ public class FloatServiceTest extends AbstractTest {
 	 *         *** 1. Intento de creación de un "Float" con una autoridad no permitida
 	 *         *** 2. Intento de creación de un "Float" con título vacío
 	 *         *** 3. Intento de creación de un "Float" con descripción vacía
-	 *         Analisis de cobertura de sentencias: 99,11% 112/113 instrucciones
+	 *         Analisis de cobertura de sentencias: 100% 75/75 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -109,7 +109,7 @@ public class FloatServiceTest extends AbstractTest {
 	 *         *** 2. Intento de edición de un "Float" que no es del "Brotherhood" logeado
 	 *         *** 3. Intento de edición de un "Float" con título vacío
 	 *         *** 4. Intento de edición de un "Float" con descripción vacía
-	 *         Analisis de cobertura de sentencias: 99,11% 112/113 instrucciones
+	 *         Analisis de cobertura de sentencias: 100% 59/59 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -142,7 +142,7 @@ public class FloatServiceTest extends AbstractTest {
 	 *         *** 1. Intento de eliminación de un "Float" con una autoridad no permitida
 	 *         *** 2. Intento de eliminación de un "Float" que no es del "Brotherhood" logeado
 	 *         *** 3. Intento de eliminación de un "Float" que haría que se quedara un "Parade" sin "Floats"
-	 *         Analisis de cobertura de sentencias: 98% 48/49 instrucciones
+	 *         Analisis de cobertura de sentencias: 81,4% 83/102 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test

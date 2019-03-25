@@ -53,7 +53,7 @@ public class RequestMarchServiceTest extends AbstractTest {
 	 *         *** 1. Listar "RequestMarchs" correctamente
 	 *         Tests negativos: 1
 	 *         *** 1. Intento de listar "RequestMarchs" con una autoridad no permitida
-	 *         Analisis de cobertura de sentencias: 99,11% 112/113 instrucciones
+	 *         Analisis de cobertura de sentencias: 100% 25/25 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -88,7 +88,7 @@ public class RequestMarchServiceTest extends AbstractTest {
 	 *         *** 8. Intento de aprobar una "RequestMarch" de un "Member" seleccionando una fila mayor al máximo de columnas del "Parade"
 	 *         *** 9. Intento de aprobar una "RequestMarch" de un "Member" seleccionando una fila y columna ya ocupada por otro "Member"
 	 *         *** 10. Intento de rechazar una "RequestMarch" de un "Member" con motivo de rechazo vacío
-	 *         Analisis de cobertura de sentencias: 99,11% 112/113 instrucciones
+	 *         Analisis de cobertura de sentencias: 91,9% 217/236 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -135,7 +135,7 @@ public class RequestMarchServiceTest extends AbstractTest {
 	 *         Tests negativos: 2
 	 *         *** 1. Intento de creación de una "RequestMarch" para un "Parade" con una autoridad no permitida
 	 *         *** 2. Intento de creación de una "RequestMarch" para un "Parade" de una "Brotherhood" a la que no pertenece
-	 *         Analisis de cobertura de sentencias: 99,11% 112/113 instrucciones
+	 *         Analisis de cobertura de sentencias: 99,15% 117/118 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -164,7 +164,7 @@ public class RequestMarchServiceTest extends AbstractTest {
 	 *         *** 1. Intento de eliminación de una "RequestMarch" pendiente con una autoridad no permitida
 	 *         *** 2. Intento de eliminación de una "RequestMarch" pendiente que no le pertenece
 	 *         *** 3. Intento de eliminación de una "RequestMarch" ya aceptada
-	 *         Analisis de cobertura de sentencias: 99,11% 112/113 instrucciones
+	 *         Analisis de cobertura de sentencias: 98,9% 86/87 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test

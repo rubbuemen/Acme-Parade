@@ -53,7 +53,7 @@ public class EnrolmentServiceTest extends AbstractTest {
 	 *         *** 1. Listar "Enrolments" correctamente
 	 *         Tests negativos: 1
 	 *         *** 1. Intento de listar "Enrolments" con una autoridad no permitida
-	 *         Analisis de cobertura de sentencias: 99,11% 112/113 instrucciones
+	 *         Analisis de cobertura de sentencias: 100% 23/23 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -80,7 +80,7 @@ public class EnrolmentServiceTest extends AbstractTest {
 	 *         *** 1. Intento de inscripción de un "Member" en un "Enrolment" con una autoridad no permitida
 	 *         *** 2. Intento de inscripción de un "Member" en un "Enrolment" que no es del "Brotherhood" logeado
 	 *         *** 3. Intento de inscripción de un "Member" en un "Enrolment" sin seleccionar la posición
-	 *         Analisis de cobertura de sentencias: 99,11% 112/113 instrucciones
+	 *         Analisis de cobertura de sentencias: 87,5% 112/128 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -109,7 +109,7 @@ public class EnrolmentServiceTest extends AbstractTest {
 	 *         *** 1. Abandonar una "Brotherhood" correctamente
 	 *         Tests negativos: 1
 	 *         *** 1. Intento de abandonar una "Brotherhood" con una autoridad no permitida
-	 *         Analisis de cobertura de sentencias: 99,11% 112/113 instrucciones
+	 *         Analisis de cobertura de sentencias: 87,9% 153/174 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test

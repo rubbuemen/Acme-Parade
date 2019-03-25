@@ -52,7 +52,7 @@ public class FinderServiceTest extends AbstractTest {
 	 *         *** 1. Usar "Finder" correctamente
 	 *         Tests negativos: 1
 	 *         *** 1. Intento de uso de un "Finder" con una autoridad no permitida
-	 *         Analisis de cobertura de sentencias: 99,11% 112/113 instrucciones
+	 *         Analisis de cobertura de sentencias: 63% 97/154 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test

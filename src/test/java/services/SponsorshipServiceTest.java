@@ -57,7 +57,7 @@ public class SponsorshipServiceTest extends AbstractTest {
 	 *         *** 1. Listar "Sponsorships" correctamente
 	 *         Tests negativos: 1
 	 *         *** 1. Intento de listar "Sponsorships" con una autoridad no permitida
-	 *         Analisis de cobertura de sentencias: 99,11% 112/113 instrucciones
+	 *         Analisis de cobertura de sentencias: 100% 20/20 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -104,7 +104,7 @@ public class SponsorshipServiceTest extends AbstractTest {
 	 *         *** 21. Intento de creación de un "Sponsorship" cuya "CreditCard" tiene un número no numérico
 	 *         *** 22. Intento de creación de un "Sponsorship" cuya "CreditCard" está caducada
 	 *         *** 23. Intento de creación de un "Sponsorship" cuya "CreditCard" tiene una marca no incluida en la configuración del sistema
-	 *         Analisis de cobertura de sentencias: 99,11% 112/113 instrucciones
+	 *         Analisis de cobertura de sentencias: 100% 154/154 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -197,7 +197,7 @@ public class SponsorshipServiceTest extends AbstractTest {
 	 *         *** 22. Intento de edición de un "Sponsorship" cuya "CreditCard" tiene un número no numérico
 	 *         *** 23. Intento de edición de un "Sponsorship" cuya "CreditCard" está caducada
 	 *         *** 24. Intento de edición de un "Sponsorship" cuya "CreditCard" tiene una marca no incluida en la configuración del sistema
-	 *         Analiis de cobertura de sentencias: 99,11% 112/113 instrucciones
+	 *         Analiis de cobertura de sentencias: 100% 130/130 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
@@ -270,7 +270,7 @@ public class SponsorshipServiceTest extends AbstractTest {
 	 *         Tests negativos: 2
 	 *         *** 1. Intento de desactivación de un "Sponsorship" con una autoridad no permitida
 	 *         *** 2. Intento de desactivación de un "Sponsorship" que no es del "Sponsor" logeado
-	 *         Analisis de cobertura de sentencias: 98% 48/49 instrucciones
+	 *         Analisis de cobertura de sentencias: 97,9% 46/47 instrucciones
 	 *         Analisis de cobertura de datos: alto
 	 */
 	@Test
