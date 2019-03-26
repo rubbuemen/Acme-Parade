@@ -213,6 +213,17 @@
 				<value>ha sido seleccionado</value>
 			</list>
 		</property>
+		<property name="creditCardMakes">
+			<list>
+				<value>VISA</value>
+				<value>MCARD</value>
+				<value>AMEX</value>
+				<value>DINNERS</value>
+				<value>FLY</value>
+			</list>
+		</property>
+		<property name="fare" value="49.99" />
+		<property name="VATPercentage" value="21.00" />
 	</bean>
 	
 </beans>
