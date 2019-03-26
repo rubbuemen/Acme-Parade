@@ -134,7 +134,7 @@ public class ChapterParadeController extends AbstractController {
 		else
 			result = new ModelAndView("parade/list");
 
-		if (parades != null) {
+		if (parades != null)
 			if (!parades.isEmpty()) {
 				final Map<Parade, Sponsorship> randomSponsorship = new HashMap<>();
 				for (final Parade p : parades) {
@@ -143,10 +143,9 @@ public class ChapterParadeController extends AbstractController {
 						randomSponsorship.put(p, sponsorship);
 				}
 				result.addObject("randomSponsorship", randomSponsorship);
+				final Brotherhood brotherhoodParade = this.brotherhoodService.findBrotherhoodByParadeId(parades.iterator().next().getId());
+				result.addObject("requestURI", "parade/chapter/list.do?brotherhoodId=" + brotherhoodParade.getId());
 			}
-			final Brotherhood brotherhoodParade = this.brotherhoodService.findBrotherhoodByParadeId(parades.iterator().next().getId());
-			result.addObject("requestURI", "parade/chapter/list.do?brotherhoodId=" + brotherhoodParade.getId());
-		}
 
 		result.addObject("parades", parades);
 		result.addObject("message", message);
@@ -176,6 +175,10 @@ public class ChapterParadeController extends AbstractController {
 		result.addObject("actionURL", "parade/chapter/edit.do");
 		result.addObject("message", message);
 
+		if (decision.equals("REJECTED") && (parade.getRejectReason() == null || parade.getRejectReason().isEmpty())) {
+			parade.setStatus("SUBMITTED");
+			this.paradeService.save(parade);
+		}
 		return result;
 	}
 
