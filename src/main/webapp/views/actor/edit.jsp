@@ -73,7 +73,7 @@
 		<acme:textbox code="brotherhood.title" path="actor.title" placeholder="Lorem Ipsum" />
 		<br />
 
-		<acme:textbox code="brotherhood.establishmentDate" path="actor.establishmentDate" placeholder="dd/MM/yyyy" type="date"  />
+		<acme:textbox code="brotherhood.establishmentDate" path="actor.establishmentDate" placeholder="dd/MM/yyyy"  />
 		<br />
 
 		<acme:textarea code="brotherhood.comments" path="actor.comments" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at auctor massa" />

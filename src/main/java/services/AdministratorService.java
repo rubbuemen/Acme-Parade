@@ -279,13 +279,14 @@ public class AdministratorService {
 	}
 
 	public Brotherhood dashboardQueryAcmeParadeC2() {
-		Brotherhood result;
+		Brotherhood result = null;
 
 		final Actor actorLogged = this.actorService.findActorLogged();
 		Assert.notNull(actorLogged);
 		this.actorService.checkUserLoginAdministrator(actorLogged);
 
-		result = this.administratorRepository.dashboardQueryAcmeParadeC2().iterator().next();
+		if (!this.administratorRepository.dashboardQueryAcmeParadeC2().isEmpty())
+			result = this.administratorRepository.dashboardQueryAcmeParadeC2().iterator().next();
 
 		return result;
 	}

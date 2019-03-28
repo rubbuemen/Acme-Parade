@@ -273,6 +273,47 @@ public class BoxService {
 		return result;
 	}
 
+	public void deleteBoxes() {
+		final Actor actor = this.actorService.findActorLogged();
+
+		final Collection<Box> rootBoxes = this.boxRepository.findRootBoxesByActorId(actor.getId());
+		for (final Box b : rootBoxes)
+			this.deleteAnyBox(b);
+	}
+
+	public void deleteAnyBox(final Box box) {
+		Assert.notNull(box);
+		Assert.isTrue(box.getId() != 0);
+		Assert.isTrue(this.boxRepository.exists(box.getId()));
+
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+
+		final Collection<Box> boxesActorLogged = this.findBoxesByActorLogged();
+
+		Assert.isTrue(boxesActorLogged.contains(box), "The logged actor is not the owner of this entity");
+
+		final Collection<Box> boxesToDelete = this.findBoxesToDelete(box.getId(), new HashSet<Box>());
+		for (final Box b : boxesToDelete) {
+			final Box parentBox = b.getParentBox();
+			if (parentBox != null) {
+				final Collection<Box> childsParentBox = parentBox.getChildsBox();
+				childsParentBox.remove(b);
+				parentBox.setChildsBox(childsParentBox);
+				this.boxRepository.save(parentBox);
+			}
+			boxesActorLogged.remove(b);
+			actorLogged.setBoxes(boxesActorLogged);
+			this.actorService.save(actorLogged);
+			this.boxRepository.delete(b);
+		}
+
+		boxesActorLogged.remove(box);
+		actorLogged.setBoxes(boxesActorLogged);
+		this.actorService.save(actorLogged);
+		this.boxRepository.delete(box);
+	}
+
 
 	// Reconstruct methods
 	@Autowired

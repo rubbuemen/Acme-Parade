@@ -16,6 +16,8 @@ import security.LoginService;
 import security.UserAccount;
 import domain.Actor;
 import domain.Box;
+import domain.Brotherhood;
+import domain.Chapter;
 
 @Service
 @Transactional
@@ -34,6 +36,12 @@ public class ActorService {
 
 	@Autowired
 	private SystemConfigurationService	systemConfigurationService;
+
+	@Autowired
+	private MessageService				messageService;
+
+	@Autowired
+	private SocialProfileService		socialProfileService;
 
 
 	// Simple CRUD methods
@@ -120,12 +128,19 @@ public class ActorService {
 		return result;
 	}
 
-	public void delete(final Actor actor) {
+	public void deleteEntities(final Actor actor) {
 		Assert.notNull(actor);
 		Assert.isTrue(actor.getId() != 0);
 		Assert.isTrue(this.actorRepository.exists(actor.getId()));
 
-		this.actorRepository.delete(actor);
+		final Actor actorLogged = this.findActorLogged();
+		Assert.notNull(actorLogged);
+
+		this.boxService.deleteBoxes();
+		this.messageService.deleteActorFromRecipientsMessage();
+		this.messageService.deleteActorFromSenderMessage();
+		this.socialProfileService.deleteSocialProfiles();
+
 	}
 
 	// Other business methods
@@ -147,6 +162,15 @@ public class ActorService {
 		Actor result;
 
 		result = this.actorRepository.getSystemActor();
+		Assert.notNull(result);
+
+		return result;
+	}
+
+	public Actor getDeletedActor() {
+		Actor result;
+
+		result = this.actorRepository.getDeletedActor();
 		Assert.notNull(result);
 
 		return result;
@@ -251,6 +275,38 @@ public class ActorService {
 		this.userAccountService.save(userAccount);
 	}
 
+	public StringBuilder exportData() {
+		final Actor actorLogged = this.findActorLogged();
+
+		final StringBuilder sb = new StringBuilder();
+		sb.append(actorLogged.getName());
+		sb.append(';');
+		sb.append(actorLogged.getMiddleName());
+		sb.append(';');
+		sb.append(actorLogged.getSurname());
+		sb.append(';');
+		sb.append(actorLogged.getEmail());
+		sb.append(';');
+		sb.append(actorLogged.getPhoneNumber());
+		sb.append(';');
+		sb.append(actorLogged.getAddress());
+		sb.append(';');
+		sb.append(actorLogged.getPhoto());
+		if (actorLogged instanceof Brotherhood) {
+			sb.append(';');
+			sb.append(((Brotherhood) actorLogged).getTitle());
+			sb.append(';');
+			sb.append(((Brotherhood) actorLogged).getEstablishmentDate().toString());
+			sb.append(';');
+			sb.append(((Brotherhood) actorLogged).getComments());
+		}
+		if (actorLogged instanceof Chapter) {
+			sb.append(';');
+			sb.append(((Chapter) actorLogged).getTitle());
+		}
+		sb.append('\n');
+		return sb;
+	}
 	// Reconstruct methods
 
 }

@@ -94,6 +94,8 @@
 		<security:intercept-url pattern="/socialProfile/**" access="isAuthenticated()" />
 		<security:intercept-url pattern="/box/**" access="isAuthenticated()" />
 		<security:intercept-url pattern="/message/**" access="isAuthenticated()" />
+		<security:intercept-url pattern="/actor/delete.do" access="isAuthenticated()" />
+		<security:intercept-url pattern="/actor/export.do" access="isAuthenticated()" />
 
 		<security:intercept-url pattern="/**"
 			access="hasRole('NONE')" />

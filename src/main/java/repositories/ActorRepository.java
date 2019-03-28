@@ -18,6 +18,9 @@ public interface ActorRepository extends JpaRepository<Actor, Integer> {
 	@Query("select a from Actor a where a.name like 'System'")
 	Actor getSystemActor();
 
+	@Query("select a from Actor a where a.name like 'User deleted'")
+	Actor getDeletedActor();
+
 	@Query("select a from SocialProfile sp join sp.actor a where sp.id = ?1")
 	Actor findActorBySocialProfileId(int socialProfileId);
 
@@ -26,5 +29,4 @@ public interface ActorRepository extends JpaRepository<Actor, Integer> {
 
 	@Query("select a from Actor a where a.userAccount.statusAccount = 0")
 	Collection<Actor> findActorsBanned();
-
 }

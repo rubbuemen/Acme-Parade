@@ -21,8 +21,13 @@ import domain.Brotherhood;
 import domain.Chapter;
 import domain.Enrolment;
 import domain.Float;
+import domain.History;
+import domain.LinkRecord;
 import domain.Member;
 import domain.Parade;
+import domain.RequestMarch;
+import domain.Sponsor;
+import domain.Sponsorship;
 import forms.BrotherhoodForm;
 
 @Service
@@ -45,6 +50,27 @@ public class BrotherhoodService {
 
 	@Autowired
 	private AreaService				areaService;
+
+	@Autowired
+	private HistoryService			historyService;
+
+	@Autowired
+	private LinkRecordService		linkRecordService;
+
+	@Autowired
+	private EnrolmentService		enrolmentService;
+
+	@Autowired
+	private ParadeService			paradeService;
+
+	@Autowired
+	private FloatService			floatService;
+
+	@Autowired
+	private SponsorshipService		sponsorshipService;
+
+	@Autowired
+	private RequestMarchService		requestMarchService;
 
 
 	// Simple CRUD methods
@@ -107,6 +133,66 @@ public class BrotherhoodService {
 		Assert.isTrue(brotherhood.getId() != 0);
 		Assert.isTrue(this.brotherhoodRepository.exists(brotherhood.getId()));
 
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginBrotherhood(actorLogged);
+
+		final Brotherhood brotherhoodLogged = (Brotherhood) actorLogged;
+
+		this.actorService.deleteEntities(brotherhoodLogged);
+
+		final History historyBrotherhood = this.historyService.findHistoryByBrotherhoodLogged();
+
+		if (historyBrotherhood != null)
+			this.historyService.delete(historyBrotherhood);
+
+		final Collection<History> historiesByLinkRecordBrotherhood = this.historyService.findHistoriesByLinkRecordBrotherhoodId(brotherhoodLogged.getId());
+		for (final History h : historiesByLinkRecordBrotherhood) {
+			final Collection<LinkRecord> recilinkRecordspients = new HashSet<>(h.getLinkRecords());
+			for (final LinkRecord lr : h.getLinkRecords())
+				if (lr.getBrotherhood().equals(brotherhoodLogged)) {
+					recilinkRecordspients.remove(lr);
+					this.linkRecordService.delete(lr);
+				}
+		}
+
+		final Collection<Enrolment> enrolments = new HashSet<>(brotherhoodLogged.getEnrolments());
+
+		for (final Enrolment e : enrolments) {
+			final Member member = e.getMember();
+			brotherhoodLogged.getEnrolments().remove(e);
+			member.getEnrolments().remove(e);
+			this.enrolmentService.delete(e);
+			for (final Parade p : brotherhoodLogged.getParades()) {
+				final Collection<RequestMarch> requestsMarchMember = this.requestMarchService.findRequestsMarchByParadeMember(p.getId(), member.getId());
+				for (final RequestMarch rm : requestsMarchMember) {
+					member.getRequestsMarch().remove(rm);
+					p.getRequestsMarch().remove(rm);
+					this.paradeService.saveAuxiliar(p);
+					this.memberService.saveAuxiliar(member);
+					this.requestMarchService.deleteAuxiliar(rm);
+				}
+			}
+
+		}
+
+		final Collection<Parade> parades = new HashSet<>(brotherhoodLogged.getParades());
+		for (final Parade p : parades) {
+			final Collection<Sponsorship> sponsorships = new HashSet<>(p.getSponsorships());
+			for (final Sponsorship ss : sponsorships) {
+				final Sponsor s = ss.getSponsor();
+				p.getSponsorships().remove(ss);
+				s.getSponsorships().remove(ss);
+				this.sponsorshipService.delete(ss);
+			}
+			this.paradeService.deleteAuxiliar(p);
+		}
+
+		final Collection<Float> floats = new HashSet<>(brotherhoodLogged.getFloats());
+		for (final Float f : floats)
+			this.floatService.delete(f);
+
+		this.brotherhoodRepository.flush();
 		this.brotherhoodRepository.delete(brotherhood);
 	}
 

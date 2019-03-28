@@ -10,6 +10,9 @@
 
 package controllers;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
@@ -17,6 +20,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import security.Authority;
@@ -249,6 +253,54 @@ public class ActorController extends AbstractController {
 				else
 					result = this.createEditModelAndView(actorForm.getActor(), "commit.error");
 			}
+
+		return result;
+	}
+
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public ModelAndView delete() {
+		ModelAndView result;
+
+		final Actor actor = this.actorService.findActorLogged();
+
+		try {
+			if (actor instanceof Brotherhood)
+				this.brotherhoodService.delete((Brotherhood) actor);
+			else if (actor instanceof Member)
+				this.memberService.delete((Member) actor);
+			else if (actor instanceof Chapter)
+				this.chapterService.delete((Chapter) actor);
+			else if (actor instanceof Sponsor)
+				this.sponsorService.delete((Sponsor) actor);
+
+			result = new ModelAndView("redirect:/j_spring_security_logout");
+		} catch (final Throwable oops) {
+			if (oops.getMessage().contains("[domain.Box#<null>];") || oops.getMessage().contains("SQL [n/a]"))
+				result = this.createEditModelAndView(null, "box.error.delete");
+			else
+				result = this.createEditModelAndView(actor, "commit.error");
+
+		}
+
+		return result;
+	}
+
+	@RequestMapping(value = "/export", method = RequestMethod.GET)
+	@ResponseBody
+	public ModelAndView exportData(final HttpServletResponse response) {
+		ModelAndView result;
+		try {
+			final StringBuilder sb = this.actorService.exportData();
+			response.setContentType("text/csv");
+			response.setHeader("Content-Disposition", "attachment;filename=data.csv");
+			final ServletOutputStream outStream = response.getOutputStream();
+			outStream.println(sb.toString());
+			outStream.flush();
+			outStream.close();
+			result = new ModelAndView("redirect:/welcome/index.do");
+		} catch (final Throwable oops) {
+			result = this.createEditModelAndView(null, "commit.error");
+		}
 
 		return result;
 	}

@@ -94,8 +94,16 @@ public class ProclaimService {
 		this.proclaimRepository.delete(proclaim);
 	}
 
-
 	// Other business methods
+
+	public Collection<Proclaim> findProclaimsByChapterId(final int chapterId) {
+		Collection<Proclaim> result;
+
+		result = this.proclaimRepository.findProclaimsByChapterId(chapterId);
+
+		return result;
+	}
+
 
 	// Reconstruct methods
 	@Autowired

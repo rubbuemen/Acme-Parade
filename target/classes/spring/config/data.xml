@@ -24,7 +24,7 @@
 	<jpa:repositories base-package="repositories" />
 	<jpa:repositories base-package="security" />
 
-	<!-- Data source -->
+	<!-- Data source-->
 
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"	destroy-method="close">
 		<property name="driverClass" value="com.mysql.jdbc.Driver" />
@@ -34,6 +34,16 @@
 		<property name="minPoolSize" value="1" />
 		<property name="maxPoolSize" value="5" />
 	</bean>
+	
+	<!-- CleverCloud
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close"> 
+		<property name="driverClass" value="com.mysql.jdbc.Driver" /> 
+		<property name="jdbcUrl" value="jdbc:mysql://bv0db1xbc40eykaqcgtv-mysql.services.clever-cloud.com:3306/bv0db1xbc40eykaqcgtv" /> 
+		<property name="user" value="u2ee4zl2ugm93w0j" /> 
+		<property name="password" value="5Dl4UiPnm4BDSZ4IgZ4t" /> 
+		<property name="minPoolSize" value="1" /> 
+		<property name="maxPoolSize" value="5" /> 
+	</bean>-->
 
 	<!-- JPA -->
 

@@ -177,6 +177,14 @@ public class HistoryService {
 		return result;
 	}
 
+	public Collection<History> findHistoriesByLinkRecordBrotherhoodId(final int brotherhoodId) {
+		Collection<History> result;
+
+		result = this.historyRepository.findHistoriesByLinkRecordBrotherhoodId(brotherhoodId);
+
+		return result;
+	}
+
 
 	// Reconstruct methods
 	@Autowired

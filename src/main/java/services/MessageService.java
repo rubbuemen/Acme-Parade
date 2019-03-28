@@ -217,6 +217,33 @@ public class MessageService {
 		return result;
 	}
 
+	public void deleteActorFromRecipientsMessage() {
+		final Actor actor = this.actorService.findActorLogged();
+		final Actor deletedActor = this.actorService.getDeletedActor();
+		final Collection<Message> messages = this.messageRepository.findMessagesByReccipientActorId(actor.getId());
+		for (final Message m : messages) {
+			final Collection<Actor> recipients = new HashSet<>(m.getRecipients());
+			for (final Actor a : m.getRecipients())
+				if (a.equals(actor)) {
+					recipients.remove(a);
+					recipients.add(deletedActor);
+					m.setRecipients(recipients);
+					this.messageRepository.save(m);
+					break;
+				}
+		}
+	}
+
+	public void deleteActorFromSenderMessage() {
+		final Actor actor = this.actorService.findActorLogged();
+		final Actor deletedActor = this.actorService.getDeletedActor();
+		final Collection<Message> messages = this.messageRepository.findMessagesBySenderActorId(actor.getId());
+		for (final Message m : messages) {
+			m.setSender(deletedActor);
+			this.messageRepository.save(m);
+		}
+	}
+
 
 	// Reconstruct methods
 	@Autowired

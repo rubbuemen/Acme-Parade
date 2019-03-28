@@ -464,6 +464,31 @@ public class ParadeService {
 		this.brotherhoodService.save(brotherhoodLogged);
 	}
 
+	public void deleteAuxiliar(final Parade parade) {
+		Assert.notNull(parade);
+		Assert.isTrue(parade.getId() != 0);
+		Assert.isTrue(this.paradeRepository.exists(parade.getId()));
+
+		final Actor actorLogged = this.actorService.findActorLogged();
+
+		final Brotherhood brotherhoodLogged = (Brotherhood) actorLogged;
+
+		final Collection<Parade> paradesActorLogged = brotherhoodLogged.getParades();
+		paradesActorLogged.remove(parade);
+		brotherhoodLogged.setParades(paradesActorLogged);
+		this.brotherhoodService.save(brotherhoodLogged);
+
+		final Collection<Finder> finders = this.finderService.findAll();
+		for (final Finder f : finders) {
+			final Collection<Parade> paradesFinders = f.getParades();
+			paradesFinders.remove(parade);
+			f.setParades(paradesFinders);
+			this.finderService.save(f);
+		}
+
+		this.paradeRepository.delete(parade);
+	}
+
 
 	// Reconstruct methods
 	@Autowired

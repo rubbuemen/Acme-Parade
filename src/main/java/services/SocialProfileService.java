@@ -121,6 +121,14 @@ public class SocialProfileService {
 		return result;
 	}
 
+	public void deleteSocialProfiles() {
+		final Actor actor = this.actorService.findActorLogged();
+
+		final Collection<SocialProfile> socialProfiles = this.socialProfileRepository.findSocialProfilesByActorId(actor.getId());
+		for (final SocialProfile sp : socialProfiles)
+			this.socialProfileRepository.delete(sp);
+	}
+
 
 	// Reconstruct methods
 	@Autowired

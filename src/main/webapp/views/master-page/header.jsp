@@ -128,7 +128,12 @@
 					</security:authorize>
 					<security:authorize access="hasRole('SPONSOR')">
 						<li><a href="actor/sponsor/edit.do"><spring:message code="master.page.edit.profile" /></a></li>
-					</security:authorize>					
+					</security:authorize>	
+					<spring:message code="master.page.delete.account.confirm" var="confirm" />
+					<security:authorize access="!hasRole('ADMIN')">				
+						<li><a href="actor/delete.do" onClick="return checkPosting('${confirm}');" ><spring:message code="master.page.delete.account" /> </a></li>
+					</security:authorize>	
+					<li><a href="actor/export.do" ><spring:message code="master.page.export.data" /> </a></li>
 					<li><a href="j_spring_security_logout"><spring:message code="master.page.logout" /> </a></li>
 				</ul>
 			</li>

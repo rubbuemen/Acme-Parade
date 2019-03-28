@@ -312,6 +312,18 @@
 			</list>
 		</property>
 	</bean>
+	<bean id="userAccount26" class="security.UserAccount">
+		<property name="username" value="deletedUser" />
+		<property name="password" value="54b53072540eeeb8f8e9343e71f28176" />
+		<property name="statusAccount" value="true" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="ADMIN" />
+				</bean>
+			</list>
+		</property>
+	</bean>
 
 	<!-- Administrator -->
 	<bean id="administrator1" class="domain.Administrator">
@@ -349,6 +361,21 @@
 				<ref bean="box12" />
 				<ref bean="box13" />
 				<ref bean="box14" />
+			</list>
+		</property>
+	</bean>
+	<bean id="administrator3" class="domain.Administrator">
+		<property name="name" value="User deleted" />
+		<property name="surname" value="---" />
+		<property name="email" value="&lt;noreply@acmemadruga.com&gt;" />
+		<property name="userAccount" ref="userAccount26" />
+		<property name="boxes">
+			<list>
+				<ref bean="box130" />
+				<ref bean="box131" />
+				<ref bean="box132" />
+				<ref bean="box133" />
+				<ref bean="box134" />
 			</list>
 		</property>
 	</bean>
@@ -1004,6 +1031,26 @@
 		<property name="isSystemBox" value="true" />
 	</bean>
 	<bean id="box129" class="domain.Box">
+		<property name="name" value="Notification box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box130" class="domain.Box">
+		<property name="name" value="In box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box131" class="domain.Box">
+		<property name="name" value="Out box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box132" class="domain.Box">
+		<property name="name" value="Trash box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box133" class="domain.Box">
+		<property name="name" value="Spam box" />
+		<property name="isSystemBox" value="true" />
+	</bean>
+	<bean id="box134" class="domain.Box">
 		<property name="name" value="Notification box" />
 		<property name="isSystemBox" value="true" />
 	</bean>
@@ -2696,7 +2743,7 @@ We stand for all the other qualities proposed by Jesus in the Gospel: forgivenes
 	<!-- SystemConfiguration -->
 	<bean id="systemConfiguration1" class="domain.SystemConfiguration">
 		<property name="nameSystem" value="Acme Madrugá" />
-		<property name="bannerUrl" value="https://tinyurl.com/y48xzjvy" />
+		<property name="bannerUrl" value="http://oi65.tinypic.com/2jg8qbt.jpg" />
 		<property name="welcomeMessageEnglish"
 			value="Welcome to Acme Madrugá, the site to organise your parades." />
 		<property name="welcomeMessageSpanish"

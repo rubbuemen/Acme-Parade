@@ -20,6 +20,7 @@ import domain.Brotherhood;
 import domain.Enrolment;
 import domain.Finder;
 import domain.Member;
+import domain.Parade;
 import domain.RequestMarch;
 import forms.MemberForm;
 
@@ -43,6 +44,15 @@ public class MemberService {
 
 	@Autowired
 	private BrotherhoodService	brotherhoodService;
+
+	@Autowired
+	private EnrolmentService	enrolmentService;
+
+	@Autowired
+	private ParadeService		paradeService;
+
+	@Autowired
+	private RequestMarchService	requestMarchService;
 
 
 	// Simple CRUD methods
@@ -111,7 +121,37 @@ public class MemberService {
 		Assert.isTrue(member.getId() != 0);
 		Assert.isTrue(this.memberRepository.exists(member.getId()));
 
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginMember(actorLogged);
+
+		final Member memberLogged = (Member) actorLogged;
+
+		this.actorService.deleteEntities(memberLogged);
+
+		final Collection<Enrolment> enrolments = new HashSet<>(member.getEnrolments());
+
+		for (final Enrolment e : enrolments) {
+			final Brotherhood brotherhood = e.getBrotherhood();
+			memberLogged.getEnrolments().remove(e);
+			brotherhood.getEnrolments().remove(e);
+			this.enrolmentService.delete(e);
+		}
+
+		final Collection<RequestMarch> requestsMarch = new HashSet<>(memberLogged.getRequestsMarch());
+		for (final RequestMarch rm : requestsMarch) {
+			final Parade p = this.paradeService.findParadeByRequestMarchId(rm.getId());
+			memberLogged.getRequestsMarch().remove(rm);
+			p.getRequestsMarch().remove(rm);
+			this.requestMarchService.deleteAuxiliar(rm);
+			this.paradeService.saveAuxiliar(p);
+		}
+
+		final Finder finder = member.getFinder();
+
+		this.memberRepository.flush();
 		this.memberRepository.delete(member);
+		this.finderService.delete(finder);
 	}
 
 	// Other business methods

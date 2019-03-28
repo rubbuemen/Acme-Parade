@@ -27,10 +27,10 @@
 	<acme:textbox code="finder.keyWord" path="keyWord" placeholder="Lorem Ipsum" />
 	<br />
 
-	<acme:textbox code="finder.minDate" path="minDate" placeholder="dd/MM/yyyy" type="date" />
+	<acme:textbox code="finder.minDate" path="minDate" placeholder="dd/MM/yyyy" />
 	<br />
 	
-	<acme:textbox code="finder.maxDate" path="maxDate" placeholder="dd/MM/yyyy" type="date" />
+	<acme:textbox code="finder.maxDate" path="maxDate" placeholder="dd/MM/yyyy" />
 	<br />
 	
 	<acme:select items="${areas}" itemLabel="name" code="finder.area" path="area"/>

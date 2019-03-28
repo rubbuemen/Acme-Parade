@@ -319,6 +319,16 @@ public class RequestMarchService {
 		return result;
 	}
 
+	public Collection<RequestMarch> findRequestsMarchByParadeMember(final int paradeId, final int memberId) {
+		final Collection<RequestMarch> result;
+
+		result = this.requestMarchRepository.findRequestsMarchByParadeMemberOrderByStatus(paradeId, memberId);
+
+		Assert.notNull(result);
+
+		return result;
+	}
+
 
 	// Reconstruct methods
 	@Autowired

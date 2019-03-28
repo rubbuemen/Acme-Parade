@@ -18,6 +18,7 @@ import domain.Actor;
 import domain.Area;
 import domain.Box;
 import domain.Chapter;
+import domain.Proclaim;
 import forms.ChapterForm;
 
 @Service
@@ -37,6 +38,9 @@ public class ChapterService {
 
 	@Autowired
 	private AreaService			areaService;
+
+	@Autowired
+	private ProclaimService		proclaimService;
 
 
 	// Simple CRUD methods
@@ -94,6 +98,19 @@ public class ChapterService {
 		Assert.isTrue(chapter.getId() != 0);
 		Assert.isTrue(this.chapterRepository.exists(chapter.getId()));
 
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginChapter(actorLogged);
+
+		final Chapter chapterLogged = (Chapter) actorLogged;
+
+		this.actorService.deleteEntities(chapterLogged);
+
+		final Collection<Proclaim> proclaims = this.proclaimService.findProclaimsByChapterId(chapterLogged.getId());
+		for (final Proclaim p : proclaims)
+			this.proclaimService.delete(p);
+
+		this.chapterRepository.flush();
 		this.chapterRepository.delete(chapter);
 	}
 

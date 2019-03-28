@@ -14,7 +14,9 @@ import org.springframework.validation.Validator;
 import repositories.SponsorRepository;
 import security.Authority;
 import security.UserAccount;
+import domain.Actor;
 import domain.Box;
+import domain.Parade;
 import domain.Sponsor;
 import domain.Sponsorship;
 import forms.SponsorForm;
@@ -33,6 +35,12 @@ public class SponsorService {
 
 	@Autowired
 	private ActorService		actorService;
+
+	@Autowired
+	private ParadeService		paradeService;
+
+	@Autowired
+	private SponsorshipService	sponsorshipService;
 
 
 	// Simple CRUD methods
@@ -92,6 +100,24 @@ public class SponsorService {
 		Assert.isTrue(sponsor.getId() != 0);
 		Assert.isTrue(this.sponsorRepository.exists(sponsor.getId()));
 
+		final Actor actorLogged = this.actorService.findActorLogged();
+		Assert.notNull(actorLogged);
+		this.actorService.checkUserLoginSponsor(actorLogged);
+
+		final Sponsor sponsorLogged = (Sponsor) actorLogged;
+
+		this.actorService.deleteEntities(sponsorLogged);
+
+		final Collection<Sponsorship> sponsorships = new HashSet<>(sponsorLogged.getSponsorships());
+		for (final Sponsorship ss : sponsorships) {
+			final Parade p = ss.getParade();
+			sponsorLogged.getSponsorships().remove(ss);
+			p.getSponsorships().remove(ss);
+			this.paradeService.saveAuxiliar(p);
+			this.sponsorshipService.delete(ss);
+		}
+
+		this.sponsorRepository.flush();
 		this.sponsorRepository.delete(sponsor);
 	}
 

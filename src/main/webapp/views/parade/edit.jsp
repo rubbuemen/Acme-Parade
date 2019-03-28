@@ -33,7 +33,7 @@
 		<acme:textbox code="parade.description" path="description" placeholder="Lorem Ipsum"/>
 		<br />
 		
-		<acme:textbox code="parade.momentOrganise" path="momentOrganise" placeholder="dd/MM/yyyy" type="date"  />
+		<acme:textbox code="parade.momentOrganise" path="momentOrganise" placeholder="dd/MM/yyyy"  />
 		<br />
 		
 		<acme:textbox code="parade.maxRows" path="maxRows" placeholder="1" type="number" min="1" />
